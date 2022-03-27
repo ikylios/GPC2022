@@ -18,6 +18,16 @@ flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 384, 336, 48, 48 )
 
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 288, 192, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 336, 192, 48, 48 )
+
 [sub_resource type="AtlasTexture" id=5]
 flags = 4
 atlas = ExtResource( 2 )
@@ -33,16 +43,6 @@ flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 384, 240, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=11]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 288, 192, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=12]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 336, 192, 48, 48 )
-
 [sub_resource type="AtlasTexture" id=13]
 flags = 4
 atlas = ExtResource( 2 )
@@ -54,6 +54,11 @@ animations = [ {
 "loop": true,
 "name": "up",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 11 ), SubResource( 12 ) ],
+"loop": true,
+"name": "idle",
+"speed": 2.0
 }, {
 "frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
 "loop": true,
@@ -70,12 +75,12 @@ animations = [ {
 radius = 17.0
 height = 12.0
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
-animation = "down"
+animation = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 4 )

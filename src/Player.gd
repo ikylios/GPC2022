@@ -1,4 +1,4 @@
-extends Area2D
+extends KinematicBody2D
 
 var speed = 200 # How fast the player will move (pixels/sec).
 var screen_size 
@@ -6,31 +6,21 @@ var screen_size
 func _ready():
 	screen_size = get_viewport_rect().size
 
-func _process(delta):
-	var velocity = Vector2.ZERO # The player's movement vector.
-	if Input.is_action_pressed("move_right"):
-		velocity.x += 1
-	if Input.is_action_pressed("move_left"):
-		velocity.x -= 1
-	if Input.is_action_pressed("move_down"):
-		velocity.y += 1
-	if Input.is_action_pressed("move_up"):
-		velocity.y -= 1
+func _physics_process(delta):
+	
+	var x_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	var y_input = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
+	
+	move_and_slide(Vector2(x_input, y_input)*speed)
 		
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
-			
-		if velocity.x != 0: 
+	if x_input != 0 || y_input != 0:
+		if x_input != 0: 
 			$AnimatedSprite.play("side")
-			$AnimatedSprite.flip_h = velocity.x > 0
-		if velocity.y != 0:
-			if velocity.y > 0:
+			$AnimatedSprite.flip_h = x_input > 0
+		if y_input != 0:
+			if y_input > 0:
 				$AnimatedSprite.play("down")
 			else:
 				$AnimatedSprite.play("up")
 	else:
-		$AnimatedSprite.stop()
-
-	position += velocity * delta
-	position.x = clamp(position.x, 0, screen_size.x)
-	position.y = clamp(position.y, 0, screen_size.y)
+		$AnimatedSprite.play("idle")
