@@ -5,7 +5,7 @@
 [ext_resource path="res://Main.gd" type="Script" id=3]
 [ext_resource path="res://assets/floor/slab5.png" type="Texture" id=4]
 [ext_resource path="res://assets/wall/0f6a29db-2521-4e60-899f-1795dfa4906e.png" type="Texture" id=5]
-[ext_resource path="res://Ghost_NPC.tscn" type="PackedScene" id=6]
+[ext_resource path="res://customer scenes/Ghost_NPC.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=26]
 points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
@@ -182,3 +182,13 @@ position = Vector2( 373, 298 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 496, 294 )
+
+[node name="Ghost_NPC2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 277, 355 )
+
+[connection signal="area_entered" from="Ghost_NPC" to="." method="_on_Ghost_NPC_area_entered"]
+[connection signal="body_entered" from="Ghost_NPC" to="." method="_on_Ghost_NPC_body_entered"]
+[connection signal="body_exited" from="Ghost_NPC" to="." method="_on_Ghost_NPC_body_exited"]
+[connection signal="area_entered" from="Ghost_NPC2" to="." method="_on_Ghost_NPC2_area_entered"]
+[connection signal="body_entered" from="Ghost_NPC2" to="." method="_on_Ghost_NPC2_body_entered"]
+[connection signal="body_exited" from="Ghost_NPC2" to="." method="_on_Ghost_NPC2_body_exited"]
