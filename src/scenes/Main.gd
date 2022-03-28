@@ -2,9 +2,6 @@ extends Node
 
 onready var interactableObject = null
 
-func _ready():
-	randomize()
-
 func _process(_delta):
 	if interactableObject != null:
 		if Input.is_action_just_pressed("interact"):

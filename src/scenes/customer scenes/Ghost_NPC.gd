@@ -20,6 +20,7 @@ func _process(_delta):
 	$AnimatedSprite.playing = interactable
 	
 func generate_order():
+	randomize()
 	var index = randi() % order_list.size()
 	return order_list[index]
 
