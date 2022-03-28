@@ -2,6 +2,7 @@ extends Area2D
 
 var speed = 200 # How fast the player will move (pixels/sec).
 var screen_size 
+var interact_ingredient = false
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -34,3 +35,9 @@ func _process(delta):
 	position += velocity * delta
 	position.x = clamp(position.x, 0, screen_size.x)
 	position.y = clamp(position.y, 0, screen_size.y)
+	
+	
+	
+func pick_up_ingredient():
+	pass
+	
