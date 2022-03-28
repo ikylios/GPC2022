@@ -96,10 +96,10 @@ animation = "idle"
 shape = SubResource( 13 )
 
 [node name="Order_bubble" parent="." instance=ExtResource( 3 )]
-margin_left = -20.0
-margin_top = -70.0
-margin_right = -20.0
-margin_bottom = -70.0
+margin_left = -25.0
+margin_top = -80.0
+margin_right = -25.0
+margin_bottom = -80.0
 
 [connection signal="area_entered" from="." to="." method="_on_Ghost_NPC_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_Ghost_NPC_body_entered"]

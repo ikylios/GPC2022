@@ -12,6 +12,7 @@ func _process(_delta):
 func _on_Ghost_NPC_customer_area_entered(area):
 	print("area entered ", area.name)
 	interactableObject = get_node(area.name)
+#	be inspired by the following if overlapping areas are a problem
 #	interactableObject = get_node(area.get_overlapping_areas()[0].name)
 
 
