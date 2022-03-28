@@ -25,12 +25,6 @@ func _physics_process(delta):
 				$AnimatedSprite.play("up")
 	else:
 		$AnimatedSprite.play("idle")
-
-	position += velocity * delta
-	position.x = clamp(position.x, 0, screen_size.x)
-	position.y = clamp(position.y, 0, screen_size.y)
-	
-	
 	
 func pick_up_ingredient():
 	pass

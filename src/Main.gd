@@ -13,8 +13,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if interactableObject != null:
-		if Input.is_action_just_pressed("ui_accept"):
-			interact()
+		interact()
 			
 func interact():    
 	#$HUD.display_dialog(get_node(interactableObject).get_dialog())
@@ -38,9 +37,4 @@ func add_ingredient(type):
 	var ingredient = preload("res://Ingredient.tscn").instance()	
 	add_child(ingredient)
 	ingredient.get_node("ingredient_sprite").set_texture(texture)
-	ingredient.get_node("ingredient_sprite").position = Vector2(screen_size_x-screen_size_x/3, screen_size_y/3)
-	var collisionShape = CollisionShape2D.new()
-	var circleShape = CircleShape2D.new()
-	circleShape.set_radius(10)
-	collisionShape.set_shape(circleShape)
-	ingredient.add_child(collisionShape)
+	ingredient.position = Vector2(screen_size_x-screen_size_x/3, screen_size_y/3)
