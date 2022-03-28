@@ -7,12 +7,15 @@ func _ready():
 	screen_size = get_viewport_rect().size
 
 func _physics_process(delta):
-	
 	var x_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	var y_input = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
+
+#	var collision = move_and_collide(Vector2(x_input, y_input)*3)
+#	if collision:
+#		print("I collided with ", collision.collider.name)
 	
 	move_and_slide(Vector2(x_input, y_input)*speed)
-		
+
 	if x_input != 0 || y_input != 0:
 		if x_input != 0: 
 			$AnimatedSprite.play("side")
@@ -24,3 +27,4 @@ func _physics_process(delta):
 				$AnimatedSprite.play("up")
 	else:
 		$AnimatedSprite.play("idle")
+
