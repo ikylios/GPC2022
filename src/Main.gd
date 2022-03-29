@@ -12,29 +12,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if interactableObject != null:
-		interact()
-			
-func interact():    
-	#$HUD.display_dialog(get_node(interactableObject).get_dialog())
-	#pause tässä estää sen, että main aktivoi interact() -metodia samalla kun hud tekee dialogia loppuun
-	#get_tree().paused = true
 	pass
-	
-
-func unpause():
-	get_tree().paused = false
-	
 
 func add_ingredient(type):
-	var potato_texture = preload("res://assets/ingredients/Potato.png")
-	var steak_texture = preload("res://assets/ingredients/Steak.png")
-	var texture
-	match type:
-		"potato": texture = potato_texture
-		"steak": texture = steak_texture
-		
 	var ingredient = preload("res://Ingredient.tscn").instance()	
+	var position = Vector2(screen_size_x-screen_size_x/3, screen_size_y/3)
+	ingredient.init(type, position)
 	add_child(ingredient)
-	ingredient.get_node("ingredient_sprite").set_texture(texture)
-	ingredient.position = Vector2(screen_size_x-screen_size_x/3, screen_size_y/3)
