@@ -46,7 +46,6 @@ func interact():
 
 func _on_Interaction_Area_body_entered(body):
 	emit_signal("customer_area_entered", self)
-	print("interaction area entered")
 	interactable = true
 
 func _on_Interaction_Area_body_exited(body):
