@@ -240,9 +240,6 @@ position = Vector2( 440, 317 )
 [node name="Stool2" parent="." groups=["free_seats"] instance=ExtResource( 7 )]
 position = Vector2( 565, 366 )
 
-[node name="Stool3" parent="." groups=["free_seats"] instance=ExtResource( 7 )]
-position = Vector2( 612, 255 )
-
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 514, 277 )
 

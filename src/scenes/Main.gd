@@ -23,6 +23,9 @@ func _process(_delta):
 # -------------- Customer functionalities --------------
 
 func seat_customer():
+	if free_seats.empty():
+		return
+	
 	var free_seat = free_seats.pop_front()
 	var customer = new_customers.pop_front()
 	
