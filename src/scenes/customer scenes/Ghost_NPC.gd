@@ -24,10 +24,8 @@ func _process(_delta):
 	
 # -------------- Moving functionalities --------------
 
-func navigate_to_seat(path):
-	print("navigating via path ", path)
-	$Line2D.points = path
-	
+func assign_seat(point):
+	global_position = point
 
 
 # -------------- Food functionalities --------------
