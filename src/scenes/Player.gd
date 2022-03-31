@@ -9,12 +9,10 @@ func _ready():
 	screen_size = get_viewport_rect().size
 
 func _physics_process(delta):
-	
 	var x_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	var y_input = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	
 	move_and_slide(Vector2(x_input, y_input)*speed)
-		
 	if x_input != 0 || y_input != 0:
 		if x_input != 0: 
 			$AnimatedSprite.play("side")
@@ -62,3 +60,4 @@ func throw_away_carried_ingredient():
 	print("threw away")
 	carried_ingredient = null
 	remove_child(carried_ingredient_sprite)
+
