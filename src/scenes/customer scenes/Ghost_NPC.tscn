@@ -106,8 +106,6 @@ margin_top = -80.0
 margin_right = -25.0
 margin_bottom = -80.0
 
-[node name="Line2D" type="Line2D" parent="."]
-
 [node name="Interaction_Area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction_Area"]
