@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/floor/floor1.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/wall/0f6a29db-2521-4e60-899f-1795dfa4906e.png" type="Texture" id=5]
 [ext_resource path="res://scenes/customer scenes/Ghost_NPC.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Stool.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Ingredients_box.tscn" type="PackedScene" id=10]
 
 [sub_resource type="NavigationPolygon" id=44]
 vertices = PoolVector2Array( 48, 48, 0, 48, 0, 0, 48, 0 )
@@ -242,6 +243,7 @@ position = Vector2( 565, 366 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 514, 277 )
+z_index = 1
 
 [node name="Ghost_NPC" parent="." groups=["new_customers"] instance=ExtResource( 6 )]
 position = Vector2( 336, 254 )
@@ -251,6 +253,9 @@ position = Vector2( 277, 355 )
 
 [node name="Ghost_NPC3" parent="." groups=["new_customers"] instance=ExtResource( 6 )]
 position = Vector2( 467, 205 )
+
+[node name="Ingredients_box2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 621, 136 )
 
 [connection signal="customer_area_entered" from="Ghost_NPC" to="." method="_on_Ghost_NPC_customer_area_entered"]
 [connection signal="customer_area_exited" from="Ghost_NPC" to="." method="_on_Ghost_NPC_customer_area_exited"]
