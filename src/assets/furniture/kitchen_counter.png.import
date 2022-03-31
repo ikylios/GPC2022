@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon.png-487276ed1e3a0c39cad0279d744ee560.stex"
+path="res://.import/kitchen_counter.png-4019d8b307e530383b312bbf4be123b9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon.png"
-dest_files=[ "res://.import/icon.png-487276ed1e3a0c39cad0279d744ee560.stex" ]
+source_file="res://assets/furniture/kitchen_counter.png"
+dest_files=[ "res://.import/kitchen_counter.png-4019d8b307e530383b312bbf4be123b9.stex" ]
 
 [params]
 
