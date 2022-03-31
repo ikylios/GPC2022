@@ -42,8 +42,6 @@ func generate_customers():
 		self.add_child(customer_as_instance)
 		selected_customers.append(customer_as_instance)
 
-	get_node("@Ghost_NPC@2").global_position = Vector2(450, 250)
-
 	return selected_customers
 	
 

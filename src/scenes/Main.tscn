@@ -246,3 +246,6 @@ z_index = 1
 
 [node name="Ingredients_box2" parent="." instance=ExtResource( 10 )]
 position = Vector2( 621, 136 )
+
+[node name="Stool3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 590, 309 )
