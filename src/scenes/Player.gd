@@ -32,29 +32,21 @@ func _input(event):
 		if event.scancode == KEY_C:
 			throw_away_carried_ingredient()
 
+# ------------------- Ingredient functionalities ----------------------
 
-func _on_Ingredient_box_interacted(type):
-
-	# At the moment the ingredient type that the player is holding is simply stored in a variable
-	# and only a sprite of the ingredient is created and moved.
-	# There is room for improvement in this but it works for now 
-
-	carried_ingredient = type
-
-	var path = "res://assets/food/ingredients/"
-	match type:
-		"potato": path += "Potato.png"
-		"steak": path = "Steak.png"
-	set_carried_ingredient_sprite(path)
+func _on_Ingredient_box_interacted(path, ingredient):
+	if !carried_ingredient:
+		carried_ingredient = ingredient
+		set_carried_ingredient_sprite(path)
 
 func set_carried_ingredient_sprite(path):
 	carried_ingredient_sprite = Sprite.new()
 	carried_ingredient_sprite.set_texture(load(path))
-	move_carried_ingredient_sprite()
 	add_child(carried_ingredient_sprite)
+	move_carried_ingredient_sprite()
 
 func move_carried_ingredient_sprite():
-	if carried_ingredient_sprite != null:
+	if carried_ingredient_sprite:
 		carried_ingredient_sprite.position = Vector2($AnimatedSprite.position.x, $AnimatedSprite.position.y - 30)
 
 func throw_away_carried_ingredient():

@@ -12,6 +12,7 @@ func _ready():
 	connect("get_ingredient", player, "_on_Ingredient_box_interacted")
 
 
+
 func _input(event):
 	if event is InputEventKey and event.pressed:
 		if event.scancode == KEY_E:
@@ -25,8 +26,4 @@ func _on_Ingredient_box_body_exited(body):
 
 func try_interact():
 	if interactable:
-		var path = "res://assets/food/ingredients/"
-		match ingredient_type:
-			"potato": path += "Potato.png"
-			"steak": path = "Steak.png"
-		emit_signal("get_ingredient", path, ingredient_type)
+		emit_signal("get_ingredient", ingredient_type)
