@@ -67,7 +67,7 @@ func seat_customer():
 
 func fetch_customer_types():
 	var customer_types = [
-		preload("res://scenes/customer scenes/Ghost_NPC.tscn")
+		preload("res://scenes/characters/Ghost_NPC.tscn")
 	]
 	return customer_types
 
