@@ -30,6 +30,10 @@ func _physics_process(delta):
 
 func get_carried_item():
 	return carried_item
+	
+func set_carried_item(item):
+	carried_item = item
+	set_carried_item_sprite(item.path)
 
 func _on_Ingredient_box_interacted(path, item):
 	if !carried_item:
