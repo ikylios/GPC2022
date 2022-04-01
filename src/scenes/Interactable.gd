@@ -7,7 +7,7 @@ func _ready():
 	connect("body_exited", self, "_on_Interaction_area_body_exited")
 
 func _process(delta):
-	if Input.is_action_pressed("interact") and interactable:
+	if Input.is_action_just_pressed("interact") and interactable:
 		interact()
 
 func interact():

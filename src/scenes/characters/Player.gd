@@ -1,14 +1,13 @@
 extends KinematicBody2D
 
 var speed = 200 # How fast the player will move (pixels/sec).
-var screen_size 
-var carried_ingredient = null
-var carried_ingredient_sprite = null
-
-func _ready():
-	screen_size = get_viewport_rect().size
+var carried_item = null
+var carried_item_sprite = null
 
 func _physics_process(delta):
+	if Input.is_action_just_pressed("toss") and carried_item:
+		drop_carried_item()
+	
 	var x_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	var y_input = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	
@@ -23,32 +22,30 @@ func _physics_process(delta):
 				$AnimatedSprite.play("down")
 			else:
 				$AnimatedSprite.play("up")
-		move_carried_ingredient_sprite()
 	else:
 		$AnimatedSprite.play("idle")
 
-func _input(event):
-	if event is InputEventKey and event.pressed:
-		if event.scancode == KEY_C:
-			throw_away_carried_ingredient()
 
-# ------------------- Ingredient functionalities ----------------------
+# ------------------- Item functionalities ----------------------
 
-func _on_Ingredient_box_interacted(path, ingredient):
-	if !carried_ingredient:
-		carried_ingredient = ingredient
-		set_carried_ingredient_sprite(path)
+func get_carried_item():
+	return carried_item
 
-func set_carried_ingredient_sprite(path):
-	carried_ingredient_sprite = Sprite.new()
-	carried_ingredient_sprite.set_texture(load(path))
-	add_child(carried_ingredient_sprite)
-	move_carried_ingredient_sprite()
+func _on_Ingredient_box_interacted(path, item):
+	if !carried_item:
+		carried_item = { "node": item, "path": path }
+		set_carried_item_sprite(path)
 
-func move_carried_ingredient_sprite():
-	if carried_ingredient_sprite:
-		carried_ingredient_sprite.position = Vector2($AnimatedSprite.position.x, $AnimatedSprite.position.y - 30)
+func _on_Counter_interacted():
+	if carried_item:
+		carried_item = null
 
-func throw_away_carried_ingredient():
-	carried_ingredient = null
-	remove_child(carried_ingredient_sprite)
+func set_carried_item_sprite(path):
+	carried_item_sprite = Sprite.new()
+	carried_item_sprite.set_texture(load(path))
+	add_child(carried_item_sprite)
+	carried_item_sprite.position = Vector2($AnimatedSprite.position.x, $AnimatedSprite.position.y - 30)
+
+func drop_carried_item():
+	carried_item = null
+	remove_child(carried_item_sprite)

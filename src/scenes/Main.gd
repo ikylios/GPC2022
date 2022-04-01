@@ -30,7 +30,6 @@ func _process(_delta):
 # -------------- Customer functionalities --------------
 
 func generate_customers():
-
 	var customer_types = fetch_customer_types()
 	randomize()
 	var number_of_customers = (randi() % 4) + 2
