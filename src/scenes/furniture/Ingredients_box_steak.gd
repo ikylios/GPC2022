@@ -1,6 +1,6 @@
 extends "res://scenes/Interactable.gd"
 
-var ingredient_type = "Potato"
+var ingredient_type = "Steak"
 signal get_ingredient
 
 
@@ -10,11 +10,11 @@ func _ready():
 
 
 func interact():
-	var path = "res://assets/food/ingredients/"
+	var path = "res://assets/food/ingredients/Steak.png"
 	
-	match ingredient_type:
-		"Potato": path += "Potato.png"
-		"Steak": path = "Steak.png"
+	#match ingredient_type:
+	#	"Potato": path += "Potato.png"
+	#	"Steak": path = "Steak.png"
 	
 	print("path from source:", path)
 	

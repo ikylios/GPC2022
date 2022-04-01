@@ -33,16 +33,12 @@ func get_carried_item():
 	
 func set_carried_item(item):
 	carried_item = item
+	print("picked up ", item)
 	set_carried_item_sprite(item.path)
 
-func _on_Ingredient_box_interacted(path, item):
+func _on_Ingredient_box_interacted(item):
 	if !carried_item:
-		carried_item = { "node": item, "path": path }
-		set_carried_item_sprite(path)
-
-func _on_Counter_interacted():
-	if carried_item:
-		carried_item = null
+		set_carried_item(item)
 
 func set_carried_item_sprite(path):
 	carried_item_sprite = Sprite.new()

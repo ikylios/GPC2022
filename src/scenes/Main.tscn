@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scenes/characters/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/floor/floor1.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/wall/0f6a29db-2521-4e60-899f-1795dfa4906e.png" type="Texture" id=5]
 [ext_resource path="res://scenes/furniture/Counter.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/furniture/Stool.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/furniture/Ingredients_box_steak.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/furniture/Ingredients_box.tscn" type="PackedScene" id=10]
 
 [sub_resource type="NavigationPolygon" id=44]
@@ -253,3 +254,9 @@ position = Vector2( 590, 309 )
 
 [node name="Counter" parent="." instance=ExtResource( 6 )]
 position = Vector2( 672, 128 )
+
+[node name="Counter2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 720, 128 )
+
+[node name="Ingredients_box2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 576, 128 )
