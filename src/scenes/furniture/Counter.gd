@@ -35,7 +35,8 @@ func set_item_sprite():
 
 func try_to_cook(ingredients):
 	var meals = [ 
-		{ "name": "spydäri", "path": "res://assets/food/meals/68_macncheese_dish.png", "ingredients": ["Potato", "Steak"] }
+		{ "name": "spydäri", "path": "res://assets/food/meals/68_macncheese_dish.png", "ingredients": ["Potato", "Steak"] },
+		{ "name": "ranskikset", "path": "res://assets/food/meals/45_frenchfries_dish.png", "ingredients": ["Potato", "Potato"] }
 	]
 	
 	ingredients.sort()

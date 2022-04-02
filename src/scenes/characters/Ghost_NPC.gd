@@ -3,7 +3,6 @@ extends "res://scenes/Interactable.gd"
 var order
 var order_list = ["spydäri", "ranskikset"]
 
-
 func _ready():
 	order = generate_order()
 	$AnimatedSprite.play("idle")

@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var speed = 200 # How fast the player will move (pixels/sec).
+var speed = 130 # How fast the player will move (pixels/sec).
 var carried_item = null
 var carried_item_sprite = null
 

@@ -1,6 +1,5 @@
 extends Node
 
-var interactableObject = null
 var new_customers
 var customers
 var free_seats
@@ -21,10 +20,6 @@ func _process(_delta):
 	if new_customers.size() > 0 and Input.is_action_just_pressed("ui_accept"):
 		print("seating a customer")
 		seat_customer()
-	
-	if interactableObject != null:
-		if Input.is_action_just_pressed("interact"):
-			interactableObject.interact()
 
 
 # -------------- Customer functionalities --------------
@@ -69,11 +64,3 @@ func fetch_customer_types():
 		preload("res://scenes/characters/Ghost_NPC.tscn")
 	]
 	return customer_types
-
-
-func _on_NPC_area_entered(area):
-	interactableObject = get_node(area.name)
-
-func  _on_NPC_area_exited():
-	interactableObject = null
-
