@@ -38,6 +38,7 @@ func assign_seat(point):
 	global_position = point
 
 func leave():
+	get_parent().leaving_seat_in_point(global_position)
 	global_position = Vector2(global_position.x - 30, global_position.y)
 	yield(get_tree().create_timer(1.0), "timeout")
 	queue_free()
