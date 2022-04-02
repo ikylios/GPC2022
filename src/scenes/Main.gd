@@ -1,7 +1,5 @@
 extends Node
 
-var new_customers
-var customers
 var customers_for_the_day
 
 func _ready():
