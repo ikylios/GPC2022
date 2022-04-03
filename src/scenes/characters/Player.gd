@@ -37,10 +37,11 @@ func set_carried_item(item):
 	set_carried_item_sprite(item.path)
 
 func _on_Ingredient_box_interacted(item):
-	if !carried_item:
-		set_carried_item(item)
+	set_carried_item(item)
 
 func set_carried_item_sprite(path):
+	remove_child(carried_item_sprite)
+	
 	carried_item_sprite = Sprite.new()
 	carried_item_sprite.set_texture(load(path))
 	add_child(carried_item_sprite)
