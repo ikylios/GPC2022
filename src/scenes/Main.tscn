@@ -291,31 +291,31 @@ position = Vector2( 558, 161 )
 z_index = 1
 
 [node name="Counter" parent="." instance=ExtResource( 6 )]
-position = Vector2( 640, 83 )
+position = Vector2( 642, 83 )
 scale = Vector2( 0.75, 0.75 )
 
 [node name="Counter2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 676, 83 )
+position = Vector2( 678, 83 )
 scale = Vector2( 0.75, 0.75 )
 
 [node name="Counter3" parent="." instance=ExtResource( 6 )]
-position = Vector2( 712, 83 )
+position = Vector2( 714, 83 )
 scale = Vector2( 0.75, 0.75 )
 
 [node name="Counter4" parent="." instance=ExtResource( 6 )]
-position = Vector2( 748, 83 )
+position = Vector2( 750, 83 )
 scale = Vector2( 0.75, 0.75 )
 
 [node name="Counter_back" parent="." instance=ExtResource( 11 )]
-position = Vector2( 750, 167 )
+position = Vector2( 750, 174 )
 scale = Vector2( 0.75, 0.75 )
 
 [node name="Counter_back2" parent="." instance=ExtResource( 11 )]
-position = Vector2( 714, 167 )
+position = Vector2( 714, 174 )
 scale = Vector2( 0.75, 0.75 )
 
 [node name="Counter_back3" parent="." instance=ExtResource( 11 )]
-position = Vector2( 678, 167 )
+position = Vector2( 678, 174 )
 scale = Vector2( 0.75, 0.75 )
 
 [node name="Candle_stool" parent="." instance=ExtResource( 8 )]
