@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var speed = 150 # How fast the player will move (pixels/sec).
+var speed = 120 # How fast the player will move (pixels/sec).
 var carried_item = null
 var carried_item_sprite = null
 
@@ -13,15 +13,26 @@ func _physics_process(delta):
 	
 	move_and_slide(Vector2(x_input, y_input)*speed)
 
+
 	if x_input != 0 || y_input != 0:
-		if x_input != 0: 
-			$AnimatedSprite.play("side")
-			$AnimatedSprite.flip_h = x_input > 0
-		if y_input != 0:
+		
+		if x_input != 0:
+			if y_input > 0:
+				$AnimatedSprite.play("down")
+			elif y_input < 0:
+				$AnimatedSprite.play("up")
+			else:
+				if x_input < 0:
+					$AnimatedSprite.play("left")
+				else:
+					$AnimatedSprite.play("right")
+		
+		elif y_input != 0:
 			if y_input > 0:
 				$AnimatedSprite.play("down")
 			else:
 				$AnimatedSprite.play("up")
+	
 	else:
 		$AnimatedSprite.play("idle")
 

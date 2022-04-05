@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/furniture/light.png" type="Texture" id=1]
+[ext_resource path="res://assets/furniture/candle.png" type="Texture" id=2]
+[ext_resource path="res://assets/furniture/light1.png" type="Texture" id=3]
+
+[node name="Candle_stool" type="Sprite"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 0, -32 )
+texture = ExtResource( 1 )
+color = Color( 0.901961, 0.541176, 0.27451, 1 )
+shadow_enabled = true
+
+[node name="Light2D2" type="Light2D" parent="."]
+texture = ExtResource( 3 )
+texture_scale = 6.33
+color = Color( 0.901961, 0.541176, 0.27451, 1 )
+energy = 0.74
+shadow_enabled = true
