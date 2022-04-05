@@ -358,10 +358,6 @@ cell_quadrant_size = 8
 format = 1
 tile_data = PoolIntArray( 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0 )
 
-[node name="Ingredients_box" parent="." instance=ExtResource( 10 )]
-position = Vector2( 600, 96 )
-scale = Vector2( 0.75, 0.75 )
-
 [node name="Stool" parent="." instance=ExtResource( 7 )]
 position = Vector2( 496, 224 )
 scale = Vector2( 0.75, 0.75 )
@@ -392,6 +388,10 @@ scale = Vector2( 0.75, 0.75 )
 
 [node name="Counter4" parent="." instance=ExtResource( 6 )]
 position = Vector2( 748, 96 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="Ingredients_box" parent="." instance=ExtResource( 10 )]
+position = Vector2( 600, 96 )
 scale = Vector2( 0.75, 0.75 )
 
 [node name="Candle_stool" parent="." instance=ExtResource( 8 )]
