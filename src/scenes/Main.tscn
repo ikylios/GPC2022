@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://scenes/characters/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/floor/floor.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://scenes/furniture/Ingredients_box.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/furniture/Counter_back.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/Food_index.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/furniture/Counter_cutting_board.tscn" type="PackedScene" id=13]
 
 [sub_resource type="TileSet" id=44]
 0/name = "floor.png 0"
@@ -357,7 +358,7 @@ scale = Vector2( 0.75, 0.75 )
 position = Vector2( 714, 174 )
 scale = Vector2( 0.75, 0.75 )
 
-[node name="Counter_back3" parent="." instance=ExtResource( 11 )]
+[node name="Counter_cutting_board" parent="." instance=ExtResource( 13 )]
 position = Vector2( 678, 174 )
 scale = Vector2( 0.75, 0.75 )
 

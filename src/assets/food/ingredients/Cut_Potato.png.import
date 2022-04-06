@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/44_frenchfries.png-813c7682b4da785fa0d15ad0a89e16b6.stex"
+path="res://.import/Cut_Potato.png-908a78983b59637c2a0f4bb7be20b4fb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/food/meals/44_frenchfries.png"
-dest_files=[ "res://.import/44_frenchfries.png-813c7682b4da785fa0d15ad0a89e16b6.stex" ]
+source_file="res://assets/food/ingredients/Cut_Potato.png"
+dest_files=[ "res://.import/Cut_Potato.png-908a78983b59637c2a0f4bb7be20b4fb.stex" ]
 
 [params]
 
