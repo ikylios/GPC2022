@@ -1,15 +1,11 @@
 extends Control
 
-var name_to_texture = {
-	"spydäri": "res://assets/food/meals/68_macncheese_dish.png",
-	"ranskikset": "res://assets/food/meals/45_frenchfries_dish.png"
-}
-
 func _ready():
 	self.visible = false
 	
 func meal_name_to_file_path(order):
-	return name_to_texture[order]
+	var result = get_parent().get_parent().get_node("Food_index").get_meal(order).path
+	return result
 
 func display_order(order):
 	$bg/image.texture = load(meal_name_to_file_path(order))

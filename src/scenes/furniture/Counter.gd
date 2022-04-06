@@ -37,19 +37,7 @@ func set_item_sprite():
 	
 
 func try_to_cook(ingredients):
-	var meals = [ 
-		{ "name": "spydäri", "path": "res://assets/food/meals/68_macncheese_dish.png", "ingredients": ["Potato", "Steak"] },
-		{ "name": "ranskikset", "path": "res://assets/food/meals/45_frenchfries_dish.png", "ingredients": ["Potato", "Potato"] }
-	]
-	
-	ingredients.sort()
-	var result = null
-	for meal in meals:
-		print("meal.ingredients: ", meal.ingredients)
-		print("ingredients: ", ingredients)
-		if meal.ingredients == ingredients:
-			print("found a meal")
-			result = { "name": meal.name, "path": meal.path }
+	var result = get_parent().get_node("Food_index").try_to_cook(ingredients)
 	
 	if !result:
 		print("didn't find a meal with those ingredients")

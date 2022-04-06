@@ -1,0 +1,13 @@
+{
+    "meals": [ 
+		{ "name": "spydäri", "path": "res://assets/food/meals/68_macncheese_dish.png", "ingredients": ["Potato", "Steak"] },
+		{ "name": "ranskikset", "path": "res://assets/food/meals/45_frenchfries_dish.png", "ingredients": ["Potato", "Potato"] }
+	],
+
+    "ingredients": [
+        { "name": "Potato", "path": "res://assets/food/ingredients/Potato.png" },
+		{ "name": "Steak", "path": "res://assets/food/ingredients/Steak.png"},
+        { "name": "Egg", "path": "res://assets/food/ingredients/Egg.png"}
+    ]
+	
+}
