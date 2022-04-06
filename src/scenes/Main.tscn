@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://scenes/characters/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/floor/floor.png" type="Texture" id=2]
@@ -240,6 +240,45 @@ points = PoolVector2Array( 32, 16, 0, 16, 0, 0, 32, 0 )
 1/shapes = [  ]
 1/z_index = 0
 
+[sub_resource type="Gradient" id=48]
+colors = PoolColorArray( 0.985641, 0.932652, 0.662227, 1, 1, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=49]
+gradient = SubResource( 48 )
+
+[sub_resource type="Curve" id=50]
+max_value = 2.0
+_data = [ Vector2( 0, 1.26338 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.696582 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=51]
+curve = SubResource( 50 )
+
+[sub_resource type="ParticlesMaterial" id=52]
+lifetime_randomness = 0.61
+emission_shape = 1
+emission_sphere_radius = 2.5
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 25.0
+gravity = Vector3( 0, 2, 0 )
+initial_velocity = 20.0
+angular_velocity = 66.67
+angular_velocity_random = 0.12
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale_random = 0.53
+scale_curve = SubResource( 51 )
+color_ramp = SubResource( 49 )
+hue_variation = 0.15
+hue_variation_random = 0.3
+
+[sub_resource type="Gradient" id=53]
+colors = PoolColorArray( 0.867188, 0.351078, 0.193085, 1, 0.78125, 0.628757, 0.305176, 1 )
+
+[sub_resource type="GradientTexture" id=54]
+gradient = SubResource( 53 )
+width = 1
+
 [node name="Main" type="Node"]
 script = ExtResource( 3 )
 
@@ -320,3 +359,13 @@ scale = Vector2( 0.75, 0.75 )
 
 [node name="Candle_stool" parent="." instance=ExtResource( 8 )]
 position = Vector2( 480, 119 )
+
+[node name="Particles2D" type="Particles2D" parent="Candle_stool"]
+position = Vector2( 0, -30 )
+scale = Vector2( 3, 3 )
+amount = 20
+lifetime = 3.0
+speed_scale = 0.22
+randomness = 0.74
+process_material = SubResource( 52 )
+texture = SubResource( 54 )
