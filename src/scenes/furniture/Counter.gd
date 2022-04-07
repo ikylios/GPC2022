@@ -37,7 +37,7 @@ func set_item_sprite():
 	
 
 func try_to_cook(ingredients):
-	var result = get_parent().get_node("Food_index").try_to_cook(ingredients)
+	var result = get_parent().get_parent().get_node("Food_index").try_to_cook(ingredients)
 	
 	if !result:
 		print("didn't find a meal with those ingredients")

@@ -6,7 +6,7 @@ func interact():
 	var player_item = player.get_carried_item()
 	
 	if player_item:
-		var chopped_item = get_parent().get_node("Food_index").try_to_chop(player_item.name)
+		var chopped_item = get_parent().get_parent().get_node("Food_index").try_to_chop(player_item.name)
 		
 		if chopped_item:
 			$AudioStreamPlayer.play()

@@ -47,8 +47,6 @@ func get_ingredient(ingredient_name):
 func try_to_chop(item):
 	var cut_item = null
 	
-	print(get_ingredient(item))
-	
 	if is_cuttable(item):
 		var cut_item_name = get_ingredient(item).cut_ingredient_name
 		cut_item = get_ingredient(cut_item_name)
