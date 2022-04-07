@@ -8,8 +8,8 @@ func _ready():
 	start_day()
 
 
-
 func start_day():
+	$Transition_screen.transition()
 	$Restaurant.start_day()
 
 func _on_Restaurant_end_day():
@@ -19,4 +19,4 @@ func _on_Restaurant_end_day():
 	if days_remaining != 0:
 		start_day()
 	else:
-		print("all days have been played. goodbye")
+		print("all days have been played. goodbye.")
