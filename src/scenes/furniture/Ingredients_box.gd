@@ -14,6 +14,7 @@ func interact():
 
 func _on_Interaction_area_body_exited(body):
 	$Ingredients_menu.hide()
+	interactable = false
 
 func init_ingredients_menu():
 	menu = $Ingredients_menu
