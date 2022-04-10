@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/kitchen__counter_back.png-96fb87b032c1f72fb77630bdced5a824.stex"
+path="res://.import/kitchen_counter_back.png-befc3987bc1bb0b85c98fb6e01f30d06.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/furniture/kitchen__counter_back.png"
-dest_files=[ "res://.import/kitchen__counter_back.png-96fb87b032c1f72fb77630bdced5a824.stex" ]
+source_file="res://assets/furniture/kitchen_counter_back.png"
+dest_files=[ "res://.import/kitchen_counter_back.png-befc3987bc1bb0b85c98fb6e01f30d06.stex" ]
 
 [params]
 
