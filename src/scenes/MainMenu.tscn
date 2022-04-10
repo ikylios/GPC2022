@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui/buttonsprite.png" type="Texture" id=2]
 [ext_resource path="res://assets/ui/buttonsprite_hover.png" type="Texture" id=3]
+[ext_resource path="res://scenes/QuitButton.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Theme" id=2]
 Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
@@ -69,24 +70,6 @@ margin_bottom = 7.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "START"
 
-[node name="QuitButton" type="TextureButton" parent="VBoxContainer"]
-margin_top = 49.0
-margin_right = 189.0
-margin_bottom = 94.0
-texture_normal = ExtResource( 2 )
-texture_hover = ExtResource( 3 )
-
-[node name="Label" type="Label" parent="VBoxContainer/QuitButton"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -17.5
-margin_top = -7.0
-margin_right = 17.5
-margin_bottom = 7.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "QUIT"
+[node name="QuitButton" parent="VBoxContainer" instance=ExtResource( 4 )]
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

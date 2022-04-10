@@ -12,6 +12,10 @@ func _process(_delta):
 	if get_tree().get_nodes_in_group("new_customers").size() > 0 and Input.is_action_just_pressed("ui_accept"):
 		print("seating a customer")
 		seat_customer()
+	if Input.is_action_just_pressed("ui_pause"):
+		get_tree().paused = true
+		var x_pos = get_viewport().get_visible_rect().size.x / 2
+		var y_pos = get_viewport().get_visible_rect().size.y / 2
 
 
 # -------------- Customer functionalities --------------
