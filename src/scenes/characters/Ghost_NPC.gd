@@ -1,20 +1,40 @@
-extends "res://scenes/Interactable.gd"
+extends "res://scenes/characters/Interactable_movable.gd"
 
 var order
 var order_list = ["spydäri", "ranskikset"]
 var received_order = null
 var received_order_sprite
 var player
+var speed = 100
+var velocity = Vector2()
+#var path = [global_position, Vector2(120,120), Vector2(270,270), Vector2(70,70)]
+var path = []
+var spawn_area = [Vector2(611, 210), Vector2(742, 295)]
+var target
 
 func _ready():
 	order = generate_order()
 	$AnimatedSprite.play("idle")
 	add_to_group("new_customers")
-
+	position.x = (randi() % 117) + 611
+	position.y = (randi() % 70) + 210
 
 func _process(_delta):
 	$AnimatedSprite.playing = interactable
+
+#func _physics_process(delta):
+	#get_input()
+	#move_and_collide(velocity * delta)
+#	velocity = Vector2.ZERO
 	
+#	if !path.empty():
+#		velocity = position.direction_to(path[path.size()-1]) * speed
+	#else: velocity = Vector2.ZERO
+#	velocity = move_and_slide(velocity)
+
+		#var dir = (target - position).normalized()
+		#var move_amount = Vector2(move_toward(position.x, target.x, dir.x * speed  * delta), move_toward(position.y, target.y, dir.y * speed * delta))
+		#move_and_collide(move_amount) # or move_and_slide(move_amount / delta)
 
 # -------------- Interaction --------------
 
@@ -30,11 +50,46 @@ func interact():
 			player.drop_carried_item()
 	elif !received_order:
 		$Order_bubble.display_order(order)
+		
 	
 	
 # -------------- Moving functionalities --------------
 
+func get_input():
+	if path.size() > 0:
+		velocity = global_position.direction_to(path[0]) * speed
+		
+		if are_close(global_position, path[0]):
+			path.remove(0)
+			print(path)
+	
+func move_toward(orig : float, target : float, amount : float) -> float:
+	var result : float
+
+	if abs(orig - target) <= amount:
+		result = target
+	elif orig < target:
+		result = min(orig + amount, target)
+	elif orig > target:
+		result = max(orig - amount, target)
+	return result
+	
+			
+func are_close(p1, p2):
+	var res_x = p2.x - p1.x
+	var res_y = p2.y - p1.y
+	
+	if res_x < 10 and res_y < 10:
+		print("was close enough")
+		return true
+	
+	return false
+
+#func assign_seat(arg_path):
 func assign_seat(point):
+#	path = arg_path
+#	target = path[1]
+#	print("received path", path)
 	global_position = point
 
 func leave():

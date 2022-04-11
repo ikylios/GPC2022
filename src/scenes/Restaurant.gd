@@ -44,12 +44,21 @@ func seat_customer():
 	var customer = get_tree().get_nodes_in_group("new_customers").pop_front()
 	
 	customer.assign_seat(free_seat.global_position)
+	#var path = generate_path_to_seat(customer.global_position, free_seat.global_position)
+	#customer.assign_seat(path)
 	
 	customer.add_to_group("customers")
 	customer.remove_from_group("new_customers")
 	
 	free_seat.add_to_group("taken_seats")
 	free_seat.remove_from_group("free_seats")
+	
+
+func generate_path_to_seat(start, end):
+	#print("generating path from ", start)
+	#print("to ", end)
+	var path = $Navigation2D.get_simple_path(start, end, false)
+	return path
 
 func leaving_seat_in_point(point):
 	update_customer_count()
