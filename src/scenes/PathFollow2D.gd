@@ -1,9 +1,11 @@
 extends PathFollow2D
 
-var init = true
+signal finished_path
 
 func _process(delta):
 		set_offset(get_offset() + 70 * delta)
+		if get_unit_offset() == 1:
+			emit_signal("finished_path")
 
 	
 func set_node_to_remote_transform(node):

@@ -1,16 +1,11 @@
-extends "res://scenes/characters/Interactable_movable.gd"
+extends "res://scenes/Interactable.gd"
 
 var order
 var order_list = ["spydäri", "ranskikset"]
 var received_order = null
 var received_order_sprite
 var player
-var speed = 1000
-var velocity = Vector2()
-#var path = [global_position, Vector2(120,120), Vector2(270,270), Vector2(70,70)]
-var path = []
 var spawn_area = [Vector2(611, 210), Vector2(742, 295)]
-var target
 
 func _ready():
 	order = generate_order()
@@ -22,27 +17,6 @@ func _ready():
 func _process(_delta):
 	$AnimatedSprite.playing = interactable
 
-func _physics_process(delta):
-	if get_parent().is_class("PathFollow2D"):
-		get_parent().offset += speed * delta
-
-
-
-
-# ----------- physics trial -----------------
-#func _physics_process(delta):
-	#get_input()
-	#move_and_collide(velocity * delta)
-#	velocity = Vector2.ZERO
-	
-#	if !path.empty():
-#		velocity = position.direction_to(path[path.size()-1]) * speed
-	#else: velocity = Vector2.ZERO
-#	velocity = move_and_slide(velocity)
-
-		#var dir = (target - position).normalized()
-		#var move_amount = Vector2(move_toward(position.x, target.x, dir.x * speed  * delta), move_toward(position.y, target.y, dir.y * speed * delta))
-		#move_and_collide(move_amount) # or move_and_slide(move_amount / delta)
 
 # -------------- Interaction --------------
 
@@ -63,48 +37,14 @@ func interact():
 	
 # -------------- Moving functionalities --------------
 
-func get_input():
-	if path.size() > 0:
-		velocity = global_position.direction_to(path[0]) * speed
-		
-		if are_close(global_position, path[0]):
-			path.remove(0)
-			print(path)
-	
-func move_toward(orig : float, target : float, amount : float) -> float:
-	var result : float
-
-	if abs(orig - target) <= amount:
-		result = target
-	elif orig < target:
-		result = min(orig + amount, target)
-	elif orig > target:
-		result = max(orig - amount, target)
-	return result
-	
-			
-func are_close(p1, p2):
-	var res_x = p2.x - p1.x
-	var res_y = p2.y - p1.y
-	
-	if res_x < 10 and res_y < 10:
-		print("was close enough")
-		return true
-	
-	return false
-
-#func assign_seat(arg_path):
 func assign_seat(point):
-#	path = arg_path
-#	target = path[1]
-#	print("received path", path)
 	global_position = point
 
 func leave():
-	get_parent().leaving_seat_in_point(global_position)
-	global_position = Vector2(global_position.x - 30, global_position.y)
-	yield(get_tree().create_timer(1.0), "timeout")
-	queue_free()
+	get_parent().leaving_seat_in_point(self, global_position)
+	#global_position = Vector2(global_position.x - 30, global_position.y)
+	#yield(get_tree().create_timer(1.0), "timeout")
+	#queue_free()
 
 # -------------- Food functionalities --------------
 	

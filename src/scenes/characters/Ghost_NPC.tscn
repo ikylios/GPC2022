@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/characters/Ghost_NPC.gd" type="Script" id=1]
 [ext_resource path="res://scenes/characters/Order_bubble.tscn" type="PackedScene" id=3]
@@ -23,14 +23,10 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=5]
-radius = 8.0
+radius = 23.0
 height = 8.0
 
-[sub_resource type="CapsuleShape2D" id=4]
-radius = 28.0
-height = 14.0
-
-[node name="Ghost_NPC" type="KinematicBody2D"]
+[node name="Ghost_NPC" type="Area2D"]
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -48,12 +44,3 @@ rect_scale = Vector2( 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 5 )
-disabled = true
-
-[node name="Interaction_area" type="Area2D" parent="."]
-
-[node name="Interaction_shape" type="CollisionShape2D" parent="Interaction_area"]
-shape = SubResource( 4 )
-
-[connection signal="body_entered" from="Interaction_area" to="." method="_on_Interaction_area_body_entered"]
-[connection signal="body_exited" from="Interaction_area" to="." method="_on_Interaction_area_body_exited"]

@@ -2,42 +2,41 @@ extends Node2D
 
 var customers_for_the_day
 var customers_to_serve
+
+var path_free = true
+
 signal end_day
 
 
 func _process(delta):
-	if get_tree().get_nodes_in_group("new_customers").size() > 0 and Input.is_action_just_pressed("ui_accept"):
-		print("seating a customer")
-		seat_customer()
+	if Input.is_action_just_pressed("ui_accept"):
+		if path_free and get_tree().get_nodes_in_group("new_customers").size() > 0:
+			path_free = false
+			print("seating a customer")
+			seat_customer()
+		else:
+			print("path is in use or there are no new customers!")
 
 
 func start_day():
 	customers_for_the_day = generate_customers()
 	customers_to_serve = customers_for_the_day.size()
-	#create_path2d()
-	$Line2D.points = $Path2D.curve.get_baked_points()
 	print("customers generated: ", customers_for_the_day)
 	print("press ENTER to seat a customer")
-	print("press ESC to generate path to seat")
-	print("press HOME to execute_movement()")
+
 
 # --------------- Pathing functionalities -----------------
-	
+
+func move_customer(customer, point):
+	var path = generate_path_to_point(customer.global_position, point.global_position)
+	modify_curve(path)
+	$Path2D/PathFollow2D.set_node_to_remote_transform(customer)
+
 func modify_curve(path):
 	var new_curve = Curve2D.new()
 	for point in path:
 		new_curve.add_point(point, Vector2.ZERO, Vector2.ZERO)
-	
 	$Path2D.curve = new_curve
-	$Line2D.points = $Path2D.curve.get_baked_points()
-	
-func move_customer(customer, point):
-	var path = generate_path_to_point(customer.global_position, point.global_position)
-	modify_curve(path)
-	set_remote_transform_nodepath(customer)
-
-func set_remote_transform_nodepath(node):
-	$Path2D/PathFollow2D.set_node_to_remote_transform(node)
 
 func generate_path_to_point(start, end):
 	var path = $Navigation2D.get_simple_path(start, end, false)
@@ -83,10 +82,8 @@ func leaving_seat_in_point(point):
 	update_customer_count()
 	for seat in get_tree().get_nodes_in_group("taken_seats"):
 		if seat.position == point:
-			#print("found the seat")
 			seat.remove_from_group("taken_seats")
 			seat.add_to_group("free_seats")
-			#print("free_seats", get_tree().get_nodes_in_group("free_seats"))
 
 func update_customer_count():
 	customers_to_serve -= 1
@@ -98,3 +95,7 @@ func fetch_customer_types():
 		preload("res://scenes/characters/Ghost_NPC.tscn")
 	]
 	return customer_types
+
+
+func _on_PathFollow2D_finished_path():
+	path_free = true
