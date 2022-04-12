@@ -9,8 +9,8 @@ func _ready():
 
 
 func start_day():
-	$Transition_screen.transition()
 	$Restaurant.start_day()
+	$Transition_screen.transition()
 
 func _on_Restaurant_end_day():
 	print("all customers for the day have been served. good night.")

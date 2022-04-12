@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://assets/wall/0f6a29db-2521-4e60-899f-1795dfa4906e.png" type="Texture" id=1]
 [ext_resource path="res://assets/floor/floor.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://scenes/furniture/Counter_cutting_board.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/furniture/Stool.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/Restaurant.gd" type="Script" id=12]
+[ext_resource path="res://scenes/furniture/Exit_door.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/PathFollow2D.gd" type="Script" id=16]
 
 [sub_resource type="NavigationPolygon" id=62]
@@ -252,6 +253,11 @@ points = PoolVector2Array( 32, 16, 0, 16, 0, 0, 32, 0 )
 1/shapes = [  ]
 1/z_index = 0
 
+[sub_resource type="Curve2D" id=64]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 690, 202 )
+}
+
 [sub_resource type="Gradient" id=58]
 colors = PoolColorArray( 0.985641, 0.932652, 0.662227, 1, 1, 0, 0, 0 )
 
@@ -290,11 +296,6 @@ colors = PoolColorArray( 0.867188, 0.351078, 0.193085, 1, 0.78125, 0.628757, 0.3
 [sub_resource type="GradientTexture" id=61]
 gradient = SubResource( 53 )
 width = 1
-
-[sub_resource type="Curve2D" id=64]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 690, 202 )
-}
 
 [node name="Restaurant" type="Node2D"]
 script = ExtResource( 12 )
@@ -338,6 +339,20 @@ cell_size = Vector2( 48, 86 )
 cell_quadrant_size = 8
 format = 1
 tile_data = PoolIntArray( 8, 1, 0, 9, 1, 0, 10, 1, 0, 11, 1, 0, 12, 1, 0, 13, 1, 0, 14, 1, 0, 15, 1, 0 )
+
+[node name="Path2D" type="Path2D" parent="."]
+visible = false
+curve = SubResource( 64 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 690, 202 )
+rotate = false
+loop = false
+script = ExtResource( 16 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D/PathFollow2D"]
+update_rotation = false
+update_scale = false
 
 [node name="Ingredients_box" parent="." instance=ExtResource( 5 )]
 position = Vector2( 601, 86 )
@@ -400,18 +415,11 @@ texture = SubResource( 61 )
 position = Vector2( 558, 161 )
 z_index = 1
 
-[node name="Path2D" type="Path2D" parent="."]
-visible = false
-curve = SubResource( 64 )
+[node name="Line2D" type="Line2D" parent="."]
+width = 5.0
+default_color = Color( 0.4, 1, 0.635294, 1 )
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2( 690, 202 )
-rotate = false
-loop = false
-script = ExtResource( 16 )
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D/PathFollow2D"]
-update_rotation = false
-update_scale = false
+[node name="Exit_door" parent="." instance=ExtResource( 13 )]
+position = Vector2( 667, 321 )
 
 [connection signal="finished_path" from="Path2D/PathFollow2D" to="." method="_on_PathFollow2D_finished_path"]

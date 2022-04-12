@@ -27,8 +27,8 @@ func start_day():
 
 # --------------- Pathing functionalities -----------------
 
-func move_customer(customer, point):
-	var path = generate_path_to_point(customer.global_position, point.global_position)
+func move_customer(customer, target):
+	var path = generate_path_to_point(customer.global_position, target.global_position)
 	modify_curve(path)
 	$Path2D/PathFollow2D.set_node_to_remote_transform(customer)
 
@@ -37,6 +37,7 @@ func modify_curve(path):
 	for point in path:
 		new_curve.add_point(point, Vector2.ZERO, Vector2.ZERO)
 	$Path2D.curve = new_curve
+	$Line2D.points = $Path2D.curve.get_baked_points()
 
 func generate_path_to_point(start, end):
 	var path = $Navigation2D.get_simple_path(start, end, false)
@@ -78,10 +79,11 @@ func seat_customer():
 	free_seat.remove_from_group("free_seats")
 	
 
-func leaving_seat_in_point(point):
+func leaving_seat_in_point(customer, point):
 	update_customer_count()
 	for seat in get_tree().get_nodes_in_group("taken_seats"):
 		if seat.position == point:
+			move_customer(customer, $Exit_door)
 			seat.remove_from_group("taken_seats")
 			seat.add_to_group("free_seats")
 
