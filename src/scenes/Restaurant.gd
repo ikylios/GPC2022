@@ -12,7 +12,6 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		if path_free and get_tree().get_nodes_in_group("new_customers").size() > 0:
 			path_free = false
-			print("seating a customer")
 			seat_customer()
 		else:
 			print("path is in use or there are no new customers!")
@@ -37,7 +36,6 @@ func modify_curve(path):
 	for point in path:
 		new_curve.add_point(point, Vector2.ZERO, Vector2.ZERO)
 	$Path2D.curve = new_curve
-	$Line2D.points = $Path2D.curve.get_baked_points()
 
 func generate_path_to_point(start, end):
 	var path = $Navigation2D.get_simple_path(start, end, false)
