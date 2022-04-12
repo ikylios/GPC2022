@@ -16,29 +16,23 @@ func _process(delta):
 		var path = generate_path_to_seat(cust.global_position, $Stool.global_position)
 		modify_curve(path)
 		
-		#var path_follow = PathFollow2D.new()
-		#path_follow.add_child($Sprite)
-		#path_follow.add_child($Sprite)
 		$Path2D/PathFollow2D.add_child(cust)
-		#print(path_follow.get_child(0))
-		
-		#$Path2D.add_child(path_follow)
-		#yield(get_tree().create_timer(1.0), "timeout")
-		#remove_child($Sprite)
+		print($Path2D/PathFollow2D.get_child(0))
 		
 		
 	if Input.is_action_just_pressed("ui_home"):
 		$Path2D/PathFollow2D.execute_movement()
-		
-		
+
 
 func start_day():
 	customers_for_the_day = generate_customers()
 	customers_to_serve = customers_for_the_day.size()
 	#create_path2d()
-	$Line2D2.points = $Path2D.curve.get_baked_points()
+	$Line2D.points = $Path2D.curve.get_baked_points()
 	print("customers generated: ", customers_for_the_day)
 	print("press ENTER to seat a customer")
+	print("press ESC to generate path to seat")
+	print("press HOME to execute_movement()")
 
 # --------------- Pathing functionalities -----------------
 
@@ -57,18 +51,15 @@ func modify_curve(path):
 	#$Line2D.points = new_curve.get_baked_points()
 	#print("new curve ", new_curve.get_baked_points())
 	$Path2D.curve = new_curve
-	$Line2D2.points = $Path2D.curve.get_baked_points()
+	$Line2D.points = $Path2D.curve.get_baked_points()
 	#$Path2D/PathFollow2D.draw_path()
-	print("path2d new curve ", $Path2D.curve.get_baked_points())
+	#print("path2d new curve ", $Path2D.curve.get_baked_points())
 	
 #func add_follower_to_path(follower):
 #	$Path2D/PathFollow2D.add_child(follower)
 
 func generate_path_to_seat(start, end):
-	#print("generating path from ", start)
-	#print("to ", end)
 	var path = $Navigation2D.get_simple_path(start, end, false)
-	$Line2D.points = path
 	return path
 
 
