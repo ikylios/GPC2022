@@ -5,17 +5,50 @@ var customers_to_serve
 signal end_day
 
 
-func _process(_delta):
+func _process(delta):
 	if get_tree().get_nodes_in_group("new_customers").size() > 0 and Input.is_action_just_pressed("ui_accept"):
 		print("seating a customer")
 		seat_customer()
+		
+	if Input.is_action_just_pressed("ui_cancel"):
+		#var cust = $Ghost_NPC
+		#var path = generate_path_to_seat(cust.position, $Stool.position)
+		#print("calculated path ", path)
+		#$Line2D.points = path
+		#path_to_curve(path)
+		#$Path2D/PathFollow2D.add_child(cust)
+		$Path2D/PathFollow2D.execute_movement()
+		
 		
 
 func start_day():
 	customers_for_the_day = generate_customers()
 	customers_to_serve = customers_for_the_day.size()
+	#create_path2d()
 	print("customers generated: ", customers_for_the_day)
 	print("press ENTER to seat a customer")
+
+# --------------- Pathing functionalities -----------------
+
+func create_path2d():
+	var path = Path2D.new()
+	var path_follow = PathFollow2D.new()
+	path.add_child(path_follow)
+	add_child(path)
+	
+func path_to_curve(path):
+	print("current path2d ", $Path2D.curve.get_baked_points())
+	var new_curve = Curve2D.new()
+	for point in path:
+		new_curve.add_point(point, Vector2.ZERO, Vector2.ZERO)
+	
+	print("new curve ", new_curve.get_baked_points())
+	#$Path2D.curve = new_curve
+	#print("path2d new curve ", $Path2D.curve.points)
+	
+#func add_follower_to_path(follower):
+#	$Path2D/PathFollow2D.add_child(follower)
+
 
 # -------------- Customer functionalities --------------
 
@@ -45,6 +78,8 @@ func seat_customer():
 	
 	customer.assign_seat(free_seat.global_position)
 	#var path = generate_path_to_seat(customer.global_position, free_seat.global_position)
+	#path_to_curve(path)
+	#add_follower_to_path(customer)
 	#customer.assign_seat(path)
 	
 	customer.add_to_group("customers")

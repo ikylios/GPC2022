@@ -5,7 +5,7 @@ var order_list = ["spydäri", "ranskikset"]
 var received_order = null
 var received_order_sprite
 var player
-var speed = 100
+var speed = 1000
 var velocity = Vector2()
 #var path = [global_position, Vector2(120,120), Vector2(270,270), Vector2(70,70)]
 var path = []
@@ -22,6 +22,14 @@ func _ready():
 func _process(_delta):
 	$AnimatedSprite.playing = interactable
 
+func _physics_process(delta):
+	if get_parent().is_class("PathFollow2D"):
+		get_parent().offset += speed * delta
+
+
+
+
+# ----------- physics trial -----------------
 #func _physics_process(delta):
 	#get_input()
 	#move_and_collide(velocity * delta)
