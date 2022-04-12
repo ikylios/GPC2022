@@ -13,9 +13,15 @@ func _process(_delta):
 		print("seating a customer")
 		seat_customer()
 	if Input.is_action_just_pressed("ui_pause"):
-		get_tree().paused = true
-		var x_pos = get_viewport().get_visible_rect().size.x / 2
-		var y_pos = get_viewport().get_visible_rect().size.y / 2
+		show_pause_menu()
+
+func show_pause_menu():
+	get_tree().paused = true
+	var camera = get_node("Player").get_node("Camera2D")
+	$Pause_popup_holder/Pause_popup.set_position(Vector2(camera.get_camera_screen_center()))
+	$Pause_popup_holder/Pause_popup.show()
+	print($Player.z_index)
+	$Player.z_index = 0
 
 
 # -------------- Customer functionalities --------------
