@@ -11,12 +11,23 @@ func _process(delta):
 		seat_customer()
 		
 	if Input.is_action_just_pressed("ui_cancel"):
-		#var cust = $Ghost_NPC
-		#var path = generate_path_to_seat(cust.position, $Stool.position)
-		#print("calculated path ", path)
-		#$Line2D.points = path
-		#path_to_curve(path)
-		#$Path2D/PathFollow2D.add_child(cust)
+		var cust = $Ghost_NPC
+	
+		var path = generate_path_to_seat(cust.global_position, $Stool.global_position)
+		modify_curve(path)
+		
+		#var path_follow = PathFollow2D.new()
+		#path_follow.add_child($Sprite)
+		#path_follow.add_child($Sprite)
+		$Path2D/PathFollow2D.add_child(cust)
+		#print(path_follow.get_child(0))
+		
+		#$Path2D.add_child(path_follow)
+		#yield(get_tree().create_timer(1.0), "timeout")
+		#remove_child($Sprite)
+		
+		
+	if Input.is_action_just_pressed("ui_home"):
 		$Path2D/PathFollow2D.execute_movement()
 		
 		
@@ -25,6 +36,7 @@ func start_day():
 	customers_for_the_day = generate_customers()
 	customers_to_serve = customers_for_the_day.size()
 	#create_path2d()
+	$Line2D2.points = $Path2D.curve.get_baked_points()
 	print("customers generated: ", customers_for_the_day)
 	print("press ENTER to seat a customer")
 
@@ -36,18 +48,28 @@ func create_path2d():
 	path.add_child(path_follow)
 	add_child(path)
 	
-func path_to_curve(path):
-	print("current path2d ", $Path2D.curve.get_baked_points())
+func modify_curve(path):
+	#print("current path2d ", $Path2D.curve.get_baked_points())
 	var new_curve = Curve2D.new()
 	for point in path:
 		new_curve.add_point(point, Vector2.ZERO, Vector2.ZERO)
 	
-	print("new curve ", new_curve.get_baked_points())
-	#$Path2D.curve = new_curve
-	#print("path2d new curve ", $Path2D.curve.points)
+	#$Line2D.points = new_curve.get_baked_points()
+	#print("new curve ", new_curve.get_baked_points())
+	$Path2D.curve = new_curve
+	$Line2D2.points = $Path2D.curve.get_baked_points()
+	#$Path2D/PathFollow2D.draw_path()
+	print("path2d new curve ", $Path2D.curve.get_baked_points())
 	
 #func add_follower_to_path(follower):
 #	$Path2D/PathFollow2D.add_child(follower)
+
+func generate_path_to_seat(start, end):
+	#print("generating path from ", start)
+	#print("to ", end)
+	var path = $Navigation2D.get_simple_path(start, end, false)
+	$Line2D.points = path
+	return path
 
 
 # -------------- Customer functionalities --------------
@@ -88,12 +110,6 @@ func seat_customer():
 	free_seat.add_to_group("taken_seats")
 	free_seat.remove_from_group("free_seats")
 	
-
-func generate_path_to_seat(start, end):
-	#print("generating path from ", start)
-	#print("to ", end)
-	var path = $Navigation2D.get_simple_path(start, end, false)
-	return path
 
 func leaving_seat_in_point(point):
 	update_customer_count()
