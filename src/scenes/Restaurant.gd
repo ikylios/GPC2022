@@ -9,19 +9,6 @@ func _process(delta):
 	if get_tree().get_nodes_in_group("new_customers").size() > 0 and Input.is_action_just_pressed("ui_accept"):
 		print("seating a customer")
 		seat_customer()
-		
-	if Input.is_action_just_pressed("ui_cancel"):
-		var cust = $Ghost_NPC
-	
-		var path = generate_path_to_seat(cust.global_position, $Stool.global_position)
-		modify_curve(path)
-		
-		$Path2D/PathFollow2D.add_child(cust)
-		print($Path2D/PathFollow2D.get_child(0))
-		
-		
-	if Input.is_action_just_pressed("ui_home"):
-		$Path2D/PathFollow2D.execute_movement()
 
 
 func start_day():
@@ -35,30 +22,24 @@ func start_day():
 	print("press HOME to execute_movement()")
 
 # --------------- Pathing functionalities -----------------
-
-func create_path2d():
-	var path = Path2D.new()
-	var path_follow = PathFollow2D.new()
-	path.add_child(path_follow)
-	add_child(path)
 	
 func modify_curve(path):
-	#print("current path2d ", $Path2D.curve.get_baked_points())
 	var new_curve = Curve2D.new()
 	for point in path:
 		new_curve.add_point(point, Vector2.ZERO, Vector2.ZERO)
 	
-	#$Line2D.points = new_curve.get_baked_points()
-	#print("new curve ", new_curve.get_baked_points())
 	$Path2D.curve = new_curve
 	$Line2D.points = $Path2D.curve.get_baked_points()
-	#$Path2D/PathFollow2D.draw_path()
-	#print("path2d new curve ", $Path2D.curve.get_baked_points())
 	
-#func add_follower_to_path(follower):
-#	$Path2D/PathFollow2D.add_child(follower)
+func move_customer(customer, point):
+	var path = generate_path_to_point(customer.global_position, point.global_position)
+	modify_curve(path)
+	set_remote_transform_nodepath(customer)
 
-func generate_path_to_seat(start, end):
+func set_remote_transform_nodepath(node):
+	$Path2D/PathFollow2D.set_node_to_remote_transform(node)
+
+func generate_path_to_point(start, end):
 	var path = $Navigation2D.get_simple_path(start, end, false)
 	return path
 
@@ -89,11 +70,7 @@ func seat_customer():
 	var free_seat = get_tree().get_nodes_in_group("free_seats").pop_front()
 	var customer = get_tree().get_nodes_in_group("new_customers").pop_front()
 	
-	customer.assign_seat(free_seat.global_position)
-	#var path = generate_path_to_seat(customer.global_position, free_seat.global_position)
-	#path_to_curve(path)
-	#add_follower_to_path(customer)
-	#customer.assign_seat(path)
+	move_customer(customer, free_seat)
 	
 	customer.add_to_group("customers")
 	customer.remove_from_group("new_customers")

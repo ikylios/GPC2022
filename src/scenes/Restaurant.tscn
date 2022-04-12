@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://assets/wall/0f6a29db-2521-4e60-899f-1795dfa4906e.png" type="Texture" id=1]
 [ext_resource path="res://assets/floor/floor.png" type="Texture" id=2]
@@ -12,7 +12,6 @@
 [ext_resource path="res://scenes/furniture/Counter_cutting_board.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/furniture/Stool.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/Restaurant.gd" type="Script" id=12]
-[ext_resource path="res://scenes/characters/Ghost_NPC.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/PathFollow2D.gd" type="Script" id=16]
 
 [sub_resource type="NavigationPolygon" id=62]
@@ -401,9 +400,6 @@ texture = SubResource( 61 )
 position = Vector2( 558, 161 )
 z_index = 1
 
-[node name="Ghost_NPC" parent="." instance=ExtResource( 13 )]
-position = Vector2( 690, 202 )
-
 [node name="Line2D" type="Line2D" parent="."]
 width = 5.0
 default_color = Color( 0.4, 1, 0.901961, 1 )
@@ -418,6 +414,5 @@ loop = false
 script = ExtResource( 16 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D/PathFollow2D"]
-remote_path = NodePath("../../../Ghost_NPC")
 update_rotation = false
 update_scale = false
