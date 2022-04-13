@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://assets/wall/0f6a29db-2521-4e60-899f-1795dfa4906e.png" type="Texture" id=1]
 [ext_resource path="res://assets/floor/floor.png" type="Texture" id=2]
@@ -12,6 +12,16 @@
 [ext_resource path="res://scenes/furniture/Counter_cutting_board.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/furniture/Stool.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/Restaurant.gd" type="Script" id=12]
+[ext_resource path="res://scenes/furniture/Exit_door.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/PathFollow2D.gd" type="Script" id=16]
+
+[sub_resource type="NavigationPolygon" id=62]
+vertices = PoolVector2Array( 48, 48, 0, 48, 0, 0, 48, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+
+[sub_resource type="NavigationPolygon" id=63]
+vertices = PoolVector2Array( 0, 0, 48, 0, 48, 48, 0, 48 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 
 [sub_resource type="TileSet" id=54]
 0/name = "floor.png 0"
@@ -22,6 +32,7 @@
 0/tile_mode = 0
 0/occluder_offset = Vector2( 0, 0 )
 0/navigation_offset = Vector2( 0, 0 )
+0/navigation = SubResource( 62 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 0/shape_one_way = false
@@ -36,6 +47,7 @@
 1/tile_mode = 0
 1/occluder_offset = Vector2( 0, 0 )
 1/navigation_offset = Vector2( 0, 0 )
+1/navigation = SubResource( 63 )
 1/shape_offset = Vector2( 0, 0 )
 1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 1/shape_one_way = false
@@ -241,6 +253,11 @@ points = PoolVector2Array( 32, 16, 0, 16, 0, 0, 32, 0 )
 1/shapes = [  ]
 1/z_index = 0
 
+[sub_resource type="Curve2D" id=64]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 690, 202 )
+}
+
 [sub_resource type="Gradient" id=58]
 colors = PoolColorArray( 0.985641, 0.932652, 0.662227, 1, 1, 0, 0, 0 )
 
@@ -283,11 +300,23 @@ width = 1
 [node name="Restaurant" type="Node2D"]
 script = ExtResource( 12 )
 
-[node name="wood floor" type="TileMap" parent="."]
+[node name="Navigation2D" type="Navigation2D" parent="."]
+
+[node name="wood floor" type="TileMap" parent="Navigation2D"]
 tile_set = SubResource( 54 )
 cell_size = Vector2( 48, 48 )
 format = 1
 tile_data = PoolIntArray( -65524, 0, 0, 12, 0, 0, 65544, 1, 0, 65545, 0, 0, 65546, 1, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 131080, 0, 0, 131081, 1, 0, 131082, 0, 0, 131083, 1, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 196616, 1, 0, 196617, 0, 0, 196618, 1, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 262151, 1, 0, 262152, 0, 0, 262153, 1, 0, 262154, 0, 0, 262155, 1, 0, 262156, 0, 0, 262157, 1, 0, 262158, 0, 0, 262159, 1, 0, 327687, 0, 0, 327688, 1, 0, 327689, 0, 0, 327690, 1, 0, 327691, 0, 0, 327692, 1, 0, 327693, 0, 0, 327694, 1, 0, 327695, 0, 0, 327696, 0, 0, 393222, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 458768, 0, 0, 524293, 0, 0, 524294, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0 )
+
+[node name="spawn_rect" type="ColorRect" parent="."]
+margin_left = 611.0
+margin_top = 210.0
+margin_right = 728.0
+margin_bottom = 280.0
+color = Color( 0.27451, 0.137255, 0.137255, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="stone floor" type="TileMap" parent="."]
 tile_set = SubResource( 55 )
@@ -311,6 +340,19 @@ cell_quadrant_size = 8
 format = 1
 tile_data = PoolIntArray( 8, 1, 0, 9, 1, 0, 10, 1, 0, 11, 1, 0, 12, 1, 0, 13, 1, 0, 14, 1, 0, 15, 1, 0 )
 
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource( 64 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 690, 202 )
+rotate = false
+loop = false
+script = ExtResource( 16 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D/PathFollow2D"]
+update_rotation = false
+update_scale = false
+
 [node name="Ingredients_box" parent="." instance=ExtResource( 5 )]
 position = Vector2( 601, 86 )
 scale = Vector2( 0.75, 0.75 )
@@ -326,10 +368,6 @@ scale = Vector2( 0.75, 0.75 )
 [node name="Stool3" parent="." instance=ExtResource( 11 )]
 position = Vector2( 541, 234 )
 scale = Vector2( 0.75, 0.75 )
-
-[node name="Player" parent="." instance=ExtResource( 9 )]
-position = Vector2( 558, 161 )
-z_index = 1
 
 [node name="Counter" parent="." instance=ExtResource( 7 )]
 position = Vector2( 642, 83 )
@@ -371,3 +409,12 @@ speed_scale = 0.22
 randomness = 0.74
 process_material = SubResource( 60 )
 texture = SubResource( 61 )
+
+[node name="Player" parent="." instance=ExtResource( 9 )]
+position = Vector2( 558, 161 )
+z_index = 1
+
+[node name="Exit_door" parent="." instance=ExtResource( 13 )]
+position = Vector2( 667, 321 )
+
+[connection signal="finished_path" from="Path2D/PathFollow2D" to="." method="_on_PathFollow2D_finished_path"]

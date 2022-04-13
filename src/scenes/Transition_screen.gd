@@ -15,5 +15,3 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 #		emit_signal("transitioned")
 		yield(get_tree().create_timer(0.75), "timeout")
 		$AnimationPlayer.play("fade_to_normal")
-#	if anim_name == "fade_to_black":
-#		print("finished fading")
