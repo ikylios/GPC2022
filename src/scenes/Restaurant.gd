@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 var customers_for_the_day
 
