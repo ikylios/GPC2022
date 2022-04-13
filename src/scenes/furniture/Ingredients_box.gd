@@ -19,11 +19,7 @@ func _on_Interaction_area_body_exited(body):
 func init_ingredients_menu():
 	menu = $Ingredients_menu
 	
-	var food_index = get_parent().get_parent().get_node("Food_index")
-	print("food_index from ing box ", food_index)
-	#get_parent().get_parent().get_node("Food_index").get_ingredients_list()
-	#var ingredients = get_parent().get_parent().get_node("Food_index").get_ingredients_list()
-	var ingredients = []
+	var ingredients = get_parent().get_node("Food_index").get_ingredients_list()
 	
 	var index = 0
 	for item in ingredients:

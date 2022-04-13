@@ -24,7 +24,6 @@ func load_foods() -> Dictionary:
 # -------------- Getters -----------------
 
 func get_ingredients_list():
-	print("food_file_ingredients", food_file.ingredients)
 	return food_file.ingredients
 	
 func get_meals_list():
