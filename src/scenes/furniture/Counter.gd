@@ -8,11 +8,13 @@ func interact():
 	var player_item = player.get_carried_item()
 	
 	if player_item and !item:
+		$AudioStreamPlayer.play()
 		item = player_item
 		player.drop_carried_item()
 		set_item_sprite()
 	
 	elif !player_item and item:
+		$AudioStreamPlayer.play()
 		player.set_carried_item(item)
 		item = null
 		remove_child(item_sprite)
@@ -21,6 +23,7 @@ func interact():
 		var meal = null
 		meal = try_to_cook([item.name, player_item.name])
 		if meal:
+			$AudioStreamPlayer.play()
 			player.drop_carried_item()
 			item = meal
 			item_sprite.set_texture(load(item.path))
@@ -34,19 +37,7 @@ func set_item_sprite():
 	
 
 func try_to_cook(ingredients):
-	var meals = [ 
-		{ "name": "spydäri", "path": "res://assets/food/meals/68_macncheese_dish.png", "ingredients": ["Potato", "Steak"] },
-		{ "name": "ranskikset", "path": "res://assets/food/meals/45_frenchfries_dish.png", "ingredients": ["Potato", "Potato"] }
-	]
-	
-	ingredients.sort()
-	var result = null
-	for meal in meals:
-		print("meal.ingredients: ", meal.ingredients)
-		print("ingredients: ", ingredients)
-		if meal.ingredients == ingredients:
-			print("found a meal")
-			result = { "name": meal.name, "path": meal.path }
+	var result = get_parent().get_parent().get_node("Food_index").try_to_cook(ingredients)
 	
 	if !result:
 		print("didn't find a meal with those ingredients")

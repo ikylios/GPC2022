@@ -1,17 +1,15 @@
 extends Node2D
 
 var customers_for_the_day
-
-func _ready():
-	customers_for_the_day = generate_customers()
-	print("customers generated: ", customers_for_the_day)
-	print("press ENTER to seat a customer")
+var customers_to_serve
+signal end_day
 
 
 func _process(_delta):
 	if get_tree().get_nodes_in_group("new_customers").size() > 0 and Input.is_action_just_pressed("ui_accept"):
 		print("seating a customer")
 		seat_customer()
+
 	if Input.is_action_just_pressed("ui_pause"):
 		show_pause_menu()
 
@@ -23,6 +21,12 @@ func show_pause_menu():
 	print($Player.z_index)
 	$Player.z_index = 0
 
+
+func start_day():
+	customers_for_the_day = generate_customers()
+	customers_to_serve = customers_for_the_day.size()
+	print("customers generated: ", customers_for_the_day)
+	print("press ENTER to seat a customer")
 
 # -------------- Customer functionalities --------------
 
@@ -59,12 +63,18 @@ func seat_customer():
 	free_seat.remove_from_group("free_seats")
 
 func leaving_seat_in_point(point):
+	update_customer_count()
 	for seat in get_tree().get_nodes_in_group("taken_seats"):
 		if seat.position == point:
-			print("found the seat")
+			#print("found the seat")
 			seat.remove_from_group("taken_seats")
 			seat.add_to_group("free_seats")
-			print("free_seats", get_tree().get_nodes_in_group("free_seats"))
+			#print("free_seats", get_tree().get_nodes_in_group("free_seats"))
+
+func update_customer_count():
+	customers_to_serve -= 1
+	if customers_to_serve == 0:
+		emit_signal("end_day")
 
 func fetch_customer_types():
 	var customer_types = [
