@@ -11,6 +11,7 @@ func begin_day():
 	$Transition_screen.fade_from_black()
 	$Restaurant.start_day()
 
+
 func _on_Restaurant_end_day():
 	yield(get_tree().create_timer(1.5), "timeout")
 	days_remaining -= 1

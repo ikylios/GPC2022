@@ -5,16 +5,18 @@ var order_list = ["spydäri", "ranskikset"]
 var received_order = null
 var received_order_sprite
 var player
+var spawn_area = [Vector2(611, 210), Vector2(742, 295)]
 
 func _ready():
 	order = generate_order()
 	$AnimatedSprite.play("idle")
 	add_to_group("new_customers")
-
+	position.x = (randi() % 117) + 611
+	position.y = (randi() % 70) + 210
 
 func _process(_delta):
 	$AnimatedSprite.playing = interactable
-	
+
 
 # -------------- Interaction --------------
 
@@ -30,6 +32,7 @@ func interact():
 			player.drop_carried_item()
 	elif !received_order:
 		$Order_bubble.display_order(order)
+		
 	
 	
 # -------------- Moving functionalities --------------
@@ -38,10 +41,11 @@ func assign_seat(point):
 	global_position = point
 
 func leave():
-	get_parent().leaving_seat_in_point(global_position)
-	global_position = Vector2(global_position.x - 30, global_position.y)
 	yield(get_tree().create_timer(1.0), "timeout")
-	queue_free()
+	get_parent().leaving_seat_in_point(self, global_position)
+	#global_position = Vector2(global_position.x - 30, global_position.y)
+	#yield(get_tree().create_timer(1.0), "timeout")
+	#queue_free()
 
 # -------------- Food functionalities --------------
 	
