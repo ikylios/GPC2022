@@ -3,7 +3,7 @@ extends Node
 var days_remaining = 2
 
 func _ready():
-	get_tree().change_scene("res://scenes/ui/MainMenu.tscn")
+	begin_day()
 
 
 func begin_day():
