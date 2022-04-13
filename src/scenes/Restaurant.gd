@@ -25,8 +25,6 @@ func show_pause_menu():
 func start_day():
 	customers_for_the_day = generate_customers()
 	customers_to_serve = customers_for_the_day.size()
-	print("customers generated: ", customers_for_the_day)
-	print("press ENTER to seat a customer")
 
 # -------------- Customer functionalities --------------
 
@@ -66,10 +64,8 @@ func leaving_seat_in_point(point):
 	update_customer_count()
 	for seat in get_tree().get_nodes_in_group("taken_seats"):
 		if seat.position == point:
-			#print("found the seat")
 			seat.remove_from_group("taken_seats")
 			seat.add_to_group("free_seats")
-			#print("free_seats", get_tree().get_nodes_in_group("free_seats"))
 
 func update_customer_count():
 	customers_to_serve -= 1
