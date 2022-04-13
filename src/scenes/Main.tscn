@@ -76,4 +76,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[connection signal="end_day" from="Restaurant" to="." method="_on_Restaurant_end_day"]
 [connection signal="animation_finished" from="Transition_screen/AnimationPlayer" to="Transition_screen" method="_on_AnimationPlayer_animation_finished"]

@@ -24,6 +24,7 @@ func show_pause_menu():
 
 func start_day():
 	customers_for_the_day = generate_customers()
+	print("generated amount of customers, ", customers_for_the_day.size())
 	customers_to_serve = customers_for_the_day.size()
 
 # -------------- Customer functionalities --------------
