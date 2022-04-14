@@ -13,8 +13,8 @@
 [ext_resource path="res://scenes/furniture/Stool.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/Restaurant.gd" type="Script" id=12]
 [ext_resource path="res://scenes/furniture/Exit_door.tscn" type="PackedScene" id=13]
-[ext_resource path="res://scenes/ui/QuitButton.tscn" type="PackedScene" id=14]
-[ext_resource path="res://scenes/ui/ContinueButton.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/ui/Pause_Popup_new.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/utils/Camera2D.gd" type="Script" id=15]
 
 [sub_resource type="NavigationPolygon" id=64]
 vertices = PoolVector2Array( 572, 197, 765, 197, 764, 317, 387, 316, 387, 89, 571, 88 )
@@ -319,6 +319,9 @@ cell_custom_transform = Transform2D( 48, 0, 0, 48, 0, 0 )
 format = 1
 tile_data = PoolIntArray( 65548, 0, 1, 65549, 0, 0, 65550, 0, 1, 65551, 0, 0, 131084, 0, 0, 131085, 0, 1, 131086, 0, 0, 131087, 0, 1, 196620, 0, 1, 196621, 0, 0, 196622, 0, 1, 196623, 0, 0 )
 
+[node name="Exit_door" parent="." instance=ExtResource( 13 )]
+position = Vector2( 667, 321 )
+
 [node name="Wall" type="TileMap" parent="."]
 scale = Vector2( 2, 2 )
 tile_set = SubResource( 56 )
@@ -401,55 +404,20 @@ randomness = 0.74
 process_material = SubResource( 60 )
 texture = SubResource( 61 )
 
-[node name="Pause_popup_holder" type="Node2D" parent="."]
-pause_mode = 2
-process_priority = 1
-z_index = 1
-
-[node name="Pause_popup" type="Popup" parent="Pause_popup_holder"]
-pause_mode = 2
-visible = true
-anchor_left = 0.053
-anchor_top = 0.044
-anchor_right = 0.053
-anchor_bottom = 0.044
-margin_left = 68.0
-margin_top = 35.0
-margin_right = 68.0
-margin_bottom = 35.0
-script = ExtResource( 10 )
-
-[node name="Pause_container" type="VBoxContainer" parent="Pause_popup_holder/Pause_popup"]
-anchor_left = -9.895
-anchor_top = -4.516
-anchor_right = -9.895
-anchor_bottom = -4.516
-margin_left = -63.315
-margin_top = -31.452
-margin_right = 125.685
-margin_bottom = 62.548
-rect_scale = Vector2( 0.67001, 0.669168 )
-
-[node name="ContinueButton" parent="Pause_popup_holder/Pause_popup/Pause_container" instance=ExtResource( 15 )]
-margin_right = 189.0
-margin_bottom = 45.0
-
-[node name="QuitButton" parent="Pause_popup_holder/Pause_popup/Pause_container" instance=ExtResource( 14 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 0.0
-margin_top = 49.0
-margin_right = 189.0
-margin_bottom = 94.0
-
 [node name="Player" parent="." instance=ExtResource( 9 )]
 position = Vector2( 558, 161 )
 z_index = 1
 
-[node name="Exit_door" parent="." instance=ExtResource( 13 )]
-position = Vector2( 667, 321 )
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2( 5, 13 )
+current = true
+zoom = Vector2( 0.4, 0.4 )
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+drag_margin_left = 0.1
+drag_margin_top = 0.15
+drag_margin_right = 0.1
+drag_margin_bottom = 0.15
+script = ExtResource( 15 )
 
-[connection signal="pressed" from="Pause_popup_holder/Pause_popup/Pause_container/ContinueButton" to="Pause_popup_holder/Pause_popup" method="_on_ContinueButton_pressed"]
-[connection signal="pressed" from="Pause_popup_holder/Pause_popup/Pause_container/QuitButton" to="Pause_popup_holder/Pause_popup" method="_on_QuitButton_pressed"]
+[node name="Pause_popup" parent="." instance=ExtResource( 14 )]

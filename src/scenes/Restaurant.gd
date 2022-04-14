@@ -12,8 +12,9 @@ func _process(delta):
 			seat_customer()
 		else:
 			print("there are no new customers!")
-
+			
 	if Input.is_action_just_pressed("ui_pause"):
+		print("paused")
 		show_pause_menu()
 
 
@@ -24,11 +25,9 @@ func start_day():
 	
 func show_pause_menu():
 	get_tree().paused = true
-	var camera = get_node("Player").get_node("Camera2D")
-	$Pause_popup_holder/Pause_popup.set_position(Vector2(camera.get_camera_screen_center()))
-	$Pause_popup_holder/Pause_popup.show()
+	$Pause_popup.set_position($Player/Camera2D.get_camera_screen_center())
+	$Pause_popup.show()
 	$Player.z_index = 0
-
 
 # --------------- Pathing functionalities -----------------
 
@@ -36,7 +35,6 @@ func create_walkable_path():
 	var path2D = load("res://scenes/utils/Walkable_path.tscn").instance()
 	add_child(path2D)
 	path2D.add_to_group("paths")
-	print(get_tree().get_nodes_in_group("paths"))
 
 func move_customer(customer, target):
 	create_walkable_path()

@@ -1,9 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/ui/MainMenu.gd" type="Script" id=1]
-[ext_resource path="res://assets/ui/buttonsprite.png" type="Texture" id=2]
-[ext_resource path="res://assets/ui/buttonsprite_hover.png" type="Texture" id=3]
-[ext_resource path="res://scenes/ui/QuitButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/ui/Button.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/ui/MainMenuStyle.tres" type="Theme" id=6]
 [ext_resource path="res://assets/ui/basic_font.tres" type="DynamicFont" id=7]
 [ext_resource path="res://assets/ui/panelInset_beigeLight.png" type="Texture" id=9]
@@ -55,35 +53,20 @@ margin_left = -90.0
 margin_top = -49.0
 margin_right = 99.0
 margin_bottom = 45.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="StartButton" type="TextureButton" parent="Background/VBoxContainer"]
+[node name="StartButton2" parent="Background/VBoxContainer" instance=ExtResource( 5 )]
 margin_right = 189.0
 margin_bottom = 45.0
-theme = ExtResource( 6 )
-texture_normal = ExtResource( 2 )
-texture_hover = ExtResource( 3 )
-
-[node name="Label" type="Label" parent="Background/VBoxContainer/StartButton"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -35.0
-margin_top = -11.5
-margin_right = 35.0
-margin_bottom = 11.5
-custom_fonts/font = ExtResource( 7 )
 text = "START"
 
-[node name="QuitButton" parent="Background/VBoxContainer" instance=ExtResource( 4 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 0.0
+[node name="QuitButton" parent="Background/VBoxContainer" instance=ExtResource( 5 )]
 margin_top = 49.0
 margin_right = 189.0
 margin_bottom = 94.0
+text = "QUIT"
 
 [node name="ControlsInfo" type="Sprite" parent="Background"]
 position = Vector2( 677, 597 )
@@ -140,5 +123,5 @@ text = "ENTER - SEAT CUSTOMER"
 align = 1
 valign = 1
 
-[connection signal="pressed" from="Background/VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="Background/VBoxContainer/StartButton2" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="Background/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

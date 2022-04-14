@@ -3,26 +3,6 @@
 [ext_resource path="res://scenes/characters/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/characters/player sprites/player_walk.png" type="Texture" id=4]
 
-[sub_resource type="AtlasTexture" id=35]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 0, 465, 111, 155 )
-
-[sub_resource type="AtlasTexture" id=36]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 111, 465, 111, 155 )
-
-[sub_resource type="AtlasTexture" id=37]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 222, 465, 111, 155 )
-
-[sub_resource type="AtlasTexture" id=38]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 333, 465, 111, 155 )
-
 [sub_resource type="AtlasTexture" id=39]
 flags = 4
 atlas = ExtResource( 4 )
@@ -42,6 +22,26 @@ region = Rect2( 222, 310, 111, 155 )
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 333, 310, 111, 155 )
+
+[sub_resource type="AtlasTexture" id=35]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 465, 111, 155 )
+
+[sub_resource type="AtlasTexture" id=36]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 111, 465, 111, 155 )
+
+[sub_resource type="AtlasTexture" id=37]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 222, 465, 111, 155 )
+
+[sub_resource type="AtlasTexture" id=38]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 333, 465, 111, 155 )
 
 [sub_resource type="AtlasTexture" id=43]
 flags = 4
@@ -90,14 +90,14 @@ region = Rect2( 333, 0, 111, 155 )
 
 [sub_resource type="SpriteFrames" id=14]
 animations = [ {
-"frames": [ SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ) ],
 "loop": true,
 "name": "left",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ) ],
+"loop": true,
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ) ],
@@ -132,16 +132,6 @@ animation = "down"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1, 0 )
 shape = SubResource( 34 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-zoom = Vector2( 0.4, 0.4 )
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-drag_margin_left = 0.1
-drag_margin_top = 0.15
-drag_margin_right = 0.1
-drag_margin_bottom = 0.15
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource( 33 )
