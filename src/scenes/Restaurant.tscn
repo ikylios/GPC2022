@@ -306,16 +306,6 @@ script = ExtResource( 12 )
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
 navpoly = SubResource( 64 )
 
-[node name="spawn_rect" type="ColorRect" parent="."]
-margin_left = 611.0
-margin_top = 210.0
-margin_right = 728.0
-margin_bottom = 280.0
-color = Color( 0.27451, 0.137255, 0.137255, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="wood floor" type="TileMap" parent="."]
 tile_set = SubResource( 54 )
 cell_size = Vector2( 48, 48 )
@@ -343,6 +333,16 @@ cell_size = Vector2( 48, 86 )
 cell_quadrant_size = 8
 format = 1
 tile_data = PoolIntArray( 8, 1, 0, 9, 1, 0, 10, 1, 0, 11, 1, 0, 12, 1, 0, 13, 1, 0, 14, 1, 0, 15, 1, 0 )
+
+[node name="spawn_rect" type="ColorRect" parent="."]
+margin_left = 611.0
+margin_top = 210.0
+margin_right = 728.0
+margin_bottom = 280.0
+color = Color( 0.27451, 0.137255, 0.137255, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Ingredients_box" parent="." instance=ExtResource( 5 )]
 position = Vector2( 601, 86 )

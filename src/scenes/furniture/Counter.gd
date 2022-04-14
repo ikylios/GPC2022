@@ -1,4 +1,4 @@
-extends "res://scenes/Interactable.gd"
+extends "res://scenes/utils/Interactable.gd"
 
 var item = null
 var item_sprite = null

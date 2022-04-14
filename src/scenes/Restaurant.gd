@@ -33,7 +33,7 @@ func show_pause_menu():
 # --------------- Pathing functionalities -----------------
 
 func create_walkable_path():
-	var path2D = load("res://scenes/Walkable_path.tscn").instance()
+	var path2D = load("res://scenes/utils/Walkable_path.tscn").instance()
 	add_child(path2D)
 	path2D.add_to_group("paths")
 	print(get_tree().get_nodes_in_group("paths"))
@@ -103,6 +103,7 @@ func leaving_seat_in_point(customer, point):
 func update_customer_count():
 	customers_to_serve -= 1
 	if customers_to_serve == 0:
+		yield(get_tree().create_timer(1.5), "timeout")
 		emit_signal("end_day")
 
 func fetch_customer_types():
