@@ -44,7 +44,6 @@ func get_carried_item():
 	
 func set_carried_item(item):
 	carried_item = item
-	print("picked up ", item)
 	set_carried_item_sprite(item.path)
 
 func _on_Ingredient_box_interacted(item):

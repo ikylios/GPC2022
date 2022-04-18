@@ -1,0 +1,127 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/ui/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://scenes/ui/Button.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/ui/MainMenuStyle.tres" type="Theme" id=6]
+[ext_resource path="res://assets/ui/basic_font.tres" type="DynamicFont" id=7]
+[ext_resource path="res://assets/ui/panelInset_beigeLight.png" type="Texture" id=9]
+
+[sub_resource type="Theme" id=2]
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_focus = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/fonts/font = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null
+
+[node name="MainMenu" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -40.5
+margin_top = -24.0
+margin_right = 40.5
+margin_bottom = 24.0
+theme = SubResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Panel" parent="."]
+anchor_left = 0.444
+anchor_top = 0.5
+anchor_right = 0.444
+anchor_bottom = 0.5
+margin_left = -673.464
+margin_top = -382.0
+margin_right = 670.536
+margin_bottom = 386.0
+theme = ExtResource( 6 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -90.0
+margin_top = -49.0
+margin_right = 99.0
+margin_bottom = 45.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartButton2" parent="Background/VBoxContainer" instance=ExtResource( 5 )]
+margin_right = 189.0
+margin_bottom = 45.0
+text = "START"
+
+[node name="QuitButton" parent="Background/VBoxContainer" instance=ExtResource( 5 )]
+margin_top = 49.0
+margin_right = 189.0
+margin_bottom = 94.0
+text = "QUIT"
+
+[node name="ControlsInfo" type="Sprite" parent="Background"]
+position = Vector2( 677, 597 )
+scale = Vector2( 0.815322, 0.439362 )
+texture = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="Background"]
+margin_left = 593.0
+margin_top = 562.0
+margin_right = 762.0
+margin_bottom = 606.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource( 6 )
+text = "E - INTERACT"
+align = 1
+valign = 1
+
+[node name="Label4" type="Label" parent="Background"]
+margin_left = 596.0
+margin_top = 507.0
+margin_right = 765.0
+margin_bottom = 551.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource( 6 )
+custom_fonts/font = ExtResource( 7 )
+text = "CONTROLS"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="Background"]
+margin_left = 585.0
+margin_top = 606.0
+margin_right = 754.0
+margin_bottom = 650.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource( 6 )
+custom_fonts/font = ExtResource( 7 )
+text = "P - PAUSE"
+align = 1
+valign = 1
+
+[node name="Label3" type="Label" parent="Background"]
+margin_left = 550.0
+margin_top = 648.0
+margin_right = 815.0
+margin_bottom = 692.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource( 6 )
+text = "ENTER - SEAT CUSTOMER"
+align = 1
+valign = 1
+
+[connection signal="pressed" from="Background/VBoxContainer/StartButton2" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="Background/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

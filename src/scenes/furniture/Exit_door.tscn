@@ -19,5 +19,6 @@ shape = SubResource( 1 )
 
 [node name="Door_sfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+volume_db = -12.48
 
 [connection signal="area_entered" from="." to="." method="_on_Exit_door_area_entered"]

@@ -1,4 +1,4 @@
-extends "res://scenes/Interactable.gd"
+extends "res://scenes/utils/Interactable.gd"
 
 var menu
 var path_dict = {}
@@ -28,7 +28,6 @@ func init_ingredients_menu():
 		path_dict[index] = [item.path, item.name]
 		index += 1
 	
-	print(path_dict)
 	menu.rect_position = position
 	menu.connect("id_pressed", self, "_on_id_pressed")
 	

@@ -1,22 +1,22 @@
 extends Node
 
-var customers_for_the_day
-var customers_to_serve
 var days_remaining = 2
 
 func _ready():
-	start_day()
+	begin_day()
 
 
-func start_day():
+func begin_day():
+	yield(get_tree().create_timer(1.0), "timeout")
+	$Transition_screen.fade_from_black()
 	$Restaurant.start_day()
-	$Transition_screen.transition()
+
 
 func _on_Restaurant_end_day():
-	print("all customers for the day have been served. good night.")
-	print("zzzzz.....................")
+	yield(get_tree().create_timer(1.5), "timeout")
 	days_remaining -= 1
+	$Transition_screen.fade_to_black()
 	if days_remaining != 0:
-		start_day()
+		begin_day()
 	else:
 		print("all days have been played. goodbye.")

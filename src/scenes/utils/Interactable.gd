@@ -14,8 +14,6 @@ func interact():
 	pass
 
 func _on_Interaction_area_body_entered(body):
-	#print("entered", body)
-	#print("interacting area of ", self)
 	interactable = true
 
 func _on_Interaction_area_body_exited(body):

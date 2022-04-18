@@ -1,4 +1,4 @@
-extends "res://scenes/Interactable.gd"
+extends "res://scenes/utils/Interactable.gd"
 
 var order
 var order_list = ["spydäri", "ranskikset"]
@@ -69,7 +69,6 @@ func correct_meal(meal):
 
 func receive_meal(meal):
 	received_order = meal
-	print("received ", received_order)
 	
 	received_order_sprite = Sprite.new()
 	received_order_sprite.set_texture(load(meal.path))
