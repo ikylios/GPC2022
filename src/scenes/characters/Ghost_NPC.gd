@@ -42,10 +42,7 @@ func assign_seat(point):
 
 func leave():
 	yield(get_tree().create_timer(1.0), "timeout")
-	get_parent().leaving_seat_in_point(self, global_position)
-	#global_position = Vector2(global_position.x - 30, global_position.y)
-	#yield(get_tree().create_timer(1.0), "timeout")
-	#queue_free()
+	get_node("/root/Main/Restaurant").leaving_seat_in_point(self, global_position)
 
 # -------------- Food functionalities --------------
 	

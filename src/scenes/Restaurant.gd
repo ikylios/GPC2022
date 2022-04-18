@@ -27,7 +27,6 @@ func show_pause_menu():
 	get_tree().paused = true
 	$Pause_popup.set_position($Player/Camera2D.get_camera_screen_center())
 	$Pause_popup.show()
-	$Player.z_index = 0
 
 # --------------- Pathing functionalities -----------------
 
@@ -52,7 +51,7 @@ func path_to_curve(path):
 	return new_curve
 
 func generate_path_to_point(start, end):
-	var path = $Navigation2D.get_simple_path(start, end, true)
+	var path = $Navigation2D.get_simple_path(start, end, false)
 	return path
 
 
@@ -67,7 +66,7 @@ func generate_customers():
 	for i in number_of_customers:
 		var customer = customer_types[randi() % customer_types.size()-1]
 		var customer_as_instance = customer.instance()
-		add_child(customer_as_instance)
+		$YSort.add_child(customer_as_instance)
 		selected_customers.append(customer_as_instance)
 
 	return selected_customers
