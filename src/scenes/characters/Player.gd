@@ -12,29 +12,36 @@ func _physics_process(delta):
 	var y_input = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	
 	move_and_slide(Vector2(x_input, y_input)*speed)
+	var direction = input_to_direction(x_input, y_input)
+	$AnimatedSprite.play(direction)
 
-
-	if x_input != 0 || y_input != 0:
+func input_to_direction(x, y):
+	var result = ""
+	if carried_item:
+		result = "carry_"
 		
-		if x_input != 0:
-			if y_input > 0:
-				$AnimatedSprite.play("down")
-			elif y_input < 0:
-				$AnimatedSprite.play("up")
+	if x != 0 || y != 0:
+		if x != 0:
+			if y > 0:
+				result += "down"
+			elif y < 0:
+				result += "up"
 			else:
-				if x_input < 0:
-					$AnimatedSprite.play("left")
+				if x < 0:
+					result += "left"
 				else:
-					$AnimatedSprite.play("right")
+					result += "right"
 		
-		elif y_input != 0:
-			if y_input > 0:
-				$AnimatedSprite.play("down")
+		elif y != 0:
+			if y > 0:
+				result += "down"
 			else:
-				$AnimatedSprite.play("up")
-	
+				result += "up"
 	else:
-		$AnimatedSprite.play("idle")
+		result += "idle"
+	
+	return result
+
 
 
 # ------------------- Item functionalities ----------------------
