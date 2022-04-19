@@ -348,6 +348,9 @@ __meta__ = {
 }
 
 [node name="YSort" type="YSort" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Stool" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 452, 168 )
@@ -378,11 +381,11 @@ position = Vector2( 750, 83 )
 scale = Vector2( 0.75, 0.75 )
 
 [node name="Counter_back" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 750, 174 )
+position = Vector2( 750, 166 )
 scale = Vector2( 0.75, 0.75 )
 
 [node name="Counter_back2" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 714, 174 )
+position = Vector2( 714, 166 )
 scale = Vector2( 0.75, 0.75 )
 
 [node name="Counter_cutting_board" parent="YSort" instance=ExtResource( 10 )]

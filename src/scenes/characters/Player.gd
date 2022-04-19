@@ -96,16 +96,16 @@ func set_carried_item_sprite(path):
 func update_sprite_position(direction):
 	if "right" in direction:
 		carried_item_sprite.position = Vector2($AnimatedSprite.position.x - 5, $AnimatedSprite.position.y - 25)
-		carried_item_sprite.set_z_index(-1)
+		carried_item_sprite.show_behind_parent = true
 	elif "left" in direction:
 		carried_item_sprite.position = Vector2($AnimatedSprite.position.x + 5, $AnimatedSprite.position.y - 25)
-		carried_item_sprite.set_z_index(0)
+		carried_item_sprite.show_behind_parent = false
 	elif "up" in direction:
 		carried_item_sprite.position = Vector2($AnimatedSprite.position.x - 10, $AnimatedSprite.position.y - 25)
-		carried_item_sprite.set_z_index(-1)
+		carried_item_sprite.show_behind_parent = true
 	elif "down" in direction:
 		carried_item_sprite.position = Vector2($AnimatedSprite.position.x + 10, $AnimatedSprite.position.y - 25)
-		carried_item_sprite.set_z_index(0)
+		carried_item_sprite.show_behind_parent = false
 
 func drop_carried_item():
 	carried_item = null
