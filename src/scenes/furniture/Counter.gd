@@ -33,7 +33,7 @@ func set_item_sprite():
 	item_sprite = Sprite.new()
 	add_child(item_sprite)
 	item_sprite.set_texture(load(item.path))
-	item_sprite.position = Vector2($Sprite.position.x, $Sprite.position.y - 15)
+	item_sprite.position = Vector2($Sprite.position.x, $Sprite.position.y - 5)
 	
 
 func try_to_cook(ingredients):

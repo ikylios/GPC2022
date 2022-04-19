@@ -365,19 +365,19 @@ position = Vector2( 541, 234 )
 scale = Vector2( 0.75, 0.75 )
 
 [node name="Counter" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 642, 83 )
+position = Vector2( 642, 71 )
 scale = Vector2( 0.75, 0.75 )
 
 [node name="Counter2" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 678, 83 )
+position = Vector2( 678, 71 )
 scale = Vector2( 0.75, 0.75 )
 
 [node name="Counter3" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 714, 83 )
+position = Vector2( 714, 71 )
 scale = Vector2( 0.75, 0.75 )
 
 [node name="Counter4" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 750, 83 )
+position = Vector2( 750, 71 )
 scale = Vector2( 0.75, 0.75 )
 
 [node name="Counter_back" parent="YSort" instance=ExtResource( 6 )]
@@ -389,7 +389,7 @@ position = Vector2( 714, 166 )
 scale = Vector2( 0.75, 0.75 )
 
 [node name="Counter_cutting_board" parent="YSort" instance=ExtResource( 10 )]
-position = Vector2( 678, 174 )
+position = Vector2( 678, 166 )
 scale = Vector2( 0.75, 0.75 )
 
 [node name="Candle_stool" parent="YSort" instance=ExtResource( 8 )]
@@ -406,7 +406,7 @@ process_material = SubResource( 60 )
 texture = SubResource( 61 )
 
 [node name="Ingredients_box" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 601, 86 )
+position = Vector2( 601, 74 )
 scale = Vector2( 0.75, 0.75 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 9 )]
