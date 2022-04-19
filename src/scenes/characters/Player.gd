@@ -80,7 +80,18 @@ func get_carried_item():
 func set_carried_item(item):
 	carried_item = item
 	set_carried_item_sprite(item.path)
-	movement_state = states.CARRY
+
+func _on_Ingredient_box_interacted(item):
+	set_carried_item(item)
+
+func set_carried_item_sprite(path):
+	remove_child(carried_item_sprite)
+	
+	carried_item_sprite = Sprite.new()
+	carried_item_sprite.set_texture(load(path))
+	carried_item_sprite.set_scale(Vector2(0.75, 0.75))
+	add_child(carried_item_sprite)
+	update_sprite_position(prev_direction)
 	
 func update_sprite_position(direction):
 	if "right" in direction:
@@ -95,17 +106,6 @@ func update_sprite_position(direction):
 	elif "down" in direction:
 		carried_item_sprite.position = Vector2($AnimatedSprite.position.x + 10, $AnimatedSprite.position.y - 25)
 		carried_item_sprite.set_z_index(0)
-
-func _on_Ingredient_box_interacted(item):
-	set_carried_item(item)
-
-func set_carried_item_sprite(path):
-	remove_child(carried_item_sprite)
-	
-	carried_item_sprite = Sprite.new()
-	carried_item_sprite.set_texture(load(path))
-	add_child(carried_item_sprite)
-	update_sprite_position(prev_direction)
 
 func drop_carried_item():
 	carried_item = null
