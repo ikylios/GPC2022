@@ -347,54 +347,55 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Ingredients_box" parent="." instance=ExtResource( 5 )]
-position = Vector2( 601, 86 )
-scale = Vector2( 0.75, 0.75 )
+[node name="YSort" type="YSort" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Stool" parent="." instance=ExtResource( 11 )]
+[node name="Stool" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 452, 168 )
 scale = Vector2( 0.75, 0.75 )
 
-[node name="Stool2" parent="." instance=ExtResource( 11 )]
+[node name="Stool2" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 483, 219 )
 scale = Vector2( 0.75, 0.75 )
 
-[node name="Stool3" parent="." instance=ExtResource( 11 )]
+[node name="Stool3" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 541, 234 )
 scale = Vector2( 0.75, 0.75 )
 
-[node name="Counter" parent="." instance=ExtResource( 7 )]
-position = Vector2( 642, 83 )
+[node name="Counter" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 642, 71 )
 scale = Vector2( 0.75, 0.75 )
 
-[node name="Counter2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 678, 83 )
+[node name="Counter2" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 678, 71 )
 scale = Vector2( 0.75, 0.75 )
 
-[node name="Counter3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 714, 83 )
+[node name="Counter3" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 714, 71 )
 scale = Vector2( 0.75, 0.75 )
 
-[node name="Counter4" parent="." instance=ExtResource( 7 )]
-position = Vector2( 750, 83 )
+[node name="Counter4" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 750, 71 )
 scale = Vector2( 0.75, 0.75 )
 
-[node name="Counter_back" parent="." instance=ExtResource( 6 )]
-position = Vector2( 750, 174 )
+[node name="Counter_back" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 750, 166 )
 scale = Vector2( 0.75, 0.75 )
 
-[node name="Counter_back2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 714, 174 )
+[node name="Counter_back2" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 714, 166 )
 scale = Vector2( 0.75, 0.75 )
 
-[node name="Counter_cutting_board" parent="." instance=ExtResource( 10 )]
-position = Vector2( 678, 174 )
+[node name="Counter_cutting_board" parent="YSort" instance=ExtResource( 10 )]
+position = Vector2( 678, 166 )
 scale = Vector2( 0.75, 0.75 )
 
-[node name="Candle_stool" parent="." instance=ExtResource( 8 )]
+[node name="Candle_stool" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 480, 119 )
 
-[node name="Particles2D" type="Particles2D" parent="Candle_stool"]
+[node name="Particles2D" type="Particles2D" parent="YSort/Candle_stool"]
 position = Vector2( 0, -30 )
 scale = Vector2( 3, 3 )
 amount = 20
@@ -404,11 +405,14 @@ randomness = 0.74
 process_material = SubResource( 60 )
 texture = SubResource( 61 )
 
-[node name="Player" parent="." instance=ExtResource( 9 )]
-position = Vector2( 558, 161 )
-z_index = 1
+[node name="Ingredients_box" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 601, 74 )
+scale = Vector2( 0.75, 0.75 )
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Player" parent="YSort" instance=ExtResource( 9 )]
+position = Vector2( 558, 161 )
+
+[node name="Camera2D" type="Camera2D" parent="YSort/Player"]
 position = Vector2( 5, 13 )
 current = true
 zoom = Vector2( 0.4, 0.4 )

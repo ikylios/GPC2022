@@ -33,11 +33,11 @@ func set_item_sprite():
 	item_sprite = Sprite.new()
 	add_child(item_sprite)
 	item_sprite.set_texture(load(item.path))
-	item_sprite.position = Vector2($Sprite.position.x, $Sprite.position.y - 10)
+	item_sprite.position = Vector2($Sprite.position.x, $Sprite.position.y - 5)
 	
 
 func try_to_cook(ingredients):
-	var result = get_parent().get_parent().get_node("Food_index").try_to_cook(ingredients)
+	var result = get_node("/root/Main/Food_index").try_to_cook(ingredients)
 	
 	if !result:
 		print("didn't find a meal with those ingredients")

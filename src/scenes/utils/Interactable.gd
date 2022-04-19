@@ -14,7 +14,9 @@ func interact():
 	pass
 
 func _on_Interaction_area_body_entered(body):
-	interactable = true
+	if body.get_name() == "Player":
+		interactable = true
 
 func _on_Interaction_area_body_exited(body):
-	interactable = false
+	if body.get_name() == "Player":
+		interactable = false
