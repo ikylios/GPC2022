@@ -8,8 +8,10 @@
         { "name": "Potato", "path": "res://assets/food/ingredients/Potato.png", "cuttable": true, "cut_ingredient_name": "Cut_Potato" },
 		{ "name": "Steak", "path": "res://assets/food/ingredients/Steak.png", "cuttable": true, "cut_ingredient_name": "Cut_Steak" },
         { "name": "Egg", "path": "res://assets/food/ingredients/Egg.png", "cuttable": false },
+        { "name": "Tomato", "path": "res://assets/food/ingredients/tomato.png", "cuttable": true, "cut_ingredient_name": "Cut_Tomato" },
         { "name": "Cut_Potato", "path": "res://assets/food/ingredients/Cut_Potato.png", "cuttable": false },
-        { "name": "Cut_Steak", "path": "res://assets/food/ingredients/Cut_Steak.png", "cuttable": false }
+        { "name": "Cut_Steak", "path": "res://assets/food/ingredients/Cut_Steak.png", "cuttable": false },
+        { "name": "Cut_Tomato", "path": "res://assets/food/ingredients/cut_tomato.png", "cuttable": false }
     ]
 	
 }
