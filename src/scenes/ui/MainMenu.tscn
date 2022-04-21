@@ -53,9 +53,6 @@ margin_left = -90.0
 margin_top = -49.0
 margin_right = 99.0
 margin_bottom = 45.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="StartButton2" parent="Background/VBoxContainer" instance=ExtResource( 5 )]
 margin_right = 189.0
