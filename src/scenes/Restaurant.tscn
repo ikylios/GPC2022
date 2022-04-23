@@ -364,7 +364,7 @@ position = Vector2( 642, 71 )
 scale = Vector2( 0.75, 0.75 )
 
 [node name="Frying_pan" parent="YSort" instance=ExtResource( 16 )]
-position = Vector2( 678, 76 )
+position = Vector2( 678, 75 )
 
 [node name="Counter3" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 714, 71 )

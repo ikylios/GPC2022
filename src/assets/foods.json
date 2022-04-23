@@ -1,15 +1,16 @@
 {
-    "meals": [ 
+    "meals": [
 		{ "name": "spydäri", "path": "res://assets/food/meals/68_macncheese_dish.png", "ingredients": ["Cut_Potato", "Cut_Steak"] },
 		{ "name": "ranskikset", "path": "res://assets/food/meals/45_frenchfries_dish.png", "ingredients": ["Cut_Potato", "Cut_Potato"] }
 	],
 
     "ingredients": [
-        { "name": "Potato", "path": "res://assets/food/ingredients/Potato.png", "cuttable": true, "cut_ingredient_name": "Cut_Potato" },
-		{ "name": "Steak", "path": "res://assets/food/ingredients/Steak.png", "cuttable": true, "cut_ingredient_name": "Cut_Steak" },
-        { "name": "Egg", "path": "res://assets/food/ingredients/Egg.png", "cuttable": false },
-        { "name": "Cut_Potato", "path": "res://assets/food/ingredients/Cut_Potato.png", "cuttable": false },
-        { "name": "Cut_Steak", "path": "res://assets/food/ingredients/Cut_Steak.png", "cuttable": false }
+        { "name": "Potato", "path": "res://assets/food/ingredients/Potato.png", "cuttable": true, "fryable": false, "cut_ingredient_name": "Cut_Potato" },
+		{ "name": "Steak", "path": "res://assets/food/ingredients/Steak.png", "cuttable": true, "fryable": false, "cut_ingredient_name": "Cut_Steak" },
+        { "name": "Egg", "path": "res://assets/food/ingredients/Egg.png", "cuttable": false, "fryable": true, "fried_ingredient_name": "Fried_Egg" },
+        { "name": "Cut_Potato", "path": "res://assets/food/ingredients/Cut_Potato.png", "cuttable": false, "fryable": false },
+        { "name": "Cut_Steak", "path": "res://assets/food/ingredients/Cut_Steak.png", "cuttable": false, "fryable": false },
+        { "name": "Fried_Egg", "path": "res://assets/food/ingredients/Fried_Egg.png", "cuttable": false, "fryable": false }
     ]
-	
+
 }
