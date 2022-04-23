@@ -2,8 +2,9 @@
     "meals": [ 
 		{ "name": "spydäri", "path": "res://assets/food/meals/68_macncheese_dish.png", "ingredients": ["Cut_Potato", "Cut_Steak"] },
 		{ "name": "ranskikset", "path": "res://assets/food/meals/45_frenchfries_dish.png", "ingredients": ["Cut_Potato", "Cut_Potato"] },
-        { "name": "cucumber_salad", "path": "res://assets/food/meals/Cucumber_Salad.png", "ingredients": ["Cut_Cucumber", "Cut_Lettuce"] },
-        { "name": "tomato_salad", "path": "res://assets/food/meals/Tomato_Salad.png", "ingredients": ["Cut_Lettuce", "Cut_Tomato"] }
+        { "name": "cucumber_salad", "path": "res://assets/food/meals/Cucumber_Salad.png", "ingredients": ["Cut_Lettuce", "Cut_Cucumber"] },
+        { "name": "tomato_salad", "path": "res://assets/food/meals/Tomato_Salad.png", "ingredients": ["Cut_Lettuce", "Cut_Tomato"] },
+        { "name": "cucumber_tomato_salad", "path": "res://assets/food/meals/Cucumber_Tomato_Salad.png", "ingredients": ["Cut_Lettuce", "Cut_Tomato", "Cut_Cucumber"] }
 	],
 
     "ingredients": [

@@ -30,7 +30,7 @@ func get_meals_list():
 	return food_file.meals
 
 func get_meal(meal_name):
-	for item in food_file.meal:
+	for item in food_file.meals:
 		if item.name == meal_name:
 			return item
 	return null
@@ -57,11 +57,26 @@ func is_cuttable(item):
 	return get_ingredient(item).cuttable
 
 
+
 func try_to_cook(ingredients):
+	# checks if either of ingredients is actually a meal. if yes, removes the meal from ingredients and adds the ingredients of the meal to the array instead
+	for elem in ingredients:
+		var was_a_meal = get_meal(elem)
+		
+		if was_a_meal:
+			ingredients.remove(elem)
+			for i in was_a_meal.ingredients:
+				ingredients.append(i)
+		
 	ingredients.sort()
+	
+	
 	var result = null
-	for meal in get_meals_list():
-		if meal.ingredients == ingredients:
+	for meal in food_file.meals:
+		var meal_ings = meal.ingredients
+		meal_ings.sort()
+		print("sorted meal_ings: ", meal_ings)
+		if meal_ings  == ingredients:
 			result = { "name": meal.name, "path": meal.path }
 	
 	if !result:
