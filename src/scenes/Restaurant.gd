@@ -25,7 +25,7 @@ func start_day():
 	
 func show_pause_menu():
 	get_tree().paused = true
-	$Pause_popup.set_position($Player/Camera2D.get_camera_screen_center())
+	$Pause_popup.set_position($YSort/Player/Camera2D.get_camera_screen_center())
 	$Pause_popup.show()
 
 # --------------- Pathing functionalities -----------------
