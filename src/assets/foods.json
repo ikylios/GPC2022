@@ -2,7 +2,8 @@
     "meals": [ 
 		{ "name": "spydäri", "path": "res://assets/food/meals/68_macncheese_dish.png", "ingredients": ["Cut_Potato", "Cut_Steak"] },
 		{ "name": "ranskikset", "path": "res://assets/food/meals/45_frenchfries_dish.png", "ingredients": ["Cut_Potato", "Cut_Potato"] },
-        { "name": "tomato salad", "path": "res://assets/food/meals/Tomato_salad.png", "ingredients": ["Cut_Lettuce", "Cut_Tomato"] }
+        { "name": "cucumber_salad", "path": "res://assets/food/meals/Cucumber_Salad.png", "ingredients": ["Cut_Cucumber", "Cut_Lettuce"] },
+        { "name": "tomato_salad", "path": "res://assets/food/meals/Tomato_Salad.png", "ingredients": ["Cut_Lettuce", "Cut_Tomato"] }
 	],
 
     "ingredients": [
@@ -16,8 +17,7 @@
         { "name": "Cut_Steak", "path": "res://assets/food/ingredients/Cut_Steak.png", "cuttable": false },
         { "name": "Cut_Tomato", "path": "res://assets/food/ingredients/Cut_Tomato.png", "cuttable": false },
         { "name": "Cut_Cucumber", "path": "res://assets/food/ingredients/Cut_Cucumber.png", "cuttable": false },
-        { "name": "Cut_Lettuce", "path": "res://assets/food/ingredients/Cut_Lettuce.png", "cuttable": false }
-        
+        { "name": "Cut_Lettuce", "path": "res://assets/food/ingredients/Cut_Lettuce.png", "cuttable": false }        
     ]
 	
 }

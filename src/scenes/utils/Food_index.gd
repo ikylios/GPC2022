@@ -58,11 +58,9 @@ func is_cuttable(item):
 
 
 func try_to_cook(ingredients):
-	var meals = food_file.meals
-	
 	ingredients.sort()
 	var result = null
-	for meal in meals:
+	for meal in get_meals_list():
 		if meal.ingredients == ingredients:
 			result = { "name": meal.name, "path": meal.path }
 	
