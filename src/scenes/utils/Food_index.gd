@@ -59,7 +59,9 @@ func is_cuttable(item):
 
 
 func try_to_cook(ingredients):
-	# checks if either of ingredients is actually a meal. if yes, removes the meal from ingredients and adds the ingredients of the meal to the array instead
+	# checks if either of ingredients is actually a meal. 
+	# if yes, removes the meal from ingredients 
+	# and adds the ingredients of the meal to the array instead
 	for elem in ingredients:
 		var was_a_meal = get_meal(elem)
 		
@@ -75,7 +77,6 @@ func try_to_cook(ingredients):
 	for meal in food_file.meals:
 		var meal_ings = meal.ingredients
 		meal_ings.sort()
-		print("sorted meal_ings: ", meal_ings)
 		if meal_ings  == ingredients:
 			result = { "name": meal.name, "path": meal.path }
 	
