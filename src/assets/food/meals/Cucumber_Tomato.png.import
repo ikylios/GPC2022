@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cut_tomato.png-de188d31eb79419190a2d6ff22a35b33.stex"
+path="res://.import/Cucumber_Tomato.png-c1ae1be7c067929850453112d8dc72e3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/food/ingredients/cut_tomato.png"
-dest_files=[ "res://.import/cut_tomato.png-de188d31eb79419190a2d6ff22a35b33.stex" ]
+source_file="res://assets/food/meals/Cucumber_Tomato.png"
+dest_files=[ "res://.import/Cucumber_Tomato.png-c1ae1be7c067929850453112d8dc72e3.stex" ]
 
 [params]
 
