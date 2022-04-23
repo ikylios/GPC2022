@@ -25,6 +25,9 @@ func load_foods() -> Dictionary:
 
 func get_ingredients_list():
 	return food_file.ingredients
+
+func get_menu_visible_ingredients():
+	return food_file.menu_visible_ingredients
 	
 func get_meals_list():
 	return food_file.meals

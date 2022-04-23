@@ -1,7 +1,6 @@
 extends "res://scenes/utils/Interactable.gd"
 
 func interact():
-	print("interacted with frying pan")
 	var player = get_parent().get_node("Player")
 	var player_item = player.get_carried_item()
 	
