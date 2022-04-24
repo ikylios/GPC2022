@@ -15,11 +15,14 @@
         { "name": "Tomato", "path": "res://assets/food/ingredients/Tomato.png", "cuttable": true, "cut_ingredient_name": "Cut_Tomato" },
         { "name": "Cucumber", "path": "res://assets/food/ingredients/Cucumber.png", "cuttable": true, "cut_ingredient_name": "Cut_Cucumber" },
         { "name": "Lettuce", "path": "res://assets/food/ingredients/Lettuce.png", "cuttable": true, "cut_ingredient_name": "Cut_Lettuce" },
+        { "name": "Cheese", "path": "res://assets/food/ingredients/Cheese.png", "cuttable": true, "cut_ingredient_name": "Cut_Cheese" },
         { "name": "Cut_Potato", "path": "res://assets/food/ingredients/Cut_Potato.png", "cuttable": false },
         { "name": "Cut_Steak", "path": "res://assets/food/ingredients/Cut_Steak.png", "cuttable": false },
         { "name": "Cut_Tomato", "path": "res://assets/food/ingredients/Cut_Tomato.png", "cuttable": false },
         { "name": "Cut_Cucumber", "path": "res://assets/food/ingredients/Cut_Cucumber.png", "cuttable": false },
-        { "name": "Cut_Lettuce", "path": "res://assets/food/ingredients/Cut_Lettuce.png", "cuttable": false }        
+        { "name": "Cut_Lettuce", "path": "res://assets/food/ingredients/Cut_Lettuce.png", "cuttable": false },
+        { "name": "Cut_Cheese", "path": "res://assets/food/ingredients/Cut_Cheese.png", "cuttable": false },
+        { "name": "Buns", "path": "res://assets/food/ingredients/Buns.png", "cuttable": false }
     ]
 	
 }
