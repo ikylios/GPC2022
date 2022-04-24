@@ -28,6 +28,10 @@
         { "name": "Potato", "path": "res://assets/food/ingredients/Potato.png", "cuttable": true, "fryable": false, "cut_ingredient_name": "Cut_Potato" },
         { "name": "Raw_Steak", "path": "res://assets/food/ingredients/Raw_Steak.png", "cuttable": true, "fryable": true, "cut_ingredient_name": "Cut_Steak", "fried_ingredient_name": "Fried_Steak" },
         { "name": "Egg", "path": "res://assets/food/ingredients/Egg.png", "cuttable": false, "fryable": true, "fried_ingredient_name": "Fried_Egg" },
+        { "name": "Tomato", "path": "res://assets/food/ingredients/Tomato.png", "cuttable": true, "fryable": false, "cut_ingredient_name": "Cut_Tomato" },
+        { "name": "Cucumber", "path": "res://assets/food/ingredients/Cucumber.png", "cuttable": true, "fryable": false, "cut_ingredient_name": "Cut_Cucumber" },
+        { "name": "Lettuce", "path": "res://assets/food/ingredients/Lettuce.png", "cuttable": true, "fryable": false, "cut_ingredient_name": "Cut_Lettuce" },
+
     ]
 
 }
