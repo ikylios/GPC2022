@@ -1,47 +1,46 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/furniture/ProgressBarControl.gd" type="Script" id=1]
 [ext_resource path="res://scenes/furniture/Frying_pan.gd" type="Script" id=2]
 [ext_resource path="res://assets/sound/frying.wav" type="AudioStream" id=3]
-[ext_resource path="res://assets/furniture/stove_animation/stove_frame_1.png" type="Texture" id=4]
-[ext_resource path="res://assets/furniture/stove_animation/stove_frame_2.png" type="Texture" id=5]
-[ext_resource path="res://assets/furniture/stove_animation/stove_frame_3.png" type="Texture" id=6]
+[ext_resource path="res://assets/furniture/frying_pan.png" type="Texture" id=4]
 [ext_resource path="res://assets/ui/progressbar_top_1.png" type="Texture" id=7]
 [ext_resource path="res://assets/ui/progressbar_over_1.png" type="Texture" id=8]
-
-[sub_resource type="SpriteFrames" id=4]
-animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "default",
-"speed": 6.0
-} ]
+[ext_resource path="res://assets/furniture/furnace_with_chimney.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 15.5, 11.75 )
+extents = Vector2( 15.5, 3.9375 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 16, 4.5 )
+extents = Vector2( 16, 3.25 )
 
 [node name="Frying_pan" type="Area2D"]
 script = ExtResource( 2 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 4 )
-playing = true
+[node name="FurnaceSprite" type="Sprite" parent="."]
+position = Vector2( 0, -41 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 9 )
+offset = Vector2( 0, 10 )
+
+[node name="FryingPanSprite" type="Sprite" parent="."]
+position = Vector2( -10, -7 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 4 )
+offset = Vector2( 0, 10 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 4.25 )
+position = Vector2( 1, 4 )
 shape = SubResource( 3 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 0, -5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 0, -9.5 )
+position = Vector2( 0, -1.75 )
 shape = SubResource( 2 )
 
 [node name="ProgressBarControl" type="Control" parent="."]
