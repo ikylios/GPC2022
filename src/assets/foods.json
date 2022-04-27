@@ -1,20 +1,26 @@
 {
     "meals": [
-		{ "name": "spydäri", "path": "res://assets/food/meals/68_macncheese_dish.png", "ingredients": ["Cut_Potato", "Cut_Steak"] },
+		{ "name": "spydäri", "path": "res://assets/food/meals/68_macncheese_dish.png", "ingredients": ["Cut_Potato", "Cut_Beef"] },
 		{ "name": "ranskikset", "path": "res://assets/food/meals/45_frenchfries_dish.png", "ingredients": ["Cut_Potato", "Cut_Potato"] },
-        { "name": "english_breakfast", "path": "res://assets/food/meals/English_Breakfast.png", "ingredients": ["Cut_Steak", "Fried_Egg"] },
+        { "name": "english_breakfast", "path": "res://assets/food/meals/English_Breakfast.png", "ingredients": ["Cut_Beef", "Fried_Egg"] },
         { "name": "cucumber_salad", "path": "res://assets/food/meals/Cucumber_Salad.png", "ingredients": ["Cut_Lettuce", "Cut_Cucumber"] },
         { "name": "tomato_salad", "path": "res://assets/food/meals/Tomato_Salad.png", "ingredients": ["Cut_Lettuce", "Cut_Tomato"] },
         { "name": "cucumber_tomato", "path": "res://assets/food/meals/Cucumber_Tomato.png", "ingredients": ["Cut_Tomato", "Cut_Cucumber"] },
-        { "name": "cucumber_tomato_salad", "path": "res://assets/food/meals/Cucumber_Tomato_Salad.png", "ingredients": ["Cut_Lettuce", "Cut_Tomato", "Cut_Cucumber"] }
+        { "name": "cucumber_tomato_salad", "path": "res://assets/food/meals/Cucumber_Tomato_Salad.png", "ingredients": ["Cut_Lettuce", "Cut_Tomato", "Cut_Cucumber"] },
+        { "name": "beef_bun", "path": "res://assets/food/meals/Beef_Bun.png", "ingredients": ["Buns", "Fried_Beef"] },
+        { "name": "cheese_bun", "path": "res://assets/food/meals/Cheese_Bun.png", "ingredients": ["Buns", "Cut_Cheese"] },
+        { "name": "bun_cheese_beef_lettuce", "path": "res://assets/food/meals/Bun_Cheese_Beef_Lettuce.png", "ingredients": ["Buns", "Cut_Cheese", "Fried_Beef", "Cut_Lettuce"] },
+        { "name": "bun_cheese_beef_tomato", "path": "res://assets/food/meals/Bun_Cheese_Beef_Tomato.png", "ingredients": ["Buns", "Cut_Cheese", "Fried_Beef", "Cut_Tomato"] },
+        { "name": "basic_burger", "path": "res://assets/food/meals/Basic_Burger.png", "ingredients": ["Buns", "Cut_Cheese", "Fried_Beef"] },
+        { "name": "deluxe_burger", "path": "res://assets/food/meals/Deluxe_Burger.png", "ingredients": ["Buns", "Cut_Cheese", "Fried_Beef", "Cut_Tomato", "Cut_Lettuce"] }
 	],
 
     "ingredients": [
         { "name": "Potato", "path": "res://assets/food/ingredients/Potato.png", "cuttable": true, "fryable": false, "cut_ingredient_name": "Cut_Potato" },
         { "name": "Cut_Potato", "path": "res://assets/food/ingredients/Cut_Potato.png", "cuttable": false, "fryable": false },
-		{ "name": "Raw_Steak", "path": "res://assets/food/ingredients/Raw_Steak.png", "cuttable": true, "fryable": true, "cut_ingredient_name": "Cut_Steak", "fried_ingredient_name": "Fried_Steak" },
-        { "name": "Cut_Steak", "path": "res://assets/food/ingredients/Cut_Steak.png", "cuttable": false, "fryable": false },
-        { "name": "Fried_Steak", "path": "res://assets/food/ingredients/Fried_Steak.png", "cuttable": false, "fryable": false },
+		{ "name": "Raw_Beef", "path": "res://assets/food/ingredients/Raw_Beef.png", "cuttable": true, "fryable": true, "cut_ingredient_name": "Cut_Beef", "fried_ingredient_name": "Fried_Beef" },
+        { "name": "Cut_Beef", "path": "res://assets/food/ingredients/Cut_Beef.png", "cuttable": false, "fryable": false },
+        { "name": "Fried_Beef", "path": "res://assets/food/ingredients/Fried_Beef.png", "cuttable": false, "fryable": false },
         { "name": "Egg", "path": "res://assets/food/ingredients/Egg.png", "cuttable": false, "fryable": true, "fried_ingredient_name": "Fried_Egg" },
         { "name": "Fried_Egg", "path": "res://assets/food/ingredients/Fried_Egg.png", "cuttable": false, "fryable": false },
         { "name": "Tomato", "path": "res://assets/food/ingredients/Tomato.png", "cuttable": true, "fryable": false, "cut_ingredient_name": "Cut_Tomato" },
@@ -30,7 +36,7 @@
 
     "menu_visible_ingredients": [
         { "name": "Potato", "path": "res://assets/food/ingredients/Potato.png", "cuttable": true, "fryable": false, "cut_ingredient_name": "Cut_Potato" },
-        { "name": "Raw_Steak", "path": "res://assets/food/ingredients/Raw_Steak.png", "cuttable": true, "fryable": true, "cut_ingredient_name": "Cut_Steak", "fried_ingredient_name": "Fried_Steak" },
+        { "name": "Raw_Beef", "path": "res://assets/food/ingredients/Raw_Beef.png", "cuttable": true, "fryable": true, "cut_ingredient_name": "Cut_Beef", "fried_ingredient_name": "Fried_Beef" },
         { "name": "Egg", "path": "res://assets/food/ingredients/Egg.png", "cuttable": false, "fryable": true, "fried_ingredient_name": "Fried_Egg" },
         { "name": "Tomato", "path": "res://assets/food/ingredients/Tomato.png", "cuttable": true, "fryable": false, "cut_ingredient_name": "Cut_Tomato" },
         { "name": "Cucumber", "path": "res://assets/food/ingredients/Cucumber.png", "cuttable": true, "fryable": false, "cut_ingredient_name": "Cut_Cucumber" },

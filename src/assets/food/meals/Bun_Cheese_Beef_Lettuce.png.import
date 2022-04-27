@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cut_Steak.png-b2d75b8a1e9cd3d5fcd070240cdbd6a5.stex"
+path="res://.import/Bun_Cheese_Beef_Lettuce.png-38992705edfe343533ab54580def7cfd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/food/ingredients/Cut_Steak.png"
-dest_files=[ "res://.import/Cut_Steak.png-b2d75b8a1e9cd3d5fcd070240cdbd6a5.stex" ]
+source_file="res://assets/food/meals/Bun_Cheese_Beef_Lettuce.png"
+dest_files=[ "res://.import/Bun_Cheese_Beef_Lettuce.png-38992705edfe343533ab54580def7cfd.stex" ]
 
 [params]
 

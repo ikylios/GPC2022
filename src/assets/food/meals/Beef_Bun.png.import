@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Raw_Steak.png-e3095ef222b11587b56a911c493cba62.stex"
+path="res://.import/Beef_Bun.png-eb9c00a84917a14af9b3237a68b4c705.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/food/ingredients/Raw_Steak.png"
-dest_files=[ "res://.import/Raw_Steak.png-e3095ef222b11587b56a911c493cba62.stex" ]
+source_file="res://assets/food/meals/Beef_Bun.png"
+dest_files=[ "res://.import/Beef_Bun.png-eb9c00a84917a14af9b3237a68b4c705.stex" ]
 
 [params]
 
