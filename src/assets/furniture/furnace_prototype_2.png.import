@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cut_Tomato.png-e77eef5fadef02f43a8248168831150f.stex"
+path="res://.import/furnace_prototype_2.png-6461b6fdccc4e20eef0baedcaf8da78e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/food/ingredients/Cut_Tomato.png"
-dest_files=[ "res://.import/Cut_Tomato.png-e77eef5fadef02f43a8248168831150f.stex" ]
+source_file="res://assets/furniture/furnace_prototype_2.png"
+dest_files=[ "res://.import/furnace_prototype_2.png-6461b6fdccc4e20eef0baedcaf8da78e.stex" ]
 
 [params]
 

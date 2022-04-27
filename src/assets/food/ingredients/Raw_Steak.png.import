@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cut_Tomato.png-e77eef5fadef02f43a8248168831150f.stex"
+path="res://.import/Raw_Steak.png-e3095ef222b11587b56a911c493cba62.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/food/ingredients/Cut_Tomato.png"
-dest_files=[ "res://.import/Cut_Tomato.png-e77eef5fadef02f43a8248168831150f.stex" ]
+source_file="res://assets/food/ingredients/Raw_Steak.png"
+dest_files=[ "res://.import/Raw_Steak.png-e3095ef222b11587b56a911c493cba62.stex" ]
 
 [params]
 

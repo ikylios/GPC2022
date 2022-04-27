@@ -19,7 +19,7 @@ func _on_Interaction_area_body_exited(body):
 func init_ingredients_menu():
 	menu = $Ingredients_menu
 	
-	var ingredients = get_node("/root/Main/Food_index").get_ingredients_list()
+	var ingredients = get_node("/root/Main/Food_index").get_menu_visible_ingredients()
 	
 	var index = 0
 	for item in ingredients:
