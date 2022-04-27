@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ghosts_sheet.png-1291505a43d5284ffbb343cc245687e3.stex"
+path="res://.import/ghosts_sheet.png-36dd12340c432a6a760efd1fa279bafd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ghosts_sheet.png"
-dest_files=[ "res://.import/ghosts_sheet.png-1291505a43d5284ffbb343cc245687e3.stex" ]
+source_file="res://assets/characters/ghosts_sheet.png"
+dest_files=[ "res://.import/ghosts_sheet.png-36dd12340c432a6a760efd1fa279bafd.stex" ]
 
 [params]
 

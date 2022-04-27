@@ -7,7 +7,7 @@ signal end_day
 
 
 func _process(delta):
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("ui_home"):
 		if get_tree().get_nodes_in_group("new_customers").size() > 0:
 			seat_customer()
 		else:

@@ -2,7 +2,8 @@
 
 [ext_resource path="res://scenes/characters/Ghost_NPC.gd" type="Script" id=1]
 [ext_resource path="res://scenes/characters/Order_bubble.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/ghosts_sheet.png" type="Texture" id=4]
+[ext_resource path="res://assets/characters/ghosts_sheet.png" type="Texture" id=4]
+
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
