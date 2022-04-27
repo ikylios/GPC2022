@@ -29,9 +29,6 @@ margin_right = 40.5
 margin_bottom = 24.0
 theme = SubResource( 2 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Background" type="Panel" parent="."]
 anchor_left = 0.444
@@ -53,9 +50,6 @@ margin_left = -90.0
 margin_top = -49.0
 margin_right = 99.0
 margin_bottom = 45.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="StartButton2" parent="Background/VBoxContainer" instance=ExtResource( 5 )]
 margin_right = 189.0

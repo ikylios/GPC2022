@@ -25,6 +25,9 @@ func load_foods() -> Dictionary:
 
 func get_ingredients_list():
 	return food_file.ingredients
+
+func get_menu_visible_ingredients():
+	return food_file.menu_visible_ingredients
 	
 func get_meals_list():
 	return food_file.meals
@@ -53,8 +56,20 @@ func try_to_chop(item):
 	
 	return cut_item
 
+func try_to_fry(item):
+	var fried_item = null
+		
+	if is_fryable(item):
+		var fried_item_name = get_ingredient(item).fried_ingredient_name
+		fried_item = get_ingredient(fried_item_name)
+	
+	return fried_item
+
 func is_cuttable(item):
 	return get_ingredient(item).cuttable
+	
+func is_fryable(item):
+	return get_ingredient(item).fryable
 
 
 
@@ -84,4 +99,3 @@ func try_to_cook(ingredients):
 		print("didn't find a meal with those ingredients")
 	
 	return result
-		
