@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://assets/wall/0f6a29db-2521-4e60-899f-1795dfa4906e.png" type="Texture" id=1]
 [ext_resource path="res://assets/floor/floor.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://scenes/ui/Pause_Popup_new.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/utils/Camera2D.gd" type="Script" id=15]
 [ext_resource path="res://scenes/furniture/Frying_pan.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/furniture/Oven.tscn" type="PackedScene" id=17]
 
 [sub_resource type="NavigationPolygon" id=64]
 vertices = PoolVector2Array( 572, 197, 765, 197, 764, 317, 387, 316, 387, 89, 571, 88 )
@@ -359,16 +360,11 @@ scale = Vector2( 0.75, 0.75 )
 position = Vector2( 541, 234 )
 scale = Vector2( 0.75, 0.75 )
 
+[node name="Oven" parent="YSort" instance=ExtResource( 17 )]
+position = Vector2( 720, 54 )
+
 [node name="Counter" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 642, 71 )
-scale = Vector2( 0.75, 0.75 )
-
-[node name="Counter3" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 714, 71 )
-scale = Vector2( 0.75, 0.75 )
-
-[node name="Counter4" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 750, 71 )
 scale = Vector2( 0.75, 0.75 )
 
 [node name="Counter_back" parent="YSort" instance=ExtResource( 6 )]

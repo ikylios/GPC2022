@@ -5,20 +5,23 @@
         { "name": "english_breakfast", "path": "res://assets/food/meals/English_Breakfast.png", "ingredients": ["Cut_Beef", "Fried_Egg"] },
         { "name": "cucumber_salad", "path": "res://assets/food/meals/Cucumber_Salad.png", "ingredients": ["Cut_Lettuce", "Cut_Cucumber"] },
         { "name": "tomato_salad", "path": "res://assets/food/meals/Tomato_Salad.png", "ingredients": ["Cut_Lettuce", "Cut_Tomato"] },
+        { "name": "basic_burger", "path": "res://assets/food/meals/Basic_Burger.png", "ingredients": ["Buns", "Cut_Cheese", "Fried_Beef"] },
+        { "name": "deluxe_burger", "path": "res://assets/food/meals/Deluxe_Burger.png", "ingredients": ["Buns", "Cut_Cheese", "Fried_Beef", "Cut_Tomato", "Cut_Lettuce"] },
+        { "name": "Bread", "path": "res://assets/food/meals/Bread.png", "ingredients": ["Milk", "Flour", "Egg"] }
+	],
+
+    "wip_meals": [
         { "name": "cucumber_tomato", "path": "res://assets/food/meals/Cucumber_Tomato.png", "ingredients": ["Cut_Tomato", "Cut_Cucumber"] },
         { "name": "cucumber_tomato_salad", "path": "res://assets/food/meals/Cucumber_Tomato_Salad.png", "ingredients": ["Cut_Lettuce", "Cut_Tomato", "Cut_Cucumber"] },
         { "name": "beef_bun", "path": "res://assets/food/meals/Beef_Bun.png", "ingredients": ["Buns", "Fried_Beef"] },
         { "name": "cheese_bun", "path": "res://assets/food/meals/Cheese_Bun.png", "ingredients": ["Buns", "Cut_Cheese"] },
         { "name": "bun_cheese_beef_lettuce", "path": "res://assets/food/meals/Bun_Cheese_Beef_Lettuce.png", "ingredients": ["Buns", "Cut_Cheese", "Fried_Beef", "Cut_Lettuce"] },
         { "name": "bun_cheese_beef_tomato", "path": "res://assets/food/meals/Bun_Cheese_Beef_Tomato.png", "ingredients": ["Buns", "Cut_Cheese", "Fried_Beef", "Cut_Tomato"] },
-        { "name": "basic_burger", "path": "res://assets/food/meals/Basic_Burger.png", "ingredients": ["Buns", "Cut_Cheese", "Fried_Beef"] },
-        { "name": "deluxe_burger", "path": "res://assets/food/meals/Deluxe_Burger.png", "ingredients": ["Buns", "Cut_Cheese", "Fried_Beef", "Cut_Tomato", "Cut_Lettuce"] },
-        { "name": "dough", "path": "res://assets/food/meals/Dough.png", "ingredients": ["Flour", "Milk", "Egg"] },
+        { "name": "dough", "path": "res://assets/food/meals/Dough.png", "ingredients": ["Flour", "Milk", "Egg"], "bakeable": true, "baked_item_name": "Bread" },
         { "name": "flour_milk", "path": "res://assets/food/meals/Dough_Bowl.png", "ingredients": ["Flour", "Milk"] },
         { "name": "flour_egg", "path": "res://assets/food/meals/Dough_Bowl.png", "ingredients": ["Flour", "Egg"] },
         { "name": "milk_egg", "path": "res://assets/food/meals/Dough_Bowl.png", "ingredients": ["Milk", "Egg"] }
-        
-	],
+    ],
 
     "ingredients": [
         { "name": "Potato", "path": "res://assets/food/ingredients/Potato.png", "cuttable": true, "fryable": false, "cut_ingredient_name": "Cut_Potato" },

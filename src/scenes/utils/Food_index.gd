@@ -43,6 +43,12 @@ func get_ingredient(ingredient_name):
 		if item.name == ingredient_name:
 			return item
 	return null
+	
+func get_wip_meal(wip_name):
+	for item in food_file.wip_meals:
+		if item.name == wip_name:
+			return item
+	return null
 
 
 # -------------- Kitchen tool checks -----------------
@@ -56,6 +62,7 @@ func try_to_chop(item):
 	
 	return cut_item
 
+
 func try_to_fry(item):
 	var fried_item = null
 		
@@ -64,12 +71,26 @@ func try_to_fry(item):
 		fried_item = get_ingredient(fried_item_name)
 	
 	return fried_item
+	
+	
+func try_to_bake(item):
+	var baked_item = null
+		
+	if is_bakeable(item):
+		var baked_item_name = get_wip_meal(item).baked_item_name
+		baked_item = get_meal(baked_item_name)
+	
+	return baked_item
+
 
 func is_cuttable(item):
 	return get_ingredient(item).cuttable
 	
 func is_fryable(item):
 	return get_ingredient(item).fryable
+	
+func is_bakeable(item):
+	return get_wip_meal(item).bakeable
 
 
 
@@ -78,11 +99,11 @@ func try_to_cook(ingredients):
 	# if yes, removes the meal from ingredients 
 	# and adds the ingredients of the meal to the array instead
 	for elem in ingredients:
-		var was_a_meal = get_meal(elem)
+		var was_a_wip = get_wip_meal(elem)
 		
-		if was_a_meal:
+		if was_a_wip:
 			ingredients.remove(elem)
-			for i in was_a_meal.ingredients:
+			for i in was_a_wip.ingredients:
 				ingredients.append(i)
 		
 	ingredients.sort()
@@ -90,6 +111,12 @@ func try_to_cook(ingredients):
 	
 	var result = null
 	for meal in food_file.meals:
+		var meal_ings = meal.ingredients
+		meal_ings.sort()
+		if meal_ings  == ingredients:
+			result = { "name": meal.name, "path": meal.path }
+			
+	for meal in food_file.wip_meals:
 		var meal_ings = meal.ingredients
 		meal_ings.sort()
 		if meal_ings  == ingredients:
