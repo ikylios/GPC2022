@@ -20,12 +20,14 @@ func start_frying(player):
 	player.drop_carried_item()
 	$ProgressBarControl.show()
 	$ProgressBarControl/FryTimer.start()
+	$FryingPanSprite/Particles2D.emitting = true
 
 func stop_frying():
 	var player = get_parent().get_node("Player")
 	$ProgressBarControl/FryTimer.stop()
 	$ProgressBarControl.hide()
 	$ProgressBarControl/TextureProgress.value=0
+	$FryingPanSprite/Particles2D.emitting = false
 	player.set_carried_item(being_fried)
 
 
