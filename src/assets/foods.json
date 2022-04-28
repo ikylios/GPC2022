@@ -12,7 +12,12 @@
         { "name": "bun_cheese_beef_lettuce", "path": "res://assets/food/meals/Bun_Cheese_Beef_Lettuce.png", "ingredients": ["Buns", "Cut_Cheese", "Fried_Beef", "Cut_Lettuce"] },
         { "name": "bun_cheese_beef_tomato", "path": "res://assets/food/meals/Bun_Cheese_Beef_Tomato.png", "ingredients": ["Buns", "Cut_Cheese", "Fried_Beef", "Cut_Tomato"] },
         { "name": "basic_burger", "path": "res://assets/food/meals/Basic_Burger.png", "ingredients": ["Buns", "Cut_Cheese", "Fried_Beef"] },
-        { "name": "deluxe_burger", "path": "res://assets/food/meals/Deluxe_Burger.png", "ingredients": ["Buns", "Cut_Cheese", "Fried_Beef", "Cut_Tomato", "Cut_Lettuce"] }
+        { "name": "deluxe_burger", "path": "res://assets/food/meals/Deluxe_Burger.png", "ingredients": ["Buns", "Cut_Cheese", "Fried_Beef", "Cut_Tomato", "Cut_Lettuce"] },
+        { "name": "dough", "path": "res://assets/food/meals/Dough.png", "ingredients": ["Flour", "Milk", "Egg"] },
+        { "name": "flour_milk", "path": "res://assets/food/meals/Dough_Bowl.png", "ingredients": ["Flour", "Milk"] },
+        { "name": "flour_egg", "path": "res://assets/food/meals/Dough_Bowl.png", "ingredients": ["Flour", "Egg"] },
+        { "name": "milk_egg", "path": "res://assets/food/meals/Dough_Bowl.png", "ingredients": ["Milk", "Egg"] }
+        
 	],
 
     "ingredients": [
@@ -32,6 +37,7 @@
         { "name": "Cheese", "path": "res://assets/food/ingredients/Cheese.png", "cuttable": true, "fryable": false, "cut_ingredient_name": "Cut_Cheese" },
         { "name": "Cut_Cheese", "path": "res://assets/food/ingredients/Cut_Cheese.png", "cuttable": false, "fryable": false },
         { "name": "Buns", "path": "res://assets/food/ingredients/Buns.png", "cuttable": false, "fryable": false },
+        { "name": "Milk", "path": "res://assets/food/ingredients/Milk.png", "cuttable": false, "fryable": false },
         { "name": "Flour", "path": "res://assets/food/ingredients/Flour.png", "cuttable": false, "fryable": false }
     ],
 
@@ -44,6 +50,7 @@
         { "name": "Lettuce", "path": "res://assets/food/ingredients/Lettuce.png", "cuttable": true, "fryable": false, "cut_ingredient_name": "Cut_Lettuce" },
         { "name": "Buns", "path": "res://assets/food/ingredients/Buns.png", "cuttable": false, "fryable": false },
         { "name": "Flour", "path": "res://assets/food/ingredients/Flour.png", "cuttable": false, "fryable": false },
+        { "name": "Milk", "path": "res://assets/food/ingredients/Milk.png", "cuttable": false, "fryable": false },
         { "name": "Cheese", "path": "res://assets/food/ingredients/Cheese.png", "cuttable": true, "fryable": false, "cut_ingredient_name": "Cut_Cheese" }
     ]
 
