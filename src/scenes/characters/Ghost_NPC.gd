@@ -1,7 +1,7 @@
 extends "res://scenes/utils/Interactable.gd"
 
 var order
-var order_list = ["spydäri", "ranskikset"]
+var order_list = ["Spydäri", "Ranskikset"]
 var received_order = null
 var received_order_sprite
 var player
