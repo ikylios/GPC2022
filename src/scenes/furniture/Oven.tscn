@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Oven.gd" type="Script" id=1]
+[ext_resource path="res://scenes/furniture/Oven.gd" type="Script" id=1]
 [ext_resource path="res://scenes/furniture/ProgressBarControl.gd" type="Script" id=2]
 [ext_resource path="res://assets/sound/frying.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/ui/progressbar_top_1.png" type="Texture" id=4]
@@ -35,6 +35,7 @@ position = Vector2( 0, -1.75 )
 shape = SubResource( 2 )
 
 [node name="ProgressBarControl" type="Control" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

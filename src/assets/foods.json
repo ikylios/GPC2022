@@ -1,12 +1,12 @@
 {
     "meals": [
-		{ "name": "spydäri", "path": "res://assets/food/meals/68_macncheese_dish.png", "ingredients": ["Cut_Potato", "Cut_Beef"] },
-		{ "name": "ranskikset", "path": "res://assets/food/meals/45_frenchfries_dish.png", "ingredients": ["Cut_Potato", "Cut_Potato"] },
-        { "name": "english_breakfast", "path": "res://assets/food/meals/English_Breakfast.png", "ingredients": ["Cut_Beef", "Fried_Egg"] },
-        { "name": "cucumber_salad", "path": "res://assets/food/meals/Cucumber_Salad.png", "ingredients": ["Cut_Lettuce", "Cut_Cucumber"] },
-        { "name": "tomato_salad", "path": "res://assets/food/meals/Tomato_Salad.png", "ingredients": ["Cut_Lettuce", "Cut_Tomato"] },
-        { "name": "basic_burger", "path": "res://assets/food/meals/Basic_Burger.png", "ingredients": ["Buns", "Cut_Cheese", "Fried_Beef"] },
-        { "name": "deluxe_burger", "path": "res://assets/food/meals/Deluxe_Burger.png", "ingredients": ["Buns", "Cut_Cheese", "Fried_Beef", "Cut_Tomato", "Cut_Lettuce"] },
+		{ "name": "Spydäri", "path": "res://assets/food/meals/68_macncheese_dish.png", "ingredients": ["Cut_Potato", "Cut_Beef"] },
+		{ "name": "Ranskikset", "path": "res://assets/food/meals/45_frenchfries_dish.png", "ingredients": ["Cut_Potato", "Cut_Potato"] },
+        { "name": "English_Breakfast", "path": "res://assets/food/meals/English_Breakfast.png", "ingredients": ["Cut_Beef", "Fried_Egg"] },
+        { "name": "Cucumber_Salad", "path": "res://assets/food/meals/Cucumber_Salad.png", "ingredients": ["Cut_Lettuce", "Cut_Cucumber"] },
+        { "name": "Tomato_Salad", "path": "res://assets/food/meals/Tomato_Salad.png", "ingredients": ["Cut_Lettuce", "Cut_Tomato"] },
+        { "name": "Basic_Burger", "path": "res://assets/food/meals/Basic_Burger.png", "ingredients": ["Buns", "Cut_Cheese", "Fried_Beef"] },
+        { "name": "Deluxe_Burger", "path": "res://assets/food/meals/Deluxe_Burger.png", "ingredients": ["Buns", "Cut_Cheese", "Fried_Beef", "Cut_Tomato", "Cut_Lettuce"] },
         { "name": "Bread", "path": "res://assets/food/meals/Bread.png", "ingredients": ["Milk", "Flour", "Egg"] }
 	],
 
@@ -54,7 +54,8 @@
         { "name": "Buns", "path": "res://assets/food/ingredients/Buns.png", "cuttable": false, "fryable": false },
         { "name": "Flour", "path": "res://assets/food/ingredients/Flour.png", "cuttable": false, "fryable": false },
         { "name": "Milk", "path": "res://assets/food/ingredients/Milk.png", "cuttable": false, "fryable": false },
-        { "name": "Cheese", "path": "res://assets/food/ingredients/Cheese.png", "cuttable": true, "fryable": false, "cut_ingredient_name": "Cut_Cheese" }
+        { "name": "Cheese", "path": "res://assets/food/ingredients/Cheese.png", "cuttable": true, "fryable": false, "cut_ingredient_name": "Cut_Cheese" },
+        { "name": "dough", "path": "res://assets/food/meals/Dough.png", "ingredients": ["Flour", "Milk", "Egg"], "bakeable": true, "baked_item_name": "Bread" }
     ]
 
 }
