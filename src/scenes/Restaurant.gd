@@ -1,13 +1,17 @@
 extends Node2D
 
-var customers_for_the_day
+var customers_for_the_day = []
 var customers_to_serve
 
 signal end_day
 
 
 func _process(delta):
-	if get_tree().get_nodes_in_group("free_seats").size() > 0 and get_tree().get_nodes_in_group("new_customers").size() > 0:
+	if Input.is_action_just_pressed("ui_home"):
+		enter_restaurant()
+	
+	#if get_tree().get_nodes_in_group("free_seats").size() > 0 and get_tree().get_nodes_in_group("new_customers").size() > 0:
+	if Input.is_action_just_pressed("ui_select"):
 		seat_customer()
 			
 	if Input.is_action_just_pressed("ui_pause"):
@@ -16,9 +20,10 @@ func _process(delta):
 
 
 func start_day():
-	customers_for_the_day = generate_customers()
-	print("generated amount of customers: ", customers_for_the_day.size())
+	generate_customers()
 	customers_to_serve = customers_for_the_day.size()
+	print("generated amount of customers: ", customers_for_the_day.size())
+	enter_restaurant()
 	
 func show_pause_menu():
 	get_tree().paused = true
@@ -32,9 +37,9 @@ func create_walkable_path():
 	add_child(path2D)
 	path2D.add_to_group("paths")
 
-func move_customer(customer, target):
+func move_customer(customer, target_point):
 	create_walkable_path()
-	var path = generate_path_to_point(customer.global_position, target.global_position)
+	var path = generate_path_to_point(customer.global_position, target_point)
 	var curve = path_to_curve(path)
 	var path2D = get_tree().get_nodes_in_group("paths").pop_front()
 	path2D.remove_from_group("paths")
@@ -59,25 +64,16 @@ func generate_customers():
 	randomize()
 	var number_of_customers = (randi() % 4) + 2
 
-	var selected_customers = []
 	for i in number_of_customers:
 		var customer = customer_types[randi() % customer_types.size()-1]
-		var customer_as_instance = customer.instance()
-		$YSort.add_child(customer_as_instance)
-		selected_customers.append(customer_as_instance)
-
-	return selected_customers
+		customers_for_the_day.append(customer)
 	
 
 func seat_customer():
-	#if !get_tree().get_nodes_in_group("free_seats"):
-	#	print("no more free seats available")
-	#	return
-	
 	var free_seat = get_tree().get_nodes_in_group("free_seats").pop_front()
 	var customer = get_tree().get_nodes_in_group("new_customers").pop_front()
 	
-	move_customer(customer, free_seat)
+	move_customer(customer, free_seat.global_position)
 	
 	customer.add_to_group("customers")
 	customer.remove_from_group("new_customers")
@@ -85,14 +81,24 @@ func seat_customer():
 	free_seat.add_to_group("taken_seats")
 	free_seat.remove_from_group("free_seats")
 	
-#func enter_restaurant():
-#	$Exit_door.global_position
+func enter_restaurant():
+	var customer = customers_for_the_day.pop_front()
+	var customer_as_instance = customer.instance()
+	customer_as_instance.add_to_group("new_customers")
+	
+	$YSort.add_child(customer_as_instance)
+	
+	var x = $Exit_door.global_position.x
+	var y = $Exit_door.global_position.y
+	customer_as_instance.global_position = Vector2(x, y)
+	var goal = Vector2(x, y + 50)
+	move_customer(customer_as_instance, goal)
 	
 
 func leaving_seat_in_point(customer, point):
 	for seat in get_tree().get_nodes_in_group("taken_seats"):
 		if seat.position == point:
-			move_customer(customer, $Exit_door)
+			move_customer(customer, $Exit_door.global_position)
 			seat.remove_from_group("taken_seats")
 			seat.add_to_group("free_seats")
 			update_customer_count()
