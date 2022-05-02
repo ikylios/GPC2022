@@ -71,10 +71,10 @@ scale = Vector2( 0.815322, 0.439362 )
 texture = ExtResource( 9 )
 
 [node name="Label" type="Label" parent="Background"]
-margin_left = 593.0
-margin_top = 562.0
-margin_right = 762.0
-margin_bottom = 606.0
+margin_left = 592.0
+margin_top = 580.0
+margin_right = 761.0
+margin_bottom = 624.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource( 6 )
@@ -86,10 +86,10 @@ __meta__ = {
 }
 
 [node name="Label4" type="Label" parent="Background"]
-margin_left = 596.0
-margin_top = 507.0
-margin_right = 765.0
-margin_bottom = 551.0
+margin_left = 595.0
+margin_top = 525.0
+margin_right = 764.0
+margin_bottom = 569.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource( 6 )
@@ -99,27 +99,15 @@ align = 1
 valign = 1
 
 [node name="Label2" type="Label" parent="Background"]
-margin_left = 585.0
-margin_top = 606.0
-margin_right = 754.0
-margin_bottom = 650.0
+margin_left = 584.0
+margin_top = 624.0
+margin_right = 753.0
+margin_bottom = 668.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource( 6 )
 custom_fonts/font = ExtResource( 7 )
 text = "P - PAUSE"
-align = 1
-valign = 1
-
-[node name="Label3" type="Label" parent="Background"]
-margin_left = 550.0
-margin_top = 648.0
-margin_right = 815.0
-margin_bottom = 692.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme = ExtResource( 6 )
-text = "HOME - SEAT CUSTOMER"
 align = 1
 valign = 1
 
