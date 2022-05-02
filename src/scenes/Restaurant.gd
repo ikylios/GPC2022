@@ -7,11 +7,8 @@ signal end_day
 
 
 func _process(delta):
-	if Input.is_action_just_pressed("ui_home"):
-		if get_tree().get_nodes_in_group("new_customers").size() > 0:
-			seat_customer()
-		else:
-			print("there are no new customers!")
+	if get_tree().get_nodes_in_group("free_seats").size() > 0 and get_tree().get_nodes_in_group("new_customers").size() > 0:
+		seat_customer()
 			
 	if Input.is_action_just_pressed("ui_pause"):
 		print("paused")
@@ -73,9 +70,9 @@ func generate_customers():
 	
 
 func seat_customer():
-	if !get_tree().get_nodes_in_group("free_seats"):
-		print("no more free seats available")
-		return
+	#if !get_tree().get_nodes_in_group("free_seats"):
+	#	print("no more free seats available")
+	#	return
 	
 	var free_seat = get_tree().get_nodes_in_group("free_seats").pop_front()
 	var customer = get_tree().get_nodes_in_group("new_customers").pop_front()
@@ -87,6 +84,9 @@ func seat_customer():
 	
 	free_seat.add_to_group("taken_seats")
 	free_seat.remove_from_group("free_seats")
+	
+#func enter_restaurant():
+#	$Exit_door.global_position
 	
 
 func leaving_seat_in_point(customer, point):

@@ -321,9 +321,6 @@ cell_custom_transform = Transform2D( 48, 0, 0, 48, 0, 0 )
 format = 1
 tile_data = PoolIntArray( 65548, 0, 1, 65549, 0, 0, 65550, 0, 1, 65551, 0, 0, 131084, 0, 0, 131085, 0, 1, 131086, 0, 0, 131087, 0, 1, 196620, 0, 1, 196621, 0, 0, 196622, 0, 1, 196623, 0, 0 )
 
-[node name="Exit_door" parent="." instance=ExtResource( 13 )]
-position = Vector2( 667, 321 )
-
 [node name="Wall" type="TileMap" parent="."]
 scale = Vector2( 2, 2 )
 tile_set = SubResource( 56 )
@@ -339,12 +336,28 @@ cell_quadrant_size = 8
 format = 1
 tile_data = PoolIntArray( 8, 1, 0, 9, 1, 0, 10, 1, 0, 11, 1, 0, 12, 1, 0, 13, 1, 0, 14, 1, 0, 15, 1, 0 )
 
+[node name="Exit_door" parent="." instance=ExtResource( 13 )]
+position = Vector2( 456, 63 )
+
+[node name="spawn_rect_new" type="ColorRect" parent="."]
+margin_left = 395.0
+margin_top = 90.0
+margin_right = 567.0
+margin_bottom = 160.0
+color = Color( 0.27451, 0.137255, 0.137255, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="spawn_rect" type="ColorRect" parent="."]
 margin_left = 611.0
 margin_top = 210.0
 margin_right = 728.0
 margin_bottom = 280.0
 color = Color( 0.27451, 0.137255, 0.137255, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="YSort" type="YSort" parent="."]
 
@@ -383,7 +396,7 @@ scale = Vector2( 0.75, 0.75 )
 position = Vector2( 678, 71 )
 
 [node name="Candle_stool" parent="YSort" instance=ExtResource( 8 )]
-position = Vector2( 480, 119 )
+position = Vector2( 514, 73 )
 
 [node name="Particles2D" type="Particles2D" parent="YSort/Candle_stool"]
 position = Vector2( 0, -30 )
