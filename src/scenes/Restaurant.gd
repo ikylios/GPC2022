@@ -87,10 +87,8 @@ func enter_restaurant():
 	
 	$YSort.add_child(customer_as_instance)
 	
-	var x = $Exit_door.global_position.x
-	var y = $Exit_door.global_position.y
-	customer_as_instance.global_position = Vector2(x, y)
-	var goal = Vector2(x, y + 50)
+	customer_as_instance.global_position = $Exit_door.global_position
+	var goal = Vector2($Exit_door.global_position.x, $Exit_door.global_position.y + 50)
 	
 	move_customer(customer_as_instance, goal)
 	
@@ -101,7 +99,7 @@ func _on_finished_moving():
 			var customer = get_tree().get_nodes_in_group("entering_customers").pop_front()
 			customer.add_to_group("new_customers")
 			customer.remove_from_group("entering_customers")
-			yield(get_tree().create_timer(0.5), "timeout")
+			yield(get_tree().create_timer(0.3), "timeout")
 			seat_customer()
 		else:
 			print("no free seats!")
