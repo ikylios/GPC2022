@@ -8,11 +8,10 @@ signal end_day
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_home"):
-		enter_restaurant()
-	
-	#if get_tree().get_nodes_in_group("free_seats").size() > 0 and get_tree().get_nodes_in_group("new_customers").size() > 0:
-	if Input.is_action_just_pressed("ui_select"):
-		seat_customer()
+		if customers_for_the_day.size() > 0:
+			enter_restaurant()
+		else: print("no more customers for the day!")
+
 			
 	if Input.is_action_just_pressed("ui_pause"):
 		print("paused")
@@ -80,11 +79,12 @@ func seat_customer():
 	
 	free_seat.add_to_group("taken_seats")
 	free_seat.remove_from_group("free_seats")
-	
+
+
 func enter_restaurant():
 	var customer = customers_for_the_day.pop_front()
 	var customer_as_instance = customer.instance()
-	customer_as_instance.add_to_group("new_customers")
+	customer_as_instance.add_to_group("entering_customers")
 	
 	$YSort.add_child(customer_as_instance)
 	
@@ -92,7 +92,21 @@ func enter_restaurant():
 	var y = $Exit_door.global_position.y
 	customer_as_instance.global_position = Vector2(x, y)
 	var goal = Vector2(x, y + 50)
+	
 	move_customer(customer_as_instance, goal)
+	
+func _on_finished_entering():
+	print("finished a path")
+	print("entering customers: ", get_tree().get_nodes_in_group("entering_customers"))
+	if get_tree().get_nodes_in_group("entering_customers"):
+		if get_tree().get_nodes_in_group("free_seats").size() > 0:
+			var customer = get_tree().get_nodes_in_group("entering_customers").pop_front()
+			customer.add_to_group("new_customers")
+			customer.remove_from_group("entering_customers")
+			yield(get_tree().create_timer(0.5), "timeout")
+			seat_customer()
+		else:
+			print("no free seats!")
 	
 
 func leaving_seat_in_point(customer, point):

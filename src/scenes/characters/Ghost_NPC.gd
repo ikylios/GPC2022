@@ -10,10 +10,6 @@ var spawn_area = [Vector2(611, 210), Vector2(742, 295)]
 func _ready():
 	order = generate_order()
 	$AnimatedSprite.play("idle")
-	#add_to_group("new_customers")
-	#add_to_group("future_customers")
-	#position.x = (randi() % 117) + 611
-	#position.y = (randi() % 70) + 210
 
 func _process(_delta):
 	$AnimatedSprite.playing = interactable
