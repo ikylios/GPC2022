@@ -12,7 +12,6 @@ func _process(delta):
 			enter_restaurant()
 		else: print("no more customers for the day!")
 
-			
 	if Input.is_action_just_pressed("ui_pause"):
 		print("paused")
 		show_pause_menu()
@@ -94,6 +93,7 @@ func enter_restaurant():
 	var goal = Vector2(x, y + 50)
 	
 	move_customer(customer_as_instance, goal)
+	
 	
 func _on_finished_moving():
 	if get_tree().get_nodes_in_group("entering_customers"):
