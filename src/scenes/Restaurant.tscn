@@ -349,16 +349,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="spawn_rect" type="ColorRect" parent="."]
-margin_left = 611.0
-margin_top = 210.0
-margin_right = 728.0
-margin_bottom = 280.0
-color = Color( 0.27451, 0.137255, 0.137255, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Stool" parent="YSort" instance=ExtResource( 11 )]

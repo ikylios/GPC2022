@@ -74,10 +74,10 @@ scale = Vector2( 0.815322, 0.439362 )
 texture = ExtResource( 9 )
 
 [node name="Label" type="Label" parent="Background"]
-margin_left = 592.0
-margin_top = 580.0
-margin_right = 761.0
-margin_bottom = 624.0
+margin_left = 593.0
+margin_top = 566.0
+margin_right = 762.0
+margin_bottom = 610.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource( 6 )
@@ -90,9 +90,9 @@ __meta__ = {
 
 [node name="Label4" type="Label" parent="Background"]
 margin_left = 595.0
-margin_top = 525.0
+margin_top = 514.0
 margin_right = 764.0
-margin_bottom = 569.0
+margin_bottom = 558.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource( 6 )
@@ -103,9 +103,9 @@ valign = 1
 
 [node name="Label2" type="Label" parent="Background"]
 margin_left = 592.0
-margin_top = 624.0
+margin_top = 604.0
 margin_right = 761.0
-margin_bottom = 668.0
+margin_bottom = 648.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource( 6 )
@@ -113,6 +113,22 @@ custom_fonts/font = ExtResource( 7 )
 text = "P - PAUSE"
 align = 1
 valign = 1
+
+[node name="Label3" type="Label" parent="Background"]
+margin_left = 551.0
+margin_top = 641.0
+margin_right = 816.0
+margin_bottom = 685.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource( 6 )
+custom_fonts/font = ExtResource( 7 )
+text = "HOME - ENTER CUSTOMER"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="pressed" from="Background/VBoxContainer/StartButton2" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="Background/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

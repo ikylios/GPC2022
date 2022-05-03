@@ -95,9 +95,7 @@ func enter_restaurant():
 	
 	move_customer(customer_as_instance, goal)
 	
-func _on_finished_entering():
-	print("finished a path")
-	print("entering customers: ", get_tree().get_nodes_in_group("entering_customers"))
+func _on_finished_moving():
 	if get_tree().get_nodes_in_group("entering_customers"):
 		if get_tree().get_nodes_in_group("free_seats").size() > 0:
 			var customer = get_tree().get_nodes_in_group("entering_customers").pop_front()
