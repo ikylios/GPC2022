@@ -14,6 +14,9 @@ func interact():
 			start_frying(player)
 		else:
 			print("not a fryable ingredient!")
+	elif $pickable:
+		player.set_carried_item(being_fried)
+		remove_child($pickable)
 
 func start_frying(player):
 	$AudioStreamPlayer.play()
@@ -26,8 +29,14 @@ func stop_frying():
 	$ProgressBarControl/FryTimer.stop()
 	$ProgressBarControl.hide()
 	$ProgressBarControl/TextureProgress.value=0
-	player.set_carried_item(being_fried)
-
+	create_pickable_item()
+	
+func create_pickable_item():
+	var pickable_item = Sprite.new()
+	pickable_item.set_texture(load(being_fried.path))
+	pickable_item.set_name("pickable")
+	pickable_item.position = Vector2(pickable_item.position.x, pickable_item.position.y)
+	add_child(pickable_item)
 
 func _on_TextureProgress_value_changed(value):
 	if value == 100:

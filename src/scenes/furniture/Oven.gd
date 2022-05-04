@@ -2,7 +2,6 @@ extends "res://scenes/utils/Interactable.gd"
 
 var timer_value = 0
 var being_baked = null
-var pickable_item = false
 
 func interact():
 	var player = get_parent().get_node("Player")
@@ -15,9 +14,8 @@ func interact():
 			start_baking(player)
 		else:
 			print("not a bakeable ingredient!")
-	elif pickable_item:
+	elif $pickable:
 		player.set_carried_item(being_baked)
-		pickable_item = false
 		remove_child($pickable)
 
 func start_baking(player):
@@ -34,13 +32,11 @@ func stop_baking():
 	create_pickable_item()
 	
 func create_pickable_item():
-	pickable_item = true
-	var pickable_item_node = Sprite.new()
-	pickable_item_node.set_texture(load(being_baked.path))
-	pickable_item_node.set_name("pickable")
-	pickable_item_node.position = Vector2(pickable_item_node.position.x, pickable_item_node.position.y + 10)
-	add_child(pickable_item_node)
-
+	var pickable_item = Sprite.new()
+	pickable_item.set_texture(load(being_baked.path))
+	pickable_item.set_name("pickable")
+	pickable_item.position = Vector2(pickable_item.position.x, pickable_item.position.y + 10)
+	add_child(pickable_item)
 
 func _on_TextureProgress_value_changed(value):
 	if value == 100:
