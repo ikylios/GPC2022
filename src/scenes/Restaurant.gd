@@ -22,6 +22,7 @@ func start_day():
 	customers_to_serve = customers_for_the_day.size()
 	print("generated amount of customers: ", customers_for_the_day.size())
 	enter_restaurant()
+	#customer_arrival()
 	
 func show_pause_menu():
 	get_tree().paused = true
@@ -67,13 +68,12 @@ func generate_customers():
 		customers_for_the_day.append(customer)
 	
 func customer_arrival():
-	randomize()
-	var percent = randf()
-	if percent >= 0.33 or get_tree().get_nodes_in_group("customers").size() >= 1:
-		if customers_for_the_day.size() > 0:
-			yield(get_tree().create_timer(0.6), "timeout")
-			enter_restaurant()
+	yield(get_tree().create_timer(0.5), "timeout")
+	if customers_for_the_day.size() > 0:
 		
+		if get_tree().get_nodes_in_group("customers").size() >= 1:
+			enter_restaurant()
+
 
 func seat_customer():
 	var free_seat = get_tree().get_nodes_in_group("free_seats").pop_front()
