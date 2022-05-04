@@ -71,6 +71,7 @@ func customer_arrival():
 	var percent = randf()
 	if percent >= 0.33 or get_tree().get_nodes_in_group("customers").size() >= 1:
 		if customers_for_the_day.size() > 0:
+			yield(get_tree().create_timer(0.6), "timeout")
 			enter_restaurant()
 		
 
