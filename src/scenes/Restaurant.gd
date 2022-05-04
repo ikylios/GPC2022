@@ -66,6 +66,13 @@ func generate_customers():
 		var customer = customer_types[randi() % customer_types.size()-1]
 		customers_for_the_day.append(customer)
 	
+func customer_arrival():
+	randomize()
+	var percent = randf()
+	if percent >= 0.33 or get_tree().get_nodes_in_group("customers").size() >= 1:
+		if customers_for_the_day.size() > 0:
+			enter_restaurant()
+		
 
 func seat_customer():
 	var free_seat = get_tree().get_nodes_in_group("free_seats").pop_front()
@@ -112,6 +119,7 @@ func leaving_seat_in_point(customer, point):
 			seat.remove_from_group("taken_seats")
 			seat.add_to_group("free_seats")
 			update_customer_count()
+			customer_arrival()
 
 func update_customer_count():
 	customers_to_serve -= 1
