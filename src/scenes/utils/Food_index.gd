@@ -90,7 +90,11 @@ func is_fryable(item):
 	return get_ingredient(item).fryable
 	
 func is_bakeable(item):
-	return get_wip_meal(item).bakeable
+	var was_a_wip = get_wip_meal(item)
+	if was_a_wip == null:
+		return false
+	else:
+		return get_wip_meal(item).bakeable
 
 
 
