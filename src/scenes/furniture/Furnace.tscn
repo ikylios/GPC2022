@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/furniture/ProgressBarControl.gd" type="Script" id=1]
+[ext_resource path="res://scenes/furniture/Furnace.gd" type="Script" id=2]
+[ext_resource path="res://assets/sound/frying.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/ui/progressbar_top_1.png" type="Texture" id=7]
+[ext_resource path="res://assets/ui/progressbar_over_1.png" type="Texture" id=8]
+[ext_resource path="res://assets/furniture/furnace_with_chimney.png" type="Texture" id=9]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 15.5, 3.9375 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16, 3.25 )
+
+[node name="Furnace" type="Area2D"]
+script = ExtResource( 2 )
+
+[node name="FurnaceSprite" type="Sprite" parent="."]
+position = Vector2( 0, -41 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 9 )
+offset = Vector2( 0, 10 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 4 )
+shape = SubResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 0, -5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 0, -1 )
+shape = SubResource( 2 )
+
+[node name="ProgressBarControl" type="Control" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -29.0
+margin_right = 20.0
+margin_bottom = -24.0
+script = ExtResource( 1 )
+
+[node name="TextureProgress" type="TextureProgress" parent="ProgressBarControl"]
+anchor_left = 0.5
+anchor_top = 0.3
+anchor_right = 0.5
+anchor_bottom = 0.3
+margin_left = -16.0
+margin_top = -2.5
+margin_right = 16.0
+margin_bottom = 2.5
+texture_under = ExtResource( 8 )
+texture_progress = ExtResource( 7 )
+
+[node name="FryTimer" type="Timer" parent="ProgressBarControl"]
+wait_time = 0.1
+
+[connection signal="value_changed" from="ProgressBarControl/TextureProgress" to="." method="_on_TextureProgress_value_changed"]
+[connection signal="timeout" from="ProgressBarControl/FryTimer" to="ProgressBarControl" method="_on_Timer_timeout"]

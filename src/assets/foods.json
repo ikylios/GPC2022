@@ -1,6 +1,6 @@
 {
     "meals": [
-		{ "name": "Spydäri", "path": "res://assets/food/meals/68_macncheese_dish.png", "ingredients": ["Cut_Potato", "Cut_Beef"] },
+		{ "name": "Spydäri", "path": "res://assets/food/meals/68_macncheese_dish.png", "ingredients": ["Cut_Potato", "Fried_Beef"] },
 		{ "name": "Ranskikset", "path": "res://assets/food/meals/45_frenchfries_dish.png", "ingredients": ["Cut_Potato", "Cut_Potato"] },
         { "name": "English_Breakfast", "path": "res://assets/food/meals/English_Breakfast.png", "ingredients": ["Cut_Beef", "Fried_Egg"] },
         { "name": "Cucumber_Salad", "path": "res://assets/food/meals/Cucumber_Salad.png", "ingredients": ["Cut_Lettuce", "Cut_Cucumber"] },

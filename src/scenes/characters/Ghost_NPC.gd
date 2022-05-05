@@ -1,7 +1,7 @@
 extends "res://scenes/utils/Interactable.gd"
 
 var order
-var order_list = ["spydäri", "ranskikset"]
+var order_list = ["Spydäri", "Ranskikset"]
 var received_order = null
 var received_order_sprite
 var player
@@ -10,9 +10,6 @@ var spawn_area = [Vector2(611, 210), Vector2(742, 295)]
 func _ready():
 	order = generate_order()
 	$AnimatedSprite.play("idle")
-	add_to_group("new_customers")
-	position.x = (randi() % 117) + 611
-	position.y = (randi() % 70) + 210
 
 func _process(_delta):
 	$AnimatedSprite.playing = interactable
