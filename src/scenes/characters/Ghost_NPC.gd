@@ -56,7 +56,7 @@ func try_to_receive_meal(meal):
 		receive_meal(meal)
 		eat()
 	else:
-		print("wrong meal!")
+		$Order_bubble.display_wrong()
 
 func correct_meal(meal):
 	return meal.name == order
