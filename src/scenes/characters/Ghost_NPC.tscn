@@ -36,10 +36,8 @@ animation = "idle"
 [node name="Order_bubble" parent="." instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -20.0
-margin_top = -70.0
-margin_right = -20.0
-margin_bottom = -70.0
+margin_top = -48.0
+margin_bottom = -48.0
 rect_scale = Vector2( 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

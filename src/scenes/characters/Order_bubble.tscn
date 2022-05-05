@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/characters/Order_bubble.gd" type="Script" id=1]
 [ext_resource path="res://assets/food/meals/68_macncheese_dish.png" type="Texture" id=2]
+[ext_resource path="res://assets/ui/bubble.png" type="Texture" id=3]
 
 [node name="Order_bubble" type="Control"]
 anchor_right = 1.0
@@ -12,21 +13,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="bg" type="ColorRect" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-color = Color( 0.819608, 0.756863, 0.568627, 1 )
+[node name="bg" type="Sprite" parent="."]
+scale = Vector2( 0.866667, 0.85 )
+texture = ExtResource( 3 )
 
 [node name="meal_icon" type="TextureRect" parent="bg"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -17.5
-margin_top = -17.5
-margin_right = 17.5
-margin_bottom = 17.5
+margin_left = -39.6538
+margin_top = -43.3824
+margin_right = -4.65385
+margin_bottom = -8.38235
 texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
