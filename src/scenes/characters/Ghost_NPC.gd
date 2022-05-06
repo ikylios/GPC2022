@@ -1,7 +1,7 @@
 extends "res://scenes/utils/Interactable.gd"
 
 var order
-var order_list = ["Spydäri", "Ranskikset"]
+var order_list = ["Spydäri", "Ranskikset", "English Breakfast", "Cucumber_Salad", "Tomato_Salad", "Basic_Burger", "Deluxe_Burger", "Bread"]
 var received_order = null
 var received_order_sprite
 var player

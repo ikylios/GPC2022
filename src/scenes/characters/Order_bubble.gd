@@ -4,7 +4,11 @@ var temp_order
 
 var name_to_texture = {
 	"Spydäri": "res://assets/food/meals/68_macncheese_dish.png",
-	"Ranskikset": "res://assets/food/meals/45_frenchfries_dish.png"
+	"Ranskikset": "res://assets/food/meals/45_frenchfries_dish.png",
+	"English_Breakfast": "res://assets/food/meals/English_Breakfast.png",
+	"Cucumber_Salad": "res://assets/food/meals/Cucumber_Salad.png",
+	"Tomato_Salad": "res://assets/food/meals/Tomato_Salad.png",
+	"Basic_Burger": "res://assets/food/meals/45_frenchfries_dish.png",
 }
 
 func _ready():
