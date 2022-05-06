@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/furnace_prototype.png-5d26152f21495f97091ae0abaab4bbf8.stex"
+path="res://.import/furnace-with-flames-pixilart (1).png-7c8bb41ee059395a465ddcbe0546f52a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/furniture/furnace_prototype.png"
-dest_files=[ "res://.import/furnace_prototype.png-5d26152f21495f97091ae0abaab4bbf8.stex" ]
+source_file="res://assets/furniture/furnace_frames/furnace-with-flames-pixilart (1).png"
+dest_files=[ "res://.import/furnace-with-flames-pixilart (1).png-7c8bb41ee059395a465ddcbe0546f52a.stex" ]
 
 [params]
 
