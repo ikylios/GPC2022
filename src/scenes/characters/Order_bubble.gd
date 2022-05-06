@@ -1,8 +1,8 @@
 extends Control
 
 var name_to_texture = {
-	"spydäri": "res://assets/food/meals/68_macncheese_dish.png",
-	"ranskikset": "res://assets/food/meals/45_frenchfries_dish.png"
+	"Spydäri": "res://assets/food/meals/68_macncheese_dish.png",
+	"Ranskikset": "res://assets/food/meals/45_frenchfries_dish.png"
 }
 
 func _ready():
