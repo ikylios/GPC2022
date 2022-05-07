@@ -116,7 +116,6 @@ func is_bakeable(item):
 
 
 func try_to_cook(ingredients):
-	print(ingredients)
 	# checks if either of ingredients is actually a meal. 
 	# if yes, removes the meal from ingredients 
 	# and adds the ingredients of the meal to the array instead
