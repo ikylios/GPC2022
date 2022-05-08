@@ -4,8 +4,6 @@ var order
 var order_list = ["Spydäri", "Ranskikset", "English_Breakfast", "Cucumber_Salad", "Tomato_Salad", "Basic_Burger", "Deluxe_Burger", "Bread"]
 var received_order = null
 var received_order_sprite
-var player
-var spawn_area = [Vector2(611, 210), Vector2(742, 295)]
 
 func _ready():
 	order = generate_order()
@@ -21,7 +19,7 @@ func waiting_on_meal():
 	return self in get_tree().get_nodes_in_group("customers")
 
 func interact():
-	player = get_parent().get_node("Player")
+	var player = get_parent().get_node("Player")
 	var meal = player.get_carried_item()
 	
 	if waiting_on_meal() and meal:
@@ -68,6 +66,7 @@ func receive_meal(meal):
 	received_order_sprite.set_texture(load(meal.path))
 	add_child(received_order_sprite)
 	received_order_sprite.position = Vector2($AnimatedSprite.position.x, $AnimatedSprite.position.y + 7)
+	var player = get_parent().get_node("Player")
 	player.drop_carried_item()
 
 func eat():
