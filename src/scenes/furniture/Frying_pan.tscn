@@ -57,9 +57,10 @@ texture = ExtResource( 4 )
 [node name="Particles2D" type="Particles2D" parent="FryingPanSprite"]
 position = Vector2( 5, -1.25 )
 emitting = false
-amount = 7
+amount = 9
 lifetime = 6.0
-speed_scale = 0.8
+preprocess = 1.0
+speed_scale = 1.2
 randomness = 0.45
 process_material = SubResource( 4 )
 
@@ -102,7 +103,7 @@ texture_under = ExtResource( 8 )
 texture_progress = ExtResource( 7 )
 
 [node name="FryTimer" type="Timer" parent="ProgressBarControl"]
-wait_time = 0.1
+wait_time = 0.01
 
 [connection signal="value_changed" from="ProgressBarControl/TextureProgress" to="." method="_on_TextureProgress_value_changed"]
 [connection signal="timeout" from="ProgressBarControl/FryTimer" to="ProgressBarControl" method="_on_Timer_timeout"]
