@@ -103,7 +103,7 @@ texture_under = ExtResource( 8 )
 texture_progress = ExtResource( 7 )
 
 [node name="FryTimer" type="Timer" parent="ProgressBarControl"]
-wait_time = 0.01
+wait_time = 0.1
 
 [connection signal="value_changed" from="ProgressBarControl/TextureProgress" to="." method="_on_TextureProgress_value_changed"]
 [connection signal="timeout" from="ProgressBarControl/FryTimer" to="ProgressBarControl" method="_on_Timer_timeout"]

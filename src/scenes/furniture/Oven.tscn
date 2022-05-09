@@ -65,7 +65,7 @@ __meta__ = {
 }
 
 [node name="BakeTimer" type="Timer" parent="ProgressBarControl"]
-wait_time = 0.05
+wait_time = 0.1
 
 [connection signal="value_changed" from="ProgressBarControl/TextureProgress" to="." method="_on_TextureProgress_value_changed"]
 [connection signal="timeout" from="ProgressBarControl/BakeTimer" to="ProgressBarControl" method="_on_Timer_timeout"]
