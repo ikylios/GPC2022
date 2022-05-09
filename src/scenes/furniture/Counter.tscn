@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/sound/rollover3.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 19.5, 4.625 )
+extents = Vector2( 9.42188, 4.625 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 19, 3 )

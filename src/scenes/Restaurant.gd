@@ -22,6 +22,7 @@ func start_day():
 	customers_to_serve = customers_for_the_day.size()
 	print("Generated amount of customers: ", customers_for_the_day.size())
 	enter_restaurant()
+	#customer_arrival()
 	
 func show_pause_menu():
 	get_tree().paused = true
@@ -66,6 +67,13 @@ func generate_customers():
 		var customer = customer_types[randi() % customer_types.size()-1]
 		customers_for_the_day.append(customer)
 	
+func customer_arrival():
+	yield(get_tree().create_timer(0.5), "timeout")
+	if customers_for_the_day.size() > 0:
+		
+		if get_tree().get_nodes_in_group("customers").size() >= 1:
+			enter_restaurant()
+
 
 func seat_customer():
 	var free_seat = get_tree().get_nodes_in_group("free_seats").pop_front()
@@ -112,6 +120,7 @@ func leaving_seat_in_point(customer, point):
 			seat.remove_from_group("taken_seats")
 			seat.add_to_group("free_seats")
 			update_customer_count()
+			customer_arrival()
 
 func update_customer_count():
 	customers_to_serve -= 1
