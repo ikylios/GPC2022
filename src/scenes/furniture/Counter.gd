@@ -40,6 +40,6 @@ func try_to_cook(ingredients):
 	var result = get_node("/root/Main/Food_index").try_to_cook(ingredients)
 	
 	if !result:
-		print("didn't find a meal with those ingredients")
+		print("Invalid meal with ingredients " + ingredients)
 	
 	return result

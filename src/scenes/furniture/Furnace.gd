@@ -13,7 +13,7 @@ func interact():
 		if being_fried:
 			start_frying(player)
 		else:
-			print("not a fryable ingredient!")
+			print("Not a fryable ingredient: " + player_item)
 
 func start_frying(player):
 	$AudioStreamPlayer.play()

@@ -56,7 +56,7 @@ func try_to_receive_meal(meal):
 		receive_meal(meal)
 		eat()
 	else:
-		print("wrong meal!")
+		print("Tried to offer meal:" + meal + ". Customer wants: " + order)
 
 func correct_meal(meal):
 	return meal.name == order

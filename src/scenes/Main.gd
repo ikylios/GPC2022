@@ -7,6 +7,7 @@ func _ready():
 
 
 func begin_day():
+	print("Day begins")
 	yield(get_tree().create_timer(1.0), "timeout")
 	$Transition_screen.fade_from_black()
 	$Restaurant.start_day()
@@ -17,6 +18,7 @@ func _on_Restaurant_end_day():
 	days_remaining -= 1
 	$Transition_screen.fade_to_black()
 	if days_remaining != 0:
+		print("Day ends. Days remaining: " + days_remaining)
 		begin_day()
 	else:
-		print("all days have been played. goodbye.")
+		print("All days have been played. Goodbye.")
