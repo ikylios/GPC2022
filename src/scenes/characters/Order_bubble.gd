@@ -8,7 +8,9 @@ var name_to_texture = {
 	"English_Breakfast": "res://assets/food/meals/English_Breakfast.png",
 	"Cucumber_Salad": "res://assets/food/meals/Cucumber_Salad.png",
 	"Tomato_Salad": "res://assets/food/meals/Tomato_Salad.png",
-	"Basic_Burger": "res://assets/food/meals/45_frenchfries_dish.png",
+	"Basic_Burger": "res://assets/food/meals/Basic_Burger.png",
+	"Deluxe_Burger": "res://assets/food/meals/Deluxe_Burger.png",
+	"Bread": "res://assets/food/meals/Bread.png"
 }
 
 func _ready():

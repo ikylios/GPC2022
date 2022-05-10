@@ -143,7 +143,4 @@ func try_to_cook(ingredients):
 		if meal_ings  == ingredients:
 			result = { "name": meal.name, "path": meal.path }
 	
-	if !result:
-		print("Invalid meal with ingredients " + ingredients)
-	
 	return result

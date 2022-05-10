@@ -18,7 +18,7 @@ func _on_Restaurant_end_day():
 	days_remaining -= 1
 	$Transition_screen.fade_to_black()
 	if days_remaining != 0:
-		print("Day ends. Days remaining: " + days_remaining)
+		print("Day ends. Days remaining: " + str(days_remaining))
 		begin_day()
 	else:
 		print("All days have been played. Goodbye.")

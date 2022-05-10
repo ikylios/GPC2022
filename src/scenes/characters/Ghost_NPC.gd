@@ -1,7 +1,7 @@
 extends "res://scenes/utils/Interactable.gd"
 
 var order
-var order_list = ["Spydäri", "Ranskikset", "English Breakfast", "Cucumber_Salad", "Tomato_Salad", "Basic_Burger", "Deluxe_Burger", "Bread"]
+var order_list = ["Spydäri", "Ranskikset", "English_Breakfast", "Cucumber_Salad", "Tomato_Salad", "Basic_Burger", "Deluxe_Burger", "Bread"]
 var received_order = null
 var received_order_sprite
 var player
@@ -56,7 +56,7 @@ func try_to_receive_meal(meal):
 		receive_meal(meal)
 		eat()
 	else:
-		print("Tried to offer meal:" + meal + ". Customer wants: " + order)
+		print("Tried to offer meal: " + meal.name + ". Customer wants: " + order)
 		$Order_bubble.display_wrong()
 
 func correct_meal(meal):

@@ -13,7 +13,7 @@ func interact():
 		if being_baked:
 			start_baking(player)
 		else:
-			print("Not a bakeable ingredient: " + player_item)
+			print("Not a bakeable ingredient: " + player_item.name)
 	elif $pickable:
 		player.set_carried_item(being_baked)
 		remove_child($pickable)
