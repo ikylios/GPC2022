@@ -1,45 +1,89 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/furniture/ProgressBarControl.gd" type="Script" id=1]
 [ext_resource path="res://scenes/furniture/Frying_pan.gd" type="Script" id=2]
 [ext_resource path="res://assets/sound/frying.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/furniture/frying_pan.png" type="Texture" id=4]
+[ext_resource path="res://assets/furniture/furnace_frames/furnace-with-flames-pixilart (1).png" type="Texture" id=5]
 [ext_resource path="res://assets/ui/progressbar_top_1.png" type="Texture" id=7]
 [ext_resource path="res://assets/ui/progressbar_over_1.png" type="Texture" id=8]
-[ext_resource path="res://assets/furniture/furnace_with_chimney.png" type="Texture" id=9]
+
+[sub_resource type="Gradient" id=7]
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 0.481818 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+lifetime_randomness = 0.5
+emission_shape = 2
+emission_box_extents = Vector3( 5, 1, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, -5, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+tangential_accel = 3.0
+tangential_accel_random = 1.0
+scale = 5.0
+scale_random = 0.6
+scale_curve = SubResource( 6 )
+color = Color( 0.415686, 0.407843, 0.407843, 1 )
+color_ramp = SubResource( 8 )
 
 [sub_resource type="RectangleShape2D" id=3]
+<<<<<<< HEAD
 extents = Vector2( 7.8125, 3.9375 )
+=======
+extents = Vector2( 15.5, 3.46875 )
+>>>>>>> main
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 16, 3.25 )
+extents = Vector2( 16, 2.625 )
 
 [node name="Frying_pan" type="Area2D"]
 script = ExtResource( 2 )
 
 [node name="FurnaceSprite" type="Sprite" parent="."]
-position = Vector2( 0, -41 )
 scale = Vector2( 0.75, 0.75 )
-texture = ExtResource( 9 )
-offset = Vector2( 0, 9 )
+texture = ExtResource( 5 )
+offset = Vector2( 0, 10 )
 
 [node name="FryingPanSprite" type="Sprite" parent="."]
 position = Vector2( -10, 0 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 4 )
 
+[node name="Particles2D" type="Particles2D" parent="FryingPanSprite"]
+position = Vector2( 5, -1.25 )
+emitting = false
+amount = 9
+lifetime = 6.0
+preprocess = 1.0
+speed_scale = 1.2
+randomness = 0.45
+process_material = SubResource( 4 )
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+<<<<<<< HEAD
 position = Vector2( 0, 2 )
+=======
+position = Vector2( -1, 3 )
+>>>>>>> main
 shape = SubResource( 3 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 0, -7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 0, -1.75 )
+position = Vector2( 0, -0.625 )
 shape = SubResource( 2 )
 
 [node name="ProgressBarControl" type="Control" parent="."]
@@ -67,7 +111,7 @@ texture_under = ExtResource( 8 )
 texture_progress = ExtResource( 7 )
 
 [node name="FryTimer" type="Timer" parent="ProgressBarControl"]
-wait_time = 0.01
+wait_time = 0.1
 
 [connection signal="value_changed" from="ProgressBarControl/TextureProgress" to="." method="_on_TextureProgress_value_changed"]
 [connection signal="timeout" from="ProgressBarControl/FryTimer" to="ProgressBarControl" method="_on_Timer_timeout"]
