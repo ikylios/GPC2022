@@ -29,9 +29,10 @@ func init_ingredients_menu():
 		index += 1
 	
 	menu.rect_position = position
-	#menu.rect_position = get_node("/root/Main/Restaurant/Ysort/Player/Camera2D").get_
 	
 func show_ingredients_menu():
+	menu.grab_focus()
+	menu.select(0)
 	$Popup.show()
 
 func _on_ItemList_item_activated(index):
