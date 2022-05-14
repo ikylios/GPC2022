@@ -36,11 +36,7 @@ color = Color( 0.415686, 0.407843, 0.407843, 1 )
 color_ramp = SubResource( 8 )
 
 [sub_resource type="RectangleShape2D" id=3]
-<<<<<<< HEAD
-extents = Vector2( 7.8125, 3.9375 )
-=======
 extents = Vector2( 15.5, 3.46875 )
->>>>>>> main
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 16, 2.625 )
@@ -72,11 +68,7 @@ process_material = SubResource( 4 )
 stream = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-<<<<<<< HEAD
-position = Vector2( 0, 2 )
-=======
 position = Vector2( -1, 3 )
->>>>>>> main
 shape = SubResource( 3 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
