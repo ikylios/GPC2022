@@ -10,7 +10,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_home"):
 		if customers_for_the_day.size() > 0:
 			enter_restaurant()
-		else: print("No more customers for the day!")
+		else: print("Can't invite in more customers; all customers have been served for the day!")
 
 	if Input.is_action_just_pressed("ui_pause"):
 		print("Paused game")
