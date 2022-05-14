@@ -17,9 +17,20 @@ func load_foods() -> Dictionary:
 	var output = parse_json(json)
 	
 	if typeof(output) == TYPE_DICTIONARY:
+		output = handle_missing_fields(output)
 		return output
 	else:
 		return {}
+
+func handle_missing_fields(food_dict):
+	var food_dict_sections = ["meals", "wip_meals", "ingredients", "menu_visible_ingredients"]
+	var must_have_fields = ["bakeable", "cuttable", "fryable"]
+	for section in food_dict_sections:
+		for item in food_dict.get(section):
+			for field in must_have_fields:
+				if !item.has(field):
+					item[field] = false
+	return food_dict
 
 # -------------- Getters -----------------
 
@@ -84,10 +95,16 @@ func try_to_bake(item):
 
 
 func is_cuttable(item):
-	return get_ingredient(item).cuttable
+	if get_ingredient(item) == null:
+		return false
+	else:
+		return get_ingredient(item).cuttable
 	
 func is_fryable(item):
-	return get_ingredient(item).fryable
+	if get_ingredient(item) == null:
+		return false
+	else:
+		return get_ingredient(item).fryable
 	
 func is_bakeable(item):
 	var was_a_wip = get_wip_meal(item)
@@ -104,10 +121,16 @@ func try_to_cook(ingredients):
 	# and adds the ingredients of the meal to the array instead
 	for elem in ingredients:
 		var was_a_wip = get_wip_meal(elem)
+		var was_a_meal = get_meal(elem)
 		
 		if was_a_wip:
 			ingredients.remove(elem)
 			for i in was_a_wip.ingredients:
+				ingredients.append(i)
+				
+		if was_a_meal:
+			ingredients.remove(elem)
+			for i in was_a_meal.ingredients:
 				ingredients.append(i)
 		
 	ingredients.sort()
