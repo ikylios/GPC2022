@@ -34,11 +34,11 @@ frames = SubResource( 3 )
 animation = "idle"
 
 [node name="Order_bubble" parent="." instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = -48.0
-margin_bottom = -48.0
-rect_scale = Vector2( 1, 1 )
+margin_left = -19.0
+margin_top = -63.0
+margin_right = 29.0
+margin_bottom = -63.0
+rect_scale = Vector2( 0.8, 0.8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 5 )
