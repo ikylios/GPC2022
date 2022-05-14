@@ -6,7 +6,7 @@ var carried_item_sprite = null
 var prev_direction = "down"
 
 enum states {IDLE, WALK, CARRY, IDLE_CARRY}
-var movement_state = states.IDLE
+var current_state = states.IDLE
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("toss") and carried_item:
@@ -20,18 +20,18 @@ func _physics_process(delta):
 	var direction = input_to_direction(x_input, y_input)
 	var animation = format_animation_name(direction)
 
-	if movement_state == states.CARRY or movement_state == states.IDLE_CARRY:
+	if current_state == states.CARRY or current_state == states.IDLE_CARRY:
 		update_sprite_position(direction)
 	
 	$AnimatedSprite.play(animation)
 
 
 func format_animation_name(direction):
-	if movement_state == states.IDLE:
+	if current_state == states.IDLE:
 		return str(direction) + "_idle"
-	if movement_state == states.CARRY:
+	if current_state == states.CARRY:
 		return "carry_" + str(direction)
-	if movement_state == states.IDLE_CARRY:
+	if current_state == states.IDLE_CARRY:
 		return "carry_" + str(direction) + "_idle"
 	else:
 		return direction
@@ -41,9 +41,9 @@ func input_to_direction(x, y):
 		
 	if x != 0 || y != 0:
 		if carried_item:
-			movement_state = states.CARRY
+			current_state = states.CARRY
 		else:
-			movement_state = states.WALK
+			current_state = states.WALK
 		if x != 0:
 			if y > 0:
 				result += "down"
@@ -62,9 +62,9 @@ func input_to_direction(x, y):
 				result += "up"
 	else:
 		if carried_item:
-			movement_state = states.IDLE_CARRY
+			current_state = states.IDLE_CARRY
 		else:
-			movement_state = states.IDLE
+			current_state = states.IDLE
 		result += prev_direction
 		
 	prev_direction = result
