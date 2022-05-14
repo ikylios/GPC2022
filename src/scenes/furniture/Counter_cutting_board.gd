@@ -14,4 +14,4 @@ func interact():
 			yield(get_tree().create_timer(2.0), "timeout")
 			player.set_carried_item(chopped_item)
 		else:
-			print("not a choppable ingredient!")
+			print("Not a choppable ingredient: " + player_item.name)

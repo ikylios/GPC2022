@@ -1,7 +1,7 @@
 extends Popup
 
 func _on_ContinueButton_pressed():
-	print("pressed continue")
+	print("Pressed continue")
 	get_tree().paused = false
 	self.hide()
 

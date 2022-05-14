@@ -149,7 +149,4 @@ func try_to_cook(ingredients):
 		if meal_ings  == ingredients:
 			result = { "name": meal.name, "path": meal.path }
 	
-	if !result:
-		print("didn't find a meal with those ingredients")
-	
 	return result

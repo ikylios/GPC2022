@@ -40,6 +40,12 @@ func try_to_cook(ingredients):
 	var result = get_node("/root/Main/Food_index").try_to_cook(ingredients)
 	
 	if !result:
-		print("didn't find a meal with those ingredients")
+		var cant_combine = "Can't combine: "
+		for ind in range(ingredients.size()):
+			if ind == ingredients.size()-1:
+				cant_combine += ingredients[ind]
+			else:
+				cant_combine += ingredients[ind] + ", "
+		print(cant_combine)
 	
 	return result

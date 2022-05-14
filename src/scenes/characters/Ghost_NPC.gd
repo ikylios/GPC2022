@@ -21,15 +21,15 @@ func waiting_on_meal():
 func interact():
 	var player = get_parent().get_node("Player")
 	var meal = player.get_carried_item()
-	
+
 	if waiting_on_meal() and meal:
 		if try_to_receive_meal(meal):
 			player.drop_carried_item()
 	elif !received_order:
 		$Order_bubble.display_order(order)
-		
-	
-	
+
+
+
 # -------------- Moving functionalities --------------
 
 func assign_seat(point):
@@ -40,7 +40,7 @@ func leave():
 	get_node("/root/Main/Restaurant").leaving_seat_in_point(self, global_position)
 
 # -------------- Food functionalities --------------
-	
+
 func generate_order():
 	randomize()
 	var index = randi() % order_list.size()
@@ -54,6 +54,7 @@ func try_to_receive_meal(meal):
 		receive_meal(meal)
 		eat()
 	else:
+		print("Tried to offer meal: " + meal.name + ". Customer wants: " + order)
 		$Order_bubble.display_wrong()
 
 func correct_meal(meal):
@@ -61,7 +62,7 @@ func correct_meal(meal):
 
 func receive_meal(meal):
 	received_order = meal
-	
+
 	received_order_sprite = Sprite.new()
 	received_order_sprite.set_texture(load(meal.path))
 	add_child(received_order_sprite)

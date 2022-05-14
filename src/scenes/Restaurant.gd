@@ -10,17 +10,17 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_home"):
 		if customers_for_the_day.size() > 0:
 			enter_restaurant()
-		else: print("no more customers for the day!")
+		else: print("Can't invite in more customers; all customers have been served for the day!")
 
 	if Input.is_action_just_pressed("ui_pause"):
-		print("paused")
+		print("Paused game")
 		show_pause_menu()
 
 
 func start_day():
 	generate_customers()
 	customers_to_serve = customers_for_the_day.size()
-	print("generated amount of customers: ", customers_for_the_day.size())
+	print("Generated amount of customers: ", customers_for_the_day.size())
 	enter_restaurant()
 	
 func show_pause_menu():
@@ -109,7 +109,7 @@ func _on_finished_moving():
 			yield(get_tree().create_timer(0.3), "timeout")
 			seat_customer()
 		else:
-			print("no free seats!")
+			print("No free seats!")
 	
 
 func leaving_seat_in_point(customer, point):
