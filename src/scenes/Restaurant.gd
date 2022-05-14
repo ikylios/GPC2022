@@ -22,7 +22,6 @@ func start_day():
 	customers_to_serve = customers_for_the_day.size()
 	print("generated amount of customers: ", customers_for_the_day.size())
 	enter_restaurant()
-	#customer_arrival()
 	
 func show_pause_menu():
 	get_tree().paused = true
