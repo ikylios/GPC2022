@@ -19,11 +19,12 @@ func _physics_process(delta):
 	
 	var direction = input_to_direction(x_input, y_input)
 	var animation = format_animation_name(direction)
+	
+	$AnimatedSprite.play(animation)
 
 	if current_state == states.CARRY or current_state == states.IDLE_CARRY:
 		update_sprite_position(direction)
 	
-	$AnimatedSprite.play(animation)
 
 
 func format_animation_name(direction):
