@@ -1,5 +1,7 @@
 extends Control
 
+func _ready():
+	$Background/Logo/AnimationPlayer.play("logo")
 
 func _on_StartButton_pressed():
 	print("Pressed start button")

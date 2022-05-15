@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/ui/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://assets/ui/GPC2022titlepink.png" type="Texture" id=2]
 [ext_resource path="res://scenes/ui/Button.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/ui/MainMenuStyle.tres" type="Theme" id=6]
 [ext_resource path="res://assets/ui/basic_font.tres" type="DynamicFont" id=7]
@@ -18,6 +19,38 @@ Button/styles/hover = null
 Button/styles/normal = null
 Button/styles/pressed = null
 
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 442, 47 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "logo"
+length = 2.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.2, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 442, 35 ), Vector2( 442, 45 ), Vector2( 442, 35 ) ]
+}
+
 [node name="MainMenu" type="Control"]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -29,6 +62,9 @@ margin_right = 40.5
 margin_bottom = 24.0
 theme = SubResource( 2 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Background" type="Panel" parent="."]
 anchor_left = 0.444
@@ -44,15 +80,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Logo" type="TextureRect" parent="Background"]
+margin_left = 442.0
+margin_top = 47.0
+margin_right = 908.0
+margin_bottom = 377.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Logo"]
+anims/RESET = SubResource( 4 )
+anims/logo = SubResource( 3 )
+
 [node name="VBoxContainer" type="VBoxContainer" parent="Background"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -90.0
-margin_top = -49.0
+margin_top = -14.0
 margin_right = 99.0
-margin_bottom = 45.0
+margin_bottom = 80.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="StartButton2" parent="Background/VBoxContainer" instance=ExtResource( 5 )]
 margin_right = 189.0
@@ -66,15 +119,15 @@ margin_bottom = 94.0
 text = "QUIT"
 
 [node name="ControlsInfo" type="Sprite" parent="Background"]
-position = Vector2( 677, 597 )
+position = Vector2( 677.563, 589.25 )
 scale = Vector2( 0.815322, 0.439362 )
 texture = ExtResource( 9 )
 
 [node name="Label" type="Label" parent="Background"]
-margin_left = 593.0
-margin_top = 566.0
-margin_right = 762.0
-margin_bottom = 610.0
+margin_left = 593.562
+margin_top = 558.25
+margin_right = 762.562
+margin_bottom = 602.25
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource( 6 )
@@ -86,10 +139,10 @@ __meta__ = {
 }
 
 [node name="Label4" type="Label" parent="Background"]
-margin_left = 595.0
-margin_top = 514.0
-margin_right = 764.0
-margin_bottom = 558.0
+margin_left = 595.562
+margin_top = 506.25
+margin_right = 764.562
+margin_bottom = 550.25
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource( 6 )
@@ -97,12 +150,15 @@ custom_fonts/font = ExtResource( 7 )
 text = "CONTROLS"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label2" type="Label" parent="Background"]
-margin_left = 592.0
-margin_top = 604.0
-margin_right = 761.0
-margin_bottom = 648.0
+margin_left = 592.562
+margin_top = 596.25
+margin_right = 761.562
+margin_bottom = 640.25
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource( 6 )
@@ -110,12 +166,15 @@ custom_fonts/font = ExtResource( 7 )
 text = "P - PAUSE"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label3" type="Label" parent="Background"]
-margin_left = 551.0
-margin_top = 641.0
-margin_right = 816.0
-margin_bottom = 685.0
+margin_left = 551.562
+margin_top = 633.25
+margin_right = 816.562
+margin_bottom = 677.25
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource( 6 )
